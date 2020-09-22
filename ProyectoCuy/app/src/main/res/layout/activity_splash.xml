@@ -17,4 +17,5 @@
         android:textColor="@color/colorAnimacion"
         android:textSize="60dp"
         android:layout_marginTop="90dp"/>
+
 </LinearLayout>
