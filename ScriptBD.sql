@@ -21,7 +21,12 @@ CREATE TABLE tblPozas
 	pozClasificacion varchar(10),
 	pozMSNM float,
 	pozCapacidad int
+	FOREIGN KEY (ID_Cuy) REFERENCES tblCuyes(ID_Cuy)
 )
+DROP TABLE tblPozas
+DROP TABLE tblNotificaciones
+DROP TABLE tblCuyes
+DROP TABLE tblTransacciones
 
 CREATE TABLE tblUsuario
 (
