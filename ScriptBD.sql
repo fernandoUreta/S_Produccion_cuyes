@@ -35,9 +35,13 @@ CREATE TABLE tblTransacciones
 	ID_Transaccion VARCHAR(15) PRIMARY KEY,
 	ID_Usuario CHAR(8),
 	ID_Cuyes VARCHAR(16),
+	ID_Pozas VARCHAR(16),
 	FOREIGN KEY (ID_Usuario) REFERENCES tblUsuario(ID_Usuario),
-	FOREIGN KEY (ID_Cuyes) REFERENCES tblCuyes(ID_Cuy)
+	FOREIGN KEY (ID_Cuyes) REFERENCES tblCuyes(ID_Cuy),
+	FOREIGN KEY (ID_Pozas) REFERENCES tblPozas(ID_Pozas)
+
 )
+
 
 CREATE TABLE tblDetalleTransaccion
 (
@@ -49,7 +53,6 @@ CREATE TABLE tblDetalleTransaccion
 	razon char(50)
 	FOREIGN KEY (ID_Transaccion) REFERENCES tblTransacciones(ID_Transaccion)
 )	
-DROP TABLE tblDetalleTransaccion
 
 CREATE TABLE tblNotificaciones
 (
@@ -59,6 +62,6 @@ CREATE TABLE tblNotificaciones
 	FOREIGN KEY (ID_Poza) REFERENCES tblPozas(ID_Pozas)
 )
 
-DROP TABLE tblNotificaciones
+
 
 
