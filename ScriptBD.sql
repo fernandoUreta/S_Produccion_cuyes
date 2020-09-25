@@ -46,21 +46,10 @@ CREATE TABLE tblDetalleTransaccion
 	ID_Salida BIT,
 	cantidad int,
 	fecha date,
+	razon char(50)
 	FOREIGN KEY (ID_Transaccion) REFERENCES tblTransacciones(ID_Transaccion)
-)
-
-
-CREATE TABLE tblIngreso
-(
-	ID_Ingreso VARCHAR(5),
-	ingRazon CHAR(25)
-)
-
-CREATE TABLE tblSalida
-(
-	ID_Salida VARCHAR(5),
-	salRazon CHAR(25)
-)
+)	
+DROP TABLE tblDetalleTransaccion
 
 CREATE TABLE tblNotificaciones
 (
