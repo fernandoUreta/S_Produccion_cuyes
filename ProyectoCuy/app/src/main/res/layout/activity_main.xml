@@ -1,19 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/fondo">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+        android:src="@drawable/cuyiniciarsesion"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"></ImageView>
+
+    <LinearLayout
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="Fernando Ayudame!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="40dp"/>
+        android:background="@drawable/btn_cuadroiniciosesion"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Iniciar Sesión"
+            android:textSize="40dp"
+            android:layout_marginTop="10dp"></TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar con Google"
+            android:textSize="20dp"
+            android:background="@drawable/btn_iniciosesion"
+            android:layout_marginTop="40dp"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar con correo electrónico"
+            android:textSize="15dp"
+            android:textColor="#19397A"
+            android:background="@drawable/btn_iniciosesion"
+            android:layout_marginTop="40dp"></Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:layout_marginTop="40dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="¿Aun no tienes cuenta?"
+                android:textSize="15dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Regístrate"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
