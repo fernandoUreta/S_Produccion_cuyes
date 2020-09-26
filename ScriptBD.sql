@@ -23,10 +23,7 @@ CREATE TABLE tblPozas
 	pozCapacidad int
 	FOREIGN KEY (ID_Cuy) REFERENCES tblCuyes(ID_Cuy)
 )
-DROP TABLE tblPozas
-DROP TABLE tblNotificaciones
-DROP TABLE tblCuyes
-DROP TABLE tblTransacciones
+
 
 CREATE TABLE tblUsuario
 (
