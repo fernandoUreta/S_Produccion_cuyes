@@ -29,7 +29,9 @@ CREATE TABLE tblUsuario
 (
 	ID_Usuario CHAR(8) PRIMARY KEY,
 	usuNombres CHAR(50),
-	usuNumeroContacto CHAR(11)
+	usuNumeroContacto CHAR(11),
+	usuCorreo CHAR(40),
+	usuClaveAcceso VARCHAR(8)
 )
 
 CREATE TABLE tblTransacciones
@@ -41,7 +43,6 @@ CREATE TABLE tblTransacciones
 	FOREIGN KEY (ID_Usuario) REFERENCES tblUsuario(ID_Usuario),
 	FOREIGN KEY (ID_Cuyes) REFERENCES tblCuyes(ID_Cuy),
 	FOREIGN KEY (ID_Pozas) REFERENCES tblPozas(ID_Pozas)
-
 )
 
 
