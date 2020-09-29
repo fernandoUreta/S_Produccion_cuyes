@@ -3,87 +3,111 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:background="@drawable/fondo">
 
     <ImageView
-        android:layout_width="260dp"
-        android:layout_height="100dp"
-        android:src="@drawable/cuyiniciarsesion"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"></ImageView>
+        android:layout_weight="1"
+        android:contentDescription="TODO"
+        android:src="@drawable/cuy"></ImageView>
 
     <LinearLayout
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_cuadroiniciosesion"
-        android:orientation="vertical"
-        android:padding="20dp"
+        android:layout_height="470dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        >
+        android:layout_marginBottom="50dp"
+        android:layout_weight="2"
+        android:background="@drawable/btn_cuadroiniciosesion"
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:text="Iniciar Sesión"
-            android:textSize="40dp"
-            android:layout_marginTop="10dp"></TextView>
+            android:textSize="40sp"></TextView>
 
-        <Button
+
+        <EditText
+            android:id="@+id/edtIScorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ingresar con Google"
-            android:textSize="20dp"
+            android:layout_weight="0.3"
             android:background="@drawable/btn_iniciosesion"
-            android:layout_marginTop="40dp"></Button>
+            android:gravity="center"
+            android:hint="Ingrese Correo"
+            android:inputType="text"></EditText>
 
-        <Button
+        <EditText
+            android:id="@+id/edtIScontraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ingresar con correo electrónico"
-            android:textSize="15dp"
-            android:textColor="#19397A"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.3"
             android:background="@drawable/btn_iniciosesion"
-            android:layout_marginTop="40dp"></Button>
+            android:gravity="center"
+            android:hint="Ingrese Contraseña"
+            android:inputType="textPassword"></EditText>
+
+        <Button
+            android:id="@+id/btnISingresar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:onClick="AutentificarIngresar"
+            android:text="Ingresar"></Button>
 
         <TextView
+            android:id="@+id/txtISolvidContra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.2"
             android:gravity="center"
+            android:onClick="RecuperarContraseña"
             android:text="¿Olvidaste tu contraseña?"
             android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:layout_marginTop="40dp"></TextView>
+            android:textSize="20dp"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="40dp">
+            android:layout_weight="0.2"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.1"
                 android:gravity="center"
                 android:text="¿Aun no tienes cuenta?"
                 android:textSize="15dp"></TextView>
 
             <TextView
+                android:id="@+id/txtISRegistrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.1"
                 android:gravity="center"
+                android:onClick="Registrar"
                 android:text="Regístrate"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"></TextView>
         </LinearLayout>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.2" />
     </LinearLayout>
-
-
 
 </LinearLayout>
