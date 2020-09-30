@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class RegistroCuyInicio extends AppCompatActivity {
+public class DistribucionRecomendado extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro_cuy_inicio);
+        setContentView(R.layout.activity_distribucion_recomendado);
     }
 }

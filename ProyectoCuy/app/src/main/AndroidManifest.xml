@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".RegistroCuyInicio"></activity>
+        <activity android:name=".DistribucionRecomendado"></activity>
+        <activity android:name=".Prueba" />
+        <activity android:name=".RegistroCuy" />
         <activity android:name=".ConsultarUsuario" />
         <activity android:name=".Usuario" />
         <activity android:name=".ContrasenaOlvidada" />

@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(i);
     }
     public void AutentificarIngresar(View v){
-        Intent i = new Intent(this,RegistroCuyInicio.class);
+        Intent i = new Intent(this,RegistroCuy.class);
         startActivity(i);
     }
 
@@ -117,12 +117,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            // Signed in successfully, show authenticated UI.
+
             Intent i = new Intent( MainActivity.this,ConsultarUsuario.class);
             startActivity(i);
         } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+
             Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
         }
     }
