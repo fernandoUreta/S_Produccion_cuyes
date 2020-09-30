@@ -48,7 +48,6 @@ public class Usuario extends AppCompatActivity implements View.OnClickListener {
         return cnn;
     }
 
-
     @Override
     public void onClick(View v) {
         consultapersona();

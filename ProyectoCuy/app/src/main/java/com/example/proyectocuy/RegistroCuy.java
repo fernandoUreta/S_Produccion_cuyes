@@ -1,10 +1,8 @@
 package com.example.proyectocuy;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,7 +17,6 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
     EditText madrM,madrP,padr,engM,engH,recM,recH,gaz;
     Button siguDistri;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,471 +30,128 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
         recH=findViewById(R.id.edtRRecrHem);
         gaz=findViewById(R.id.edtRGazap);
         cantidadCuy=findViewById(R.id.txtCantidadCuy);
+        CalcularRecorrido();
         siguDistri=findViewById(R.id.btnRCsiguiente);
         siguDistri.setOnClickListener(this);
-
-        CalcularRecorrido();
-
     }
 
     private void CalcularRecorrido(){
-
         madrM.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+               sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
         });
         madrP.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
         });
         padr.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
         });
         engM.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
         });
         engH.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
         });
         recM.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
         });
         recH.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
         });
         gaz.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    double valor1 = Double.parseDouble(madrM.getText().toString());
-                    double valor2 = Double.parseDouble(madrP.getText().toString());
-                    double valor3 = Double.parseDouble(padr.getText().toString());
-                    double valor4 = Double.parseDouble(engM.getText().toString());
-                    double valor5 = Double.parseDouble(engH.getText().toString());
-                    double valor6 = Double.parseDouble(recM.getText().toString());
-                    double valor7 = Double.parseDouble(recH.getText().toString());
-                    double valor8 = Double.parseDouble(gaz.getText().toString());
-                    DecimalFormat formato1 = new DecimalFormat("#.#");
-                    String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
-                }catch (Exception e){
-                    cantidadCuy.setText("");
-                }
+                sumar();
             }
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    if (Double.parseDouble(madrM.getText().toString())>Double.parseDouble(gaz.getText().toString())){
-                        //KmInicial.setError("Debe ser menor a KM Final");
-                    }
+                sumar();
+            }
+        });
+    }
+
+    public  void sumar(){
+        try {
                     double valor1 = Double.parseDouble(madrM.getText().toString());
                     double valor2 = Double.parseDouble(madrP.getText().toString());
                     double valor3 = Double.parseDouble(padr.getText().toString());
@@ -508,12 +162,10 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
                     double valor8 = Double.parseDouble(gaz.getText().toString());
                     DecimalFormat formato1 = new DecimalFormat("#.#");
                     String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
-                    cantidadCuy.setText(total+"");
+                    cantidadCuy.setText(total + "");
                 }catch (Exception e){
                     cantidadCuy.setText("");
-                }
-            }
-        });
+        }
     }
 
     @Override

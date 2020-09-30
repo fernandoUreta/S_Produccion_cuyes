@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.text.DecimalFormat;
 
-public class Prueba extends AppCompatActivity {
+public class Prueba extends AppCompatActivity implements View.OnClickListener {
     EditText KmInicial,KmFinal;
     TextView KmTotal;
+    Button sig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,8 @@ public class Prueba extends AppCompatActivity {
         KmInicial=findViewById(R.id.KmInicial);
         KmFinal=findViewById(R.id.KmFinal);
         KmTotal=findViewById(R.id.KmTotal);
+        sig=findViewById(R.id.btnSiguiente);
+        sig.setOnClickListener(this);
 
         CalcularKmRecorrido();
     }
@@ -116,5 +121,10 @@ public class Prueba extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
