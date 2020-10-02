@@ -1,31 +1,39 @@
 CREATE DATABASE BDProduccionCuyes
 use BDProduccionCuyes
 
-CREATE TABLE tblCuyes
+
+CREATE TABLE tblCategoria --OK
+(	
+	ID_Categoria CHAR PRIMARY KEY NOT NULL,
+	catNombre char(15), --Gazapos, Recria, Engorde, Primerisa, Madre adulta, Padrillo
+	catImage varbinary(MAX)
+)
+
+CREATE TABLE tblPozas --OK
+(
+	ID_Pozas varchar(4) PRIMARY KEY,
+	Dimen_L float,--LARGO
+	Dimen_A float,--ANCHO
+	Dimen_H float,--Altura
+	pozClasificacion varchar(10),--Recria, empadre, padrillo y engorde
+	pozCapacidadCuyes int  --Máximo Rec:20 , Emp:10 , Pad: 1 , Eng: 10
+)
+
+CREATE TABLE tblCuyes --OK
 (
 	ID_Cuy varchar(16) PRIMARY KEY,
-	cuyCantidad int,
-	cuyTipo char(16),
-	cuyEdad date,
-	cuyGenero char(1)
-)
-
-CREATE TABLE tblPozas
-(
-	ID_Pozas varchar(16) PRIMARY KEY,
-	ID_Cuy varchar(16), 
-	Dimen_L float,
-	Dimen_A float,
-	Dimen_H float,
-	pozNombres varchar(15),
-	pozClasificacion varchar(10),
-	pozMSNM float,
-	pozCapacidad int
-	FOREIGN KEY (ID_Cuy) REFERENCES tblCuyes(ID_Cuy)
+	ID_Pozas varchar(4),
+	ID_Categoria CHAR,
+	cuyGenero char(6),
+	cuyFechaNaci date,
+	FOREIGN KEY (ID_Pozas) REFERENCES tblPozas(ID_Pozas),
+	FOREIGN KEY (ID_Categoria) REFERENCES tblCategoria(ID_Categoria)
 )
 
 
-CREATE TABLE tblUsuario
+
+
+CREATE TABLE tblUsuario --Ok
 (
 	ID_Usuario CHAR(8) PRIMARY KEY,
 	usuNombres CHAR(50),
@@ -34,32 +42,43 @@ CREATE TABLE tblUsuario
 	usuClaveAcceso VARCHAR(8)
 )
 
+CREATE TABLE tblTipoMovimiento
+(	
+	ID_TipoMovi CHAR(2) PRIMARY KEY,
+	Tipo CHAR(5), --ENTRADA O SALIDA
+	Razon CHAR(15) --Razón
+)
+
 CREATE TABLE tblTransacciones
 (
 	ID_Transaccion VARCHAR(15) PRIMARY KEY,
 	ID_Usuario CHAR(8),
-	ID_Cuyes VARCHAR(16),
-	ID_Pozas VARCHAR(16),
+	ID_Cuy VARCHAR(16),
+	--ID_Poza VARCHAR(4),
+	fecha date,
 	FOREIGN KEY (ID_Usuario) REFERENCES tblUsuario(ID_Usuario),
-	FOREIGN KEY (ID_Cuyes) REFERENCES tblCuyes(ID_Cuy),
-	FOREIGN KEY (ID_Pozas) REFERENCES tblPozas(ID_Pozas)
+	FOREIGN KEY (ID_Cuy) REFERENCES tblCuyes(ID_Cuy),
+	--FOREIGN KEY (ID_Poza) REFERENCES tblPozas(ID_Pozas)
 )
 
 
 CREATE TABLE tblDetalleTransaccion
 (
 	ID_Transaccion VARCHAR(15),	
-	ID_Ingreso BIT,
-	ID_Salida BIT,
+	ID_Cuyes VARCHAR(16),
 	cantidad int,
-	fecha date,
-	razon char(50)
-	FOREIGN KEY (ID_Transaccion) REFERENCES tblTransacciones(ID_Transaccion)
+	ID_TipoMovi CHAR(2),
+	FOREIGN KEY (ID_TipoMovi) REFERENCES tblTipoMovimiento(ID_TipoMovi),
+	FOREIGN KEY (ID_Transaccion) REFERENCES tblTransacciones(ID_Transaccion),
+	FOREIGN KEY (ID_Cuyes) REFERENCES tblCuyes(ID_Cuy)
 )	
+
+
 
 CREATE TABLE tblNotificaciones
 (
-	ID_Poza VARCHAR(16),
+	ID_Poza VARCHAR(4),
+	TipoNoti CHAR(10), --Parto, Retiro, Destete
 	notiFecha date,
 	notiEstado bit,
 	FOREIGN KEY (ID_Poza) REFERENCES tblPozas(ID_Pozas)
