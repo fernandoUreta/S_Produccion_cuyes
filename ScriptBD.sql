@@ -1,7 +1,6 @@
 CREATE DATABASE BDProduccionCuyes
 use BDProduccionCuyes
 
-
 CREATE TABLE tblCategoria --OK
 (	
 	ID_Categoria CHAR PRIMARY KEY NOT NULL,
@@ -53,11 +52,11 @@ CREATE TABLE tblTransacciones
 (
 	ID_Transaccion VARCHAR(15) PRIMARY KEY,
 	ID_Usuario CHAR(8),
-	ID_Cuy VARCHAR(16),
+	--ID_Cuy VARCHAR(16),
 	--ID_Poza VARCHAR(4),
 	fecha date,
 	FOREIGN KEY (ID_Usuario) REFERENCES tblUsuario(ID_Usuario),
-	FOREIGN KEY (ID_Cuy) REFERENCES tblCuyes(ID_Cuy),
+	--FOREIGN KEY (ID_Cuy) REFERENCES tblCuyes(ID_Cuy),
 	--FOREIGN KEY (ID_Poza) REFERENCES tblPozas(ID_Pozas)
 )
 
@@ -73,8 +72,6 @@ CREATE TABLE tblDetalleTransaccion
 	FOREIGN KEY (ID_Cuyes) REFERENCES tblCuyes(ID_Cuy)
 )	
 
-
-
 CREATE TABLE tblNotificaciones
 (
 	ID_Poza VARCHAR(4),
@@ -83,7 +80,3 @@ CREATE TABLE tblNotificaciones
 	notiEstado bit,
 	FOREIGN KEY (ID_Poza) REFERENCES tblPozas(ID_Pozas)
 )
-
-
-
-
