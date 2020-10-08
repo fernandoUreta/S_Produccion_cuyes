@@ -29,9 +29,6 @@ CREATE TABLE tblCuyes --OK
 	FOREIGN KEY (ID_Categoria) REFERENCES tblCategoria(ID_Categoria)
 )
 
-
-
-
 CREATE TABLE tblUsuario --Ok
 (
 	ID_Usuario CHAR(8) PRIMARY KEY,
