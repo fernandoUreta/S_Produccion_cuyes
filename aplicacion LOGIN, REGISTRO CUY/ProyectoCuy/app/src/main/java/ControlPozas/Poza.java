@@ -1,4 +1,4 @@
-package com.sosda.cuyesfernando;
+package ControlPozas;
 
 public class Poza {
     public String idPoza;

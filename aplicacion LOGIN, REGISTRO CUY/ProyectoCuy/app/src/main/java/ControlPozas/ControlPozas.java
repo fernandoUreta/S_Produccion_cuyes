@@ -1,4 +1,4 @@
-package com.sosda.cuyesfernando;
+package ControlPozas;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

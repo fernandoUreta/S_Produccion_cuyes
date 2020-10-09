@@ -1,4 +1,4 @@
-package com.sosda.cuyesfernando;
+package ControlPozas;
 
 import android.os.StrictMode;
 import android.widget.Toast;
@@ -14,7 +14,7 @@ public class Conexion {
             StrictMode.setThreadPolicy(politica);
 
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            cnn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.5.103;databaseName=BDProduccionCuyes;user=sa;password=12345678;");
+            cnn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.44;databaseName=BDProduccionCuyes;user=sa;password=123456;");
         }catch (Exception e){
             return null;
         }
