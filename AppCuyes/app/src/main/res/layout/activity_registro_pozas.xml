@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBlanco">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tvTitulo"
@@ -81,7 +80,7 @@
         android:id="@+id/btnMasInfo"
         android:layout_width="30dp"
         android:layout_height="25dp"
-        android:background="@drawable/vector_help"
+        android:background="@color/colorPrimary"
         app:layout_constraintStart_toEndOf="@id/spTipodePoza"
         app:layout_constraintTop_toTopOf="@id/spTipodePoza" />
 
@@ -144,7 +143,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@color/colorTextDondo"
+        android:background="@color/colorAccent"
         android:onClick="registrarPoza"
         android:text="Agregar"
         android:textColor="@android:color/white"
@@ -157,7 +156,6 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@color/colorVerde"
         android:text="Atras"
         android:textColor="@android:color/black"
         android:textStyle="bold"
@@ -170,7 +168,6 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@color/colorVerde"
         android:text="Siguiente"
         android:textColor="@android:color/black"
         android:textStyle="bold"
