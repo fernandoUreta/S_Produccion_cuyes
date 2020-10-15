@@ -13,7 +13,6 @@ CREATE TABLE tblPozas --OK
 	ID_Pozas varchar(4) PRIMARY KEY,
 	Dimen_L float,--LARGO
 	Dimen_A float,--ANCHO
-	Dimen_H float,--Altura
 	pozClasificacion varchar(10),--Recria, empadre, padrillo y engorde
 	pozCapacidadCuyes int  --Máximo Rec:20 , Emp:10 , Pad: 1 , Eng: 10
 )
