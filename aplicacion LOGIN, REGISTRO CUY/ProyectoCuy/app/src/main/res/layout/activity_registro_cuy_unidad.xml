@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".RegistroCuyUnidad">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_fondocuy"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="INGRESE CUY"
+            android:textColor="@color/colorTextoNegro"
+            android:textSize="30dp" />
+
+        <EditText
+            android:id="@+id/edtRCUid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_iniciosesion"
+            android:hint="Ingrese ID"
+            android:gravity="center"
+            android:layout_weight="0.1"></EditText>
+        <EditText
+            android:id="@+id/edtRCUpoza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_iniciosesion"
+            android:hint="Ingrese la poza"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.1"></EditText>
+        <EditText
+            android:id="@+id/edtRCUcategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese la categoría"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@drawable/btn_iniciosesion"
+            android:layout_weight="0.1"></EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Macho"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hembra"/>
+        </LinearLayout>
+        <EditText
+            android:id="@+id/edtRCUfecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese fecha nacimiento"
+            android:layout_marginTop="5dp"
+            android:inputType="textPassword"
+            android:gravity="center"
+            android:background="@drawable/btn_iniciosesion"
+            android:layout_weight="0.1"></EditText>
+        <Button
+            android:id="@+id/btnRCUregistrar"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_siguiente"
+            android:text="Registar"
+            android:textSize="30dp" />
+        <Button
+            android:id="@+id/btnRCUsiguiente"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_siguiente"
+            android:text="Siguiente"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+</LinearLayout>
