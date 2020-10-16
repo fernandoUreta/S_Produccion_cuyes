@@ -1,50 +1,34 @@
-package com.example.proyectocuy;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.appcuyes;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class C_Login extends AppCompatActivity {
 
     int RC_SIGN_IN = 0;
-    EditText usuario,contraseña;
     GoogleSignInClient mGoogleSignInClient;
-
     SignInButton SignIn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //captura el dato que ingresa
-        usuario=findViewById(R.id.edtIScorreo);
-        contraseña=findViewById(R.id.edtIScontraseña);
+        setContentView(R.layout.activity_login);
+
 
         SignIn= findViewById(R.id.sign_in_button);
-        SignIn.setOnClickListener(this);
+        //SignIn.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -56,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
+        //findViewById(R.id.sign_in_button).setOnClickListener(this);
     }
 
     @Override
@@ -84,29 +68,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onKeyDown(keyCode, event);
     }
 
+
     public void Registrar(View v){
-        Intent i = new Intent(this,InicioCorreo.class);
+        Intent i = new Intent(this, C_RegistroUsuario.class);
         startActivity(i);
     }
+
+    /*
     public void RecuperarContraseña(View v){
         Intent i = new Intent(this,ContrasenaOlvidada.class);
         startActivity(i);
     }
     public void AutentificarIngresar(View v){
         Intent i = new Intent(this,RegistroCuy.class);
-        Usuarios user=new Usuarios();
-        user=InicioSesion.Consultar(usuario.getText().toString());
-        Toast.makeText(this, "usuario: " +user.Correo +" "+ user.Contraseña, Toast.LENGTH_SHORT).show();
-        if (usuario.getText().toString()==user.Correo||contraseña.getText().toString()!=user.Contraseña){
-            startActivity(i);
-        }
-    }
-
-    public void Consultar(View v){
-        Intent i = new Intent(this,Usuario.class);
         startActivity(i);
     }
-
+*/
+    /*
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -115,11 +93,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+    */
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
+    /*
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -131,15 +113,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             handleSignInResult(task);
         }
     }
+
+     */
+
+
+    /*
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            Intent i = new Intent( MainActivity.this,ConsultarUsuario.class);
+            Intent i = new Intent( this,ConsultarUsuario.class);
             startActivity(i);
         } catch (ApiException e) {
 
             Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
         }
     }
+    */
+
+
 }

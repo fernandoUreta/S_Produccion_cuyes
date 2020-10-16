@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".C_Login"
     android:orientation="vertical"
     android:background="@drawable/fondo">
 
@@ -43,7 +43,8 @@
             android:layout_weight="0.3"
             android:background="@drawable/btn_iniciosesion"
             android:gravity="center"
-            android:hint="Ingrese Correo"></EditText>
+            android:hint="Ingrese Correo"
+            android:inputType="text"></EditText>
 
         <EditText
             android:id="@+id/edtIScontraseña"
@@ -87,7 +88,6 @@
                 android:layout_weight="0.1"
                 android:gravity="center"
                 android:text="¿Aun no tienes cuenta?"
-                android:onClick="Consultar"
                 android:textSize="15dp"></TextView>
 
             <TextView
@@ -101,7 +101,6 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"></TextView>
         </LinearLayout>
-
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="wrap_content"

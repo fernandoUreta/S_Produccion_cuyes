@@ -7,7 +7,7 @@
     android:background="@drawable/fondo"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".MainActivity">
+    tools:context=".DistribucionRecomendado">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,6 +36,7 @@
                 android:layout_weight="1"
                 android:gravity="center"/>
             <TextView
+                android:id="@+id/txtDRcantidadpozas"
                 android:background="@drawable/btn_cuadrado"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
@@ -60,14 +61,15 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_marginRight="20dp">
+
                 <TextView
+                    android:id="@+id/txtDRpozEmpadre"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text="10"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textSize="20dp"
-                    android:textColor="@color/colorTextoNegro"/>
+                    android:textColor="@color/colorTextoNegro"
+                    android:textSize="20dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,9 +85,10 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <TextView
+                    android:id="@+id/txtDRpozEngorde"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text="10"
+                    android:text=""
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="20dp"
@@ -113,9 +116,10 @@
                 android:layout_weight="1"
                 android:layout_marginRight="20dp">
                 <TextView
+                    android:id="@+id/txtDRpozRecria"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text="10"
+                    android:text=""
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="20dp"
@@ -134,9 +138,10 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <TextView
+                    android:id="@+id/txtDRpozPadrillo"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text="10"
+                    android:text=""
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="20dp"
@@ -167,7 +172,7 @@
             android:orientation="horizontal"
             android:layout_weight="1">
             <Button
-                android:id="@+id/btnRCsiguiente"
+                android:id="@+id/btnDRmanual"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
@@ -184,9 +189,10 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_siguiente"
                 android:text="Siguiente"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:onClick="pozaEmpadreRecomendada"/>
         </LinearLayout>
 
-        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

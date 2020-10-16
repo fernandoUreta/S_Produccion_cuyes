@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.proyectocuy.DatosActividades.DatosActividades;
+import com.example.proyectocuy.DatosActividades.MostrarDatos;
+
 import java.text.DecimalFormat;
 
 public class RegistroCuy extends AppCompatActivity implements View.OnClickListener {
@@ -170,8 +174,25 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this,DistribucionRecomendado.class);
+        Intent i = new Intent(this, DistribucionRecomendado.class);
+        String madreM=madrM.getText().toString();
+        i.putExtra("Enviando",madreM);
+        String madreP=madrP.getText().toString();
+        i.putExtra("madreP",madreP);
+        String padri=padr.getText().toString();
+        i.putExtra("padrillo",padri);
+        String engordeMac=engM.getText().toString();
+        i.putExtra("engordeMacho",engordeMac);
+        String engordeHem=engH.getText().toString();
+        i.putExtra("engordeHembra",engordeHem);
+        String recriaMacho=recM.getText().toString();
+        i.putExtra("recriaMacho",recriaMacho);
+        String recriaHembra=recH.getText().toString();
+        i.putExtra("recriaHembra",recriaHembra);
+        String gazapos=gaz.getText().toString();
+        i.putExtra("gazapos",gazapos);
         startActivity(i);
+
     }
 
 }

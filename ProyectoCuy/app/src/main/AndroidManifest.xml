@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".DistribucionRecomendado"></activity>
+        <activity android:name=".MenuPrincipal"></activity>
+        <activity android:name=".PozPadrilloRecomend" />
+        <activity android:name=".PozRecriaRecomend" />
+        <activity android:name=".PozEngordeRecomend" />
+        <activity android:name=".PozEmpadreRecomend" />
+        <activity android:name=".OpcionCrearPoza" />
+        <activity android:name=".DistribucionRecomendado" />
         <activity android:name=".Prueba" />
         <activity android:name=".RegistroCuy" />
         <activity android:name=".ConsultarUsuario" />
