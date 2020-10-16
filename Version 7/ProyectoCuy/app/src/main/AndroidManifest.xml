@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.proyectocuy">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".C_RegistroPozas"></activity>
+        <activity android:name=".MenuPrincipal" />
+        <activity android:name=".PozPadrilloRecomend" />
+        <activity android:name=".PozRecriaRecomend" />
+        <activity android:name=".PozEngordeRecomend" />
+        <activity android:name=".PozEmpadreRecomend" />
+        <activity android:name=".DistribucionRecomendado" />
+        <activity android:name=".RegistroCuy" />
+        <activity android:name=".ConsultarUsuario" />
+        <activity android:name=".Usuario" />
+        <activity android:name=".ContrasenaOlvidada" />
+        <activity android:name=".InicioCorreo" />
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

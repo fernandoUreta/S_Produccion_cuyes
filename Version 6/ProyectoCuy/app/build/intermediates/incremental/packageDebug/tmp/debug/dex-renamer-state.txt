@@ -1,0 +1,7 @@
+#Thu Oct 15 14:16:37 CDT 2020
+base.0=C\:\\Users\\OSCAR\\AndroidStudioProjects\\Versiones de Taller de proyectos\\Version 6\\ProyectoCuy\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Users\\OSCAR\\AndroidStudioProjects\\Versiones de Taller de proyectos\\Version 6\\ProyectoCuy\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
