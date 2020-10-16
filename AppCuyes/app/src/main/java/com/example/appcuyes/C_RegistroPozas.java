@@ -13,7 +13,7 @@ import com.example.appcuyes.AccesoDatos.BD_ProduccionCuyes;
 import com.example.appcuyes.ModeloDatos.Poza;
 import com.example.appcuyes.Recursos_Adicionales.ExampleDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class C_RegistroPozas extends AppCompatActivity {
 
     Spinner tiposPozas;
     EditText txtAncho,txtLargo,txtCantidad,txtCantidadPozasCreadas;
