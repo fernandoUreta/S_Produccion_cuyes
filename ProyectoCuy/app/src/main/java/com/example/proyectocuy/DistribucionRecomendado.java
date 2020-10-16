@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 import com.example.proyectocuy.DatosActividades.DatosActividades;
 import com.example.proyectocuy.ModeloDatos.Poza;
 
@@ -27,6 +29,10 @@ public class DistribucionRecomendado extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distribucion_recomendado);
+
+        btnManual=(Button)findViewById(R.id.btnDRmanual);
+        btnManual.setOnClickListener(btnManualClick);
+
 
         pozEmpadre=findViewById(R.id.txtDRpozEmpadre);
         pozPadrillo=findViewById(R.id.txtDRpozPadrillo);
@@ -101,6 +107,20 @@ public class DistribucionRecomendado extends AppCompatActivity {
 
         Total=empradre+PePadrillo+engorde+recria;
     }*/
+    }
+
+    private View.OnClickListener btnManualClick = new View.OnClickListener() {
+        public void onClick(View v) {
+
+            Toast.makeText(DistribucionRecomendado.this, "Hola", Toast.LENGTH_SHORT).show();
+            viewManual(v);
+
+        }
+    };
+
+    public void viewManual(View view) {
+        Intent i = new Intent(this, C_RegistroPozas.class );
+        startActivity(i);
     }
 
     public void pozaEmpadreRecomendada(View v){
