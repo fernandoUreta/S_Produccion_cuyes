@@ -30,3 +30,10 @@ CREATE PROCEDURE SP_M_tblPozas
 @nCapacidad as int
 as
 update tblPozas set Dimen_L=@nLargo, Dimen_A=@nAncho,pozClasificacion=@nClasificacion,pozCapacidadCuyes=@nCapacidad where ID_Pozas=@id_Poza
+
+CREATE PROCEDURE SP_MostrarTotalPozas
+AS
+SELECT COUNT(*) FROM tblPozas
+
+
+
