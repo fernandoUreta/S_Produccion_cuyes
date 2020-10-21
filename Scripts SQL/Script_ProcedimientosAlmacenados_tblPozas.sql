@@ -8,6 +8,7 @@ CREATE PROCEDURE SP_A_tblPozas
 as
 insert into tblPozas values(@id_poza,@largo,@ancho,@clasificacion,@capacidad);
 
+GO
 --Consultar Poza
 
 CREATE PROCEDURE SP_C_tblPozas
@@ -15,12 +16,14 @@ CREATE PROCEDURE SP_C_tblPozas
 as
 select * from tblPozas WHERE ID_Pozas=@id_Poza
 
+GO
 --Eliminar Poza
 CREATE PROCEDURE SP_E_tblPozas
 @id_Poza as varchar(4)
 as
 delete from tblPozas where ID_Pozas=@id_Poza
 
+GO
 --Actualizar Poza
 CREATE PROCEDURE SP_M_tblPozas
 @id_Poza as varchar(4),
@@ -31,6 +34,7 @@ CREATE PROCEDURE SP_M_tblPozas
 as
 update tblPozas set Dimen_L=@nLargo, Dimen_A=@nAncho,pozClasificacion=@nClasificacion,pozCapacidadCuyes=@nCapacidad where ID_Pozas=@id_Poza
 
+GO
 CREATE PROCEDURE SP_MostrarTotalPozas
 AS
 SELECT COUNT(*) FROM tblPozas

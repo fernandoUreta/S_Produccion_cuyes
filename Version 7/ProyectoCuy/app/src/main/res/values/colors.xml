@@ -6,5 +6,6 @@
     <color name="colorAnimacion">#FFFFFF</color>
     <color name="colorfondoiniciar">#F5F5F5</color>
     <color name="colorTextoNegro">#000000</color>
+    <color name="colorBlanco">#FFFFFFFF</color>
 
 </resources>

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".C_RegistroPozas"></activity>
+        <activity android:name=".prueba"></activity>
+        <activity android:name=".C_RegistroPozas" />
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".PozPadrilloRecomend" />
         <activity android:name=".PozRecriaRecomend" />
@@ -23,13 +24,14 @@
         <activity android:name=".Usuario" />
         <activity android:name=".ContrasenaOlvidada" />
         <activity android:name=".InicioCorreo" />
-        <activity android:name=".Splash">
+        <activity android:name=".C_RegistroIngresoCuyes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Splash"></activity>
         <activity android:name=".MainActivity" />
     </application>
 

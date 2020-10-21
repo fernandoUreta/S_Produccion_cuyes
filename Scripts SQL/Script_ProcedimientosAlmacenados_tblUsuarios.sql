@@ -8,12 +8,15 @@ CREATE PROCEDURE SP_A_tblUsuario
 as
 INSERT INTO tblUsuario VALUES (@id,@nombres,@numeroContacto,@correo,@clave)
 
+GO
 --Consultar
 CREATE PROCEDURE SP_C_tblUsuario
 @id as char(8)
 as
 SELECT * FROM tblUsuario WHERE ID_Usuario=@id
 
+
+GO
 --Modificar
 CREATE PROCEDURE SP_M_tblUsuario
 @id as char(8),
@@ -24,6 +27,8 @@ CREATE PROCEDURE SP_M_tblUsuario
 as
 UPDATE tblUsuario SET usuNombres=@nombres,usuNumeroContacto=@numeroContacto,usuCorreo=@correo,usuClaveAcceso=@clave WHERE ID_Usuario=@id
 
+
+GO
 --Eliminar
 CREATE PROCEDURE SP_E_tblEliminar
 @id as char(8)

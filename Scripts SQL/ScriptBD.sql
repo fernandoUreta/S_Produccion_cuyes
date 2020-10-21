@@ -1,6 +1,6 @@
 CREATE DATABASE BDProduccionCuyes
 use BDProduccionCuyes
-
+GO
 CREATE TABLE tblCategoria --OK
 (	
 	ID_Categoria CHAR PRIMARY KEY NOT NULL,

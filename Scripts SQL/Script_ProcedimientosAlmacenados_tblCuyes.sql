@@ -7,12 +7,14 @@ CREATE PROCEDURE SP_A_tblCuyes
 as
 insert into tblCuyes values(@id_Cuy,@id_Pozas,@id_Categoria,@genero,@fecha_naci)
 
-EXEC SP_A_tblCuyes 'Cy1','B1','1','Macho','07/08/2020'
+GO
 
 CREATE PROCEDURE SP_C_tblCuyes
 @id_Cuy as varchar(4)
 as
 select *from tblCuyes
+
+GO
 
 CREATE PROCEDURE SP_M_tblCuyes
 @id_Cuy as varchar(4),
@@ -22,6 +24,8 @@ CREATE PROCEDURE SP_M_tblCuyes
 @fecha_naci as date
 as
 UPDATE tblCuyes set ID_Pozas=@id_Pozas,ID_Categoria=@id_Categoria,cuyGenero=@genero,cuyFechaNaci=@fecha_naci
+
+GO 
 
 CREATE PROCEDURE SP_E_tblCuyes
 @id_Cuy as varchar(4)

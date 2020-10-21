@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categoriasCuy">
+        <item>Madre primeriza</item>
+        <item>Madre adulta</item>
+        <item>Padrillo</item>
+        <item>Lactante</item>
+    </string-array>
+</resources>

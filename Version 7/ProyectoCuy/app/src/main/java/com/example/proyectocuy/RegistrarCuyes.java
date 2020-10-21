@@ -1,6 +1,5 @@
 package com.example.proyectocuy;
 
-import android.widget.Switch;
 
 import com.example.proyectocuy.ModeloDatos.Cuy;
 
@@ -10,7 +9,7 @@ import java.util.Date;
 public class RegistrarCuyes {
 
 
-    public static void registrarCuyPoRTipo(int id,String tipoCuy,String genero,int edad,String idPoza)
+    public static void registrarCuy(int id,String tipoCuy,String genero,int edad,String idPoza)
     {
         Cuy cuy=new Cuy();
         Calendar fechaHoy = Calendar.getInstance();
