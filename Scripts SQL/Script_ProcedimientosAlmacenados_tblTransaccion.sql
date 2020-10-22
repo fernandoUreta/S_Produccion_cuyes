@@ -31,3 +31,4 @@ CREATE PROCEDURE SP_E_tblTransaccion
 @id as VARCHAR(15)
 AS
 DELETE FROM tblTransacciones WHERE ID_Transaccion=@id 
+

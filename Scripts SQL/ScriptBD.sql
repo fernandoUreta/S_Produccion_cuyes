@@ -3,8 +3,8 @@ use BDProduccionCuyes
 GO
 CREATE TABLE tblCategoria --OK
 (	
-	ID_Categoria CHAR PRIMARY KEY NOT NULL,
-	catNombre char(15), --Gazapos, Recria, Engorde, Primerisa, Madre adulta, Padrillo
+	ID_Categoria CHAR(2) PRIMARY KEY NOT NULL,
+	catNombre char(25), --Gazapos, Recria, Engorde, Primerisa, Madre adulta, Padrillo
 	catImage varbinary(MAX)
 )
 
@@ -21,7 +21,7 @@ CREATE TABLE tblCuyes --OK
 (
 	ID_Cuy varchar(16) PRIMARY KEY,
 	ID_Pozas varchar(4),
-	ID_Categoria CHAR,
+	ID_Categoria CHAR(2),
 	cuyGenero char(6),
 	cuyFechaNaci date,
 	FOREIGN KEY (ID_Pozas) REFERENCES tblPozas(ID_Pozas),
@@ -76,3 +76,16 @@ CREATE TABLE tblNotificaciones
 	notiEstado bit,
 	FOREIGN KEY (ID_Poza) REFERENCES tblPozas(ID_Pozas)
 )
+
+GO
+--Inserción de datos fijos
+INSERT INTO tblCategoria VALUES ('MM','Madre madura',null);
+INSERT INTO tblCategoria VALUES ('MP','Madre primeriza',null);
+INSERT INTO tblCategoria VALUES ('PD','Padrillo',null);
+INSERT INTO tblCategoria VALUES ('EG','Engorde',null);
+INSERT INTO tblCategoria VALUES ('RC','Recria',null);
+INSERT INTO tblCategoria VALUES ('LC','Lactante',null);
+
+
+
+
