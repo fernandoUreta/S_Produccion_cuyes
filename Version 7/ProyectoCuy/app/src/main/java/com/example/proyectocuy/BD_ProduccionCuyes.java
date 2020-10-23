@@ -198,11 +198,11 @@ public class BD_ProduccionCuyes {
 
     //Detalle transacciones
 
-    public static boolean registrarDetalle(String transaID,String cuyID,String TipoMovi)
+    public static boolean registrarDetalle(int transaID,String cuyID,String tipoMovi)
     {
         boolean v;
         try {
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("");
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblDetalleTransaccion "+transaID+",'"+cuyID+"','"+tipoMovi+"'");
             pst.executeUpdate();
             v=true;
         }catch (SQLException e){

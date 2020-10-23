@@ -1,11 +1,12 @@
 CREATE PROCEDURE SP_A_tblCuyes
 @id_Cuy as varchar(4),
 @id_Pozas as varchar(4),
-@id_Categoria as char(1),
+@id_Categoria as char(2),
 @genero as char(6),
 @fecha_naci as date
 as
 insert into tblCuyes values(@id_Cuy,@id_Pozas,@id_Categoria,@genero,@fecha_naci)
+
 
 GO
 

@@ -125,7 +125,6 @@
             android:layout_marginTop="15dp"
             android:text="Ingresa por: "
             android:textSize="25dp"
-            app:layout_constraintEnd_toStartOf="@id/descTipoCuy"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCantidadLactantes" />
 
@@ -190,7 +189,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/descEdad"
-            app:layout_constraintTop_toTopOf="@id/descEdad" />
+            app:layout_constraintTop_toTopOf="@id/descEdad"
+            android:inputType="number"/>
 
         <TextView
             android:id="@+id/descGenero"
@@ -217,7 +217,8 @@
             android:layout_height="50dp"
             android:background="@drawable/vector_btnmas"
             app:layout_constraintTop_toBottomOf="@id/descGenero"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="registrarClick"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

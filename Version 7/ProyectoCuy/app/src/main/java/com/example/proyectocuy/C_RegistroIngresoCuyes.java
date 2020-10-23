@@ -1,6 +1,7 @@
 package com.example.proyectocuy;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,8 +22,12 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
     EditText txtID,txtEdad;
     TextView txtIdPoza, txtCantidadMadres,txtCantidadPadrillo, txtCantidadLactantes;
     Spinner cmbTipoIngreso, cmbCategoria,cmbGenero;
-    Button btnAgregar;
+
+    //AUTOCOMPLETADOS
     String usuarioID="72941896";
+
+    //df
+    int idTransaccion;
 
 
 
@@ -53,23 +58,33 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapterGenero = ArrayAdapter.createFromResource(this, R.array.generos, android.R.layout.simple_spinner_item);
         cmbGenero.setAdapter(adapterGenero);
 
-        //Declarado de boton
-        btnAgregar=(Button)findViewById(R.id.btnAgregar);
-
         //Mostrar datos de cuyes en la poza
         cargarDatos("A1");
 
         //Genera transaccion para ese instante
         generarTransaccion();
 
-        //Registra ingreso de cuyes
-        registrarCuy();
-
         //Añade al cuy al detalle de la transaccion
 
 
 
     }
+
+    public void registrarClick(View view)
+    {
+        Toast.makeText(this,"Pues si funciona",Toast.LENGTH_SHORT).show();
+        registrarCuy(idTransaccion);
+        cargarDatos("A1");
+        restablecerCampos();
+
+    }
+
+    public void restablecerCampos()
+    {
+        txtID.setText("");
+        txtEdad.setText("");
+    }
+
 
     //Carga datos sobre la cantidad de cuyes de la BD
     private void cargarDatos(String idPoza)
@@ -81,7 +96,7 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
 
 
     //Registro de nuevoCuy
-    private void registrarCuy()
+    private void registrarCuy(int idTransaccion)
     {
         Cuy cuy=new Cuy();
         cuy.setCuyId(txtID.getText().toString());
@@ -96,15 +111,19 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
             case "Lactante":cuy.setCategoria("LC");break;
         }
         cuy.setGenero(cmbGenero.getSelectedItem().toString());
-        //cuy.setFechaNaci(Fechas.calcularFechaNacimiento(Integer.parseInt(txtEdad.getText().toString())));
+        cuy.setFechaNaci(Fechas.calcularFechaNacimiento(Integer.parseInt(txtEdad.getText().toString())));
+        BD_ProduccionCuyes.registrarCuy(cuy);
 
-        //BD_ProduccionCuyes.registrarDetalle("1",cuy.cuyId,"IN");
+        //BD_ProduccionCuyes.registrarDetalle(idTransaccion,cuy.cuyId,"IN");
+        BD_ProduccionCuyes.registrarDetalle(2,"20","IR");
+        //cargarDatos("A1");
     }
 
-    private void generarTransaccion()
+    private int generarTransaccion()
     {
+        int idTransaccion;
+        Transaccion transaccion=new Transaccion();
         try {
-            Transaccion transaccion=new Transaccion();
             transaccion.setIdUsuario(usuarioID);
             transaccion.setFecha(Fechas.mostrarFechaHoy());
             if (BD_ProduccionCuyes.registrarTransaccion(transaccion)==false)
@@ -115,6 +134,8 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
         {
             Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
         }
+        idTransaccion=transaccion.getIdTransaccion();
+        return idTransaccion;
     }
 
 
