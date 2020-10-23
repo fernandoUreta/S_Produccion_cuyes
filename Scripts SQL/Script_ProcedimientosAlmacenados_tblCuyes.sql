@@ -13,7 +13,7 @@ GO
 CREATE PROCEDURE SP_C_tblCuyes
 @id_Cuy as varchar(4)
 as
-select *from tblCuyes
+select *from tblCuyes WHERE ID_Cuy=@id_Cuy
 
 GO
 
