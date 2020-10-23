@@ -40,13 +40,13 @@ CREATE TABLE tblUsuario --Ok
 CREATE TABLE tblTipoMovimiento
 (	
 	ID_TipoMovi CHAR(2) PRIMARY KEY,
-	Tipo CHAR(5), --ENTRADA O SALIDA
-	Razon CHAR(15) --Razón
+	Tipo CHAR(7), --ENTRADA O SALIDA
+	Razon CHAR(10) --Razón
 )
 
 CREATE TABLE tblTransacciones
 (
-	ID_Transaccion VARCHAR(15) PRIMARY KEY,
+	ID_Transaccion INT PRIMARY KEY,
 	ID_Usuario CHAR(8),
 	--ID_Cuy VARCHAR(16),
 	--ID_Poza VARCHAR(4),
@@ -56,12 +56,10 @@ CREATE TABLE tblTransacciones
 	--FOREIGN KEY (ID_Poza) REFERENCES tblPozas(ID_Pozas)
 )
 
-
 CREATE TABLE tblDetalleTransaccion
 (
-	ID_Transaccion VARCHAR(15),	
+	ID_Transaccion INT,	
 	ID_Cuyes VARCHAR(16),
-	cantidad int,
 	ID_TipoMovi CHAR(2),
 	FOREIGN KEY (ID_TipoMovi) REFERENCES tblTipoMovimiento(ID_TipoMovi),
 	FOREIGN KEY (ID_Transaccion) REFERENCES tblTransacciones(ID_Transaccion),
@@ -79,12 +77,29 @@ CREATE TABLE tblNotificaciones
 
 GO
 --Inserción de datos fijos
-INSERT INTO tblCategoria VALUES ('MM','Madre madura',null);
-INSERT INTO tblCategoria VALUES ('MP','Madre primeriza',null);
-INSERT INTO tblCategoria VALUES ('PD','Padrillo',null);
-INSERT INTO tblCategoria VALUES ('EG','Engorde',null);
-INSERT INTO tblCategoria VALUES ('RC','Recria',null);
-INSERT INTO tblCategoria VALUES ('LC','Lactante',null);
+
+--Tabla categoria
+	INSERT INTO tblCategoria VALUES ('MM','Madre madura',null);
+	INSERT INTO tblCategoria VALUES ('MP','Madre primeriza',null);
+	INSERT INTO tblCategoria VALUES ('PD','Padrillo',null);
+	INSERT INTO tblCategoria VALUES ('EG','Engorde',null);
+	INSERT INTO tblCategoria VALUES ('RC','Recria',null);
+	INSERT INTO tblCategoria VALUES ('LC','Lactante',null);
+
+--Tabla TipoMovimiento
+
+	--Ingresos
+		INSERT INTO tblTipoMovimiento VALUES('IC','Ingreso','Compra');
+		INSERT INTO tblTipoMovimiento VALUES('IN','Ingreso','Nacimiento');
+		INSERT INTO tblTipoMovimiento VALUES('IR','Ingreso','Rotacion');
+		INSERT INTO tblTipoMovimiento VALUES('IO','Ingreso','Otros');
+	--Salidas
+		INSERT INTO tblTipoMovimiento VALUES('SM','Salida','Muerte');
+		INSERT INTO tblTipoMovimiento VALUES('SV','Salida','Venta');
+		INSERT INTO tblTipoMovimiento VALUES('SC','Salida','Consumo');
+		INSERT INTO tblTipoMovimiento VALUES('SR','Salida','Rotacion');
+		INSERT INTO tblTipoMovimiento VALUES('SO','Salida','Otros');
+
 
 
 

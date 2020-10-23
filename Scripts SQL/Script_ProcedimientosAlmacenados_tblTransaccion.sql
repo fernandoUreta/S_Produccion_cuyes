@@ -32,3 +32,9 @@ CREATE PROCEDURE SP_E_tblTransaccion
 AS
 DELETE FROM tblTransacciones WHERE ID_Transaccion=@id 
 
+
+--Consultar última id transaccion
+CREATE PROCEDURE SP_C_UltimoID
+AS
+SELECT MAX(ID_transaccion) FROM tblTransacciones
+

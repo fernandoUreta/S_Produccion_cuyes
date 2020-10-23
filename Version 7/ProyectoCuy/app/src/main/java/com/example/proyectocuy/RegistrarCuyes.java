@@ -2,6 +2,7 @@ package com.example.proyectocuy;
 
 
 import com.example.proyectocuy.ModeloDatos.Cuy;
+import com.example.proyectocuy.Recursos_Adicionales.Fechas;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -12,9 +13,6 @@ public class RegistrarCuyes {
     public static void registrarCuy(int id,String tipoCuy,String genero,int edad,String idPoza)
     {
         Cuy cuy=new Cuy();
-        Calendar fechaHoy = Calendar.getInstance();
-        fechaHoy.add(Calendar.DAY_OF_YEAR,-edad);
-
         switch (tipoCuy)
         {
             case "Gazapos":cuy.categoria="1";break;
@@ -26,16 +24,13 @@ public class RegistrarCuyes {
         }
         cuy.genero=genero;
         cuy.idPoza=idPoza;
-        cuy.fechaNaci=convert(fechaHoy.getTime());
+        cuy.fechaNaci= Fechas.calcularFechaNacimiento(edad);
         cuy.cuyId=String.valueOf(id);
         BD_ProduccionCuyes.registrarCuy(cuy);
+    }
 
-    }
-    //Convertir javaDate to SqlDate
-    private static java.sql.Date convert(Date uDate) {
-        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
-        return sDate;
-    }
+
+
 
 
 }
