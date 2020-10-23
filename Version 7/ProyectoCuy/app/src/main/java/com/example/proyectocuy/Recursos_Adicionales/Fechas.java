@@ -15,13 +15,14 @@ public class Fechas {
         java.sql.Date fechaNacimiento =convert(fechaHoy.getTime());
         return fechaNacimiento;
     }
-    public static int calcularEdad(java.util.Date fechaNacimiento)
+    public static int calcularEdad(Date fechaNacimiento)
     {
+        int edad;
         Calendar fechaNaci = Calendar.getInstance();
-        int edad=0;
         fechaNaci.setTime(fechaNacimiento);
-        edad=fechaHoy.DAY_OF_YEAR-fechaNaci.DAY_OF_YEAR;
+        edad=(fechaHoy.DAY_OF_YEAR)-(fechaNaci.DAY_OF_YEAR);
         return edad;
+
     }
     public static java.sql.Date mostrarFechaHoy()
     {

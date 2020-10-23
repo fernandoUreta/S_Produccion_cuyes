@@ -110,7 +110,7 @@ public class BD_ProduccionCuyes {
         Cuy cuy=new Cuy();
         try {
             Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("EXEC SP_MostrarTotalPozas ");
+            ResultSet rs=stm.executeQuery("EXEC SP_C_tblCuyes '"+cuyID+"'");
             if (rs.next()){
                 cuy.setCuyId(rs.getString(1));
                 cuy.setIdPoza(rs.getString(2));
@@ -123,6 +123,16 @@ public class BD_ProduccionCuyes {
             return null;
         }
 
+    }
+
+    public static void eliminarCuy(String cuyID)
+    {
+        try {
+            PreparedStatement pst=ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_E_tblCuyes "+cuyID);
+            pst.executeUpdate();
+        }catch (SQLException e){
+
+        }
     }
 
     //Fin cuyes

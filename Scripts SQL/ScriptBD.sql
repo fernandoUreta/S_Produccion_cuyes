@@ -63,8 +63,8 @@ CREATE TABLE tblDetalleTransaccion
 	ID_TipoMovi CHAR(2),
 	FOREIGN KEY (ID_TipoMovi) REFERENCES tblTipoMovimiento(ID_TipoMovi),
 	FOREIGN KEY (ID_Transaccion) REFERENCES tblTransacciones(ID_Transaccion),
-	FOREIGN KEY (ID_Cuyes) REFERENCES tblCuyes(ID_Cuy)
 )	
+
 
 CREATE TABLE tblNotificaciones
 (

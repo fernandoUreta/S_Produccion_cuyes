@@ -23,16 +23,37 @@ public class Transacciones {
         }
     }
 
-    public static void RegistrarEntradaCuyes(Cuy cuy, Transaccion transaccion)
+    public static void RegistrarEntradaCuyes(Cuy cuy, Transaccion transaccion,String tipoMovi)
     {
+
+        String movimiento="";
+        switch (tipoMovi)
+        {
+            case "Compra":movimiento="IC";break;
+            case "Nacimiento":movimiento="IN";break;
+            case "Rotacion":movimiento="IR";break;
+            case "Otros":movimiento="IO";break;
+        }
         BD_ProduccionCuyes.registrarCuy(cuy);
-        BD_ProduccionCuyes.registrarDetalle(transaccion.getIdTransaccion(),cuy.cuyId,"IN");
+        BD_ProduccionCuyes.registrarDetalle(transaccion.getIdTransaccion(),cuy.cuyId,movimiento);
     }
 
-    public static  void RegistrarSalidaCuyes(Cuy cuy,Transaccion transaccion)
+    public static  void RegistrarSalidaCuyes(Cuy cuy,Transaccion transaccion,String idPozaDestino,String tipoMovi)
     {
+        BD_ProduccionCuyes.eliminarCuy(cuy.cuyId);
+        cuy.setIdPoza(idPozaDestino);
+        BD_ProduccionCuyes.registrarCuy(cuy);
 
-
+        String movimiento="";
+        switch (tipoMovi)
+        {
+            case "Muerte":movimiento="SM";break;
+            case "Venta":movimiento="SV";break;
+            case "Consumo":movimiento="SC";break;
+            case "Rotación":movimiento="SR";break;
+            case "Otros":movimiento="SO";break;
+        }
+        BD_ProduccionCuyes.registrarDetalle(transaccion.getIdTransaccion(),cuy.cuyId,movimiento);
     }
 
 

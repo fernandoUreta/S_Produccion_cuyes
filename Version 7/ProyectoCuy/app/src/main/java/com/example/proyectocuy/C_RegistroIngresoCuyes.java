@@ -1,6 +1,8 @@
 package com.example.proyectocuy;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -62,6 +64,7 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
         cmbGenero=(Spinner)findViewById(R.id.cmbGenero);
         ArrayAdapter<CharSequence> adapterGenero = ArrayAdapter.createFromResource(this, R.array.generos, android.R.layout.simple_spinner_item);
         cmbGenero.setAdapter(adapterGenero);
+
     //////////////////////////////////////////////////////////////////////////////////////
 
         //Mostrar datos de cuyes en la poza
@@ -70,11 +73,14 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
         //Genera transaccion para ese instante
         transaccion=Transacciones.generarTransaccion(usuarioID);
 
+
+
     }
 
     public void registrarClick(View view)
     {
-        Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion);
+        Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion,cmbTipoIngreso.getSelectedItem().toString());
+        cargarDatos(idPoza);
         restablecerCampos();
     }
 
@@ -112,6 +118,13 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
     {
         txtID.setText("");
         txtEdad.setText("");
+    }
+
+    //Validar entradas
+    public void validarEntradas()
+    {
+        if (txtID.getText().toString()=="")
+            Toast.makeText(this,"Debe ingresar un ID",Toast.LENGTH_SHORT).show();
     }
 
 

@@ -16,6 +16,7 @@ import com.example.proyectocuy.BD_ProduccionCuyes;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
 import com.example.proyectocuy.R;
+import com.example.proyectocuy.Recursos_Adicionales.ExampleDialog;
 import com.example.proyectocuy.Recursos_Adicionales.Fechas;
 import com.example.proyectocuy.Transacciones;
 
@@ -29,8 +30,9 @@ public class C_RegistroSalidaCuyes extends AppCompatActivity {
     String usuarioID="72941896";
     String idPoza="A1";
 
-    //df
+    //DATOS
     Transaccion transaccion;
+    Cuy cuy=new Cuy();
 
 
 
@@ -66,38 +68,37 @@ public class C_RegistroSalidaCuyes extends AppCompatActivity {
         //Genera transaccion para ese instante
         transaccion= Transacciones.generarTransaccion(usuarioID);
 
-        //
-        txtID.addTextChangedListener(txtIdWatcher);
-
     }
-
-    private TextWatcher txtIdWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            Cuy cuy=new Cuy();
-            cuy=BD_ProduccionCuyes.consultarCuy("bb");
-            //txtEdad.setText(Fechas.calcularEdad(cuy.getFechaNaci()));
-            txtIdPozaDestino.setText(cuy.getGenero());
-
-        }
-    };
 
     public void registrarClick(View view)
     {
-        Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion);
+        this.cuy=consultarCuy(txtID.getText().toString());
+        //txtEdad.setText(String.valueOf(Fechas.calcularEdad(cuy.fechaNaci)));
+        cmbCategoria.setSelection(2);
+
+        String categoria=cuy.getCategoria();
+        switch (categoria)
+        {
+            case "MM":cmbCategoria.setSelection(0);break;
+            case "MP":cmbCategoria.setSelection(1);break;
+            case "PD":cmbCategoria.setSelection(2);break;
+            case "EG":cmbCategoria.setSelection(3);break;
+            case "RC":cmbCategoria.setSelection(4);break;
+            case "LC":cmbCategoria.setSelection(5);break;
+        }
+        txtEdad.setText(String.valueOf(cuy.fechaNaci));
+
+        Transacciones.RegistrarSalidaCuyes(cuy,transaccion,txtIdPozaDestino.getText().toString(),cmbTipoSalida.getSelectedItem().toString());
         restablecerCampos();
+        cargarDatos(idPoza);
     }
 
+    public Cuy consultarCuy(String idCuy)
+    {
+        Cuy cuy;
+        cuy=BD_ProduccionCuyes.consultarCuy(idCuy);
+        return cuy;
+    }
 
     //Registro de ingreso de cuy
     private Cuy capturarCuy()
@@ -133,6 +134,7 @@ public class C_RegistroSalidaCuyes extends AppCompatActivity {
     {
         txtID.setText("");
         txtEdad.setText("");
+        txtIdPozaDestino.setText("");
     }
 
 
