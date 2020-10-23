@@ -25,6 +25,9 @@
         <activity android:name=".ContrasenaOlvidada" />
         <activity android:name=".InicioCorreo" />
         <activity android:name=".C_RegistroIngresoCuyes">
+
+        </activity>
+        <activity android:name=".C_RegistroSalidaCuyes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

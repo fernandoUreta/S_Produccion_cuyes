@@ -2,6 +2,7 @@ package com.example.proyectocuy.Recursos_Adicionales;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Fechas {
 
@@ -13,6 +14,14 @@ public class Fechas {
         fechaHoy.add(Calendar.DAY_OF_YEAR,-edad);
         java.sql.Date fechaNacimiento =convert(fechaHoy.getTime());
         return fechaNacimiento;
+    }
+    public static int calcularEdad(java.util.Date fechaNacimiento)
+    {
+        Calendar fechaNaci = Calendar.getInstance();
+        int edad=0;
+        fechaNaci.setTime(fechaNacimiento);
+        edad=fechaHoy.DAY_OF_YEAR-fechaNaci.DAY_OF_YEAR;
+        return edad;
     }
     public static java.sql.Date mostrarFechaHoy()
     {

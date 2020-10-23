@@ -105,6 +105,26 @@ public class BD_ProduccionCuyes {
         return v;
     }
 
+    public static Cuy consultarCuy(String cuyID)
+    {
+        Cuy cuy=new Cuy();
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_MostrarTotalPozas ");
+            if (rs.next()){
+                cuy.setCuyId(rs.getString(1));
+                cuy.setIdPoza(rs.getString(2));
+                cuy.setCategoria(rs.getString(3));
+                cuy.setGenero(rs.getString(4));
+                cuy.setFechaNaci(rs.getDate(5));
+            }
+            return cuy;
+        }catch (Exception e){
+            return null;
+        }
+
+    }
+
     //Fin cuyes
 
     //Transacciones

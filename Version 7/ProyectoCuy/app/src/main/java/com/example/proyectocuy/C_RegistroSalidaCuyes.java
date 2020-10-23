@@ -1,9 +1,10 @@
 package com.example.proyectocuy;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -11,19 +12,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.proyectocuy.BD_ProduccionCuyes;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
+import com.example.proyectocuy.R;
 import com.example.proyectocuy.Recursos_Adicionales.Fechas;
+import com.example.proyectocuy.Transacciones;
 
-import org.w3c.dom.Text;
+public class C_RegistroSalidaCuyes extends AppCompatActivity {
 
-import static com.example.proyectocuy.Transacciones.generarTransaccion;
-
-public class C_RegistroIngresoCuyes extends AppCompatActivity {
-
-    EditText txtID,txtEdad;
-    TextView txtIdPoza, txtCantidadMadres,txtCantidadPadrillo, txtCantidadLactantes;
-    Spinner cmbTipoIngreso, cmbCategoria,cmbGenero;
+    EditText txtID,txtIdPozaDestino;
+    TextView txtIdPoza, txtCantidadMadres,txtCantidadPadrillo, txtCantidadLactantes,txtEdad;
+    Spinner cmbTipoSalida, cmbCategoria,cmbGenero;
 
     //AUTOCOMPLETADOS DEL ACTIVITY ANTERIOR
     String usuarioID="72941896";
@@ -31,52 +31,73 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
 
     //df
     Transaccion transaccion;
-    int idTransaccion;
-
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro_ingreso_cuyes);
+        setContentView(R.layout.activity_registro_salida_cuyes);
 
         //Declarado de textos
         txtID=(EditText)findViewById(R.id.txtCodigoCuy);
-        txtEdad=(EditText)findViewById(R.id.txtEdad);
+        txtEdad=(TextView) findViewById(R.id.txtEdad);
         txtIdPoza=(TextView)findViewById(R.id.txtIdPoza);
         txtCantidadMadres=(TextView)findViewById(R.id.txtCantidadMadres);
         txtCantidadPadrillo=(TextView)findViewById(R.id.txtCantidadPadres);
         txtCantidadLactantes=(TextView)findViewById(R.id.txtCantidadLactantes);
+        txtIdPozaDestino=(EditText)findViewById(R.id.txtIdPozaDestino);
 
         //Declarado y llenado de spiners
 
-        cmbTipoIngreso=(Spinner)findViewById(R.id.cmbTipoIngreso);
-        ArrayAdapter<CharSequence> adapterTipoIngreso = ArrayAdapter.createFromResource(this, R.array.tipoIngresoCuy, android.R.layout.simple_spinner_item);
-        cmbTipoIngreso.setAdapter(adapterTipoIngreso);
+        cmbTipoSalida=(Spinner)findViewById(R.id.cmbTipoSalida);
+        ArrayAdapter<CharSequence> adapterTipoSalida=ArrayAdapter.createFromResource(this,R.array.tipoSalidaCuy,android.R.layout.simple_spinner_item);
+        cmbTipoSalida.setAdapter(adapterTipoSalida);
 
         cmbCategoria=(Spinner)findViewById(R.id.cmbCategoriaCuy);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.categoriasCuy, android.R.layout.simple_spinner_item);
         cmbCategoria.setAdapter(adapter);
 
-        cmbGenero=(Spinner)findViewById(R.id.cmbGenero);
-        ArrayAdapter<CharSequence> adapterGenero = ArrayAdapter.createFromResource(this, R.array.generos, android.R.layout.simple_spinner_item);
-        cmbGenero.setAdapter(adapterGenero);
-    //////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////
 
         //Mostrar datos de cuyes en la poza
         cargarDatos(idPoza);
 
         //Genera transaccion para ese instante
-        transaccion=Transacciones.generarTransaccion(usuarioID);
+        transaccion= Transacciones.generarTransaccion(usuarioID);
+
+        //
+        txtID.addTextChangedListener(txtIdWatcher);
 
     }
+
+    private TextWatcher txtIdWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            Cuy cuy=new Cuy();
+            cuy=BD_ProduccionCuyes.consultarCuy("bb");
+            //txtEdad.setText(Fechas.calcularEdad(cuy.getFechaNaci()));
+            txtIdPozaDestino.setText(cuy.getGenero());
+
+        }
+    };
 
     public void registrarClick(View view)
     {
         Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion);
         restablecerCampos();
     }
+
 
     //Registro de ingreso de cuy
     private Cuy capturarCuy()
@@ -113,6 +134,7 @@ public class C_RegistroIngresoCuyes extends AppCompatActivity {
         txtID.setText("");
         txtEdad.setText("");
     }
+
 
 
 }

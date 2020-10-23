@@ -20,10 +20,10 @@
             android:layout_height="60dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
+            android:inputType="number"
             android:text="Poza"
             android:textAlignment="center"
             android:textSize="50dp"
-            android:inputType="number"
             app:layout_constraintEnd_toStartOf="@id/txtIdPoza"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,14 +34,13 @@
             android:layout_height="60dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
+            android:inputType="number"
             android:text="A1"
             android:textAlignment="center"
             android:textSize="50dp"
-            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/descPoza"
-            app:layout_constraintTop_toTopOf="parent"/>
-
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -50,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            android:text="10"
+            android:text="X"
             android:textSize="40dp"
             app:layout_constraintEnd_toStartOf="@id/descTipoCuy"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            android:text="10"
+            android:text="X"
             android:textSize="40dp"
             app:layout_constraintEnd_toStartOf="@id/descTipoCuy"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            android:text="10"
+            android:text="X"
             android:textSize="40dp"
             app:layout_constraintEnd_toStartOf="@id/descTipoCuy"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,7 +130,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtCantidadLactantes" />
 
         <Spinner
-            android:id="@+id/cmbTipoIngreso"
+            android:id="@+id/cmbTipoSalida"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +154,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/descIngresapor"
-            app:layout_constraintTop_toTopOf="@id/descCategoriaCuy" />
+            app:layout_constraintTop_toTopOf="@id/descCategoriaCuy"/>
 
         <TextView
             android:id="@+id/descCodigo"
@@ -186,39 +185,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/descCodigo" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtEdad"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             app:layout_constraintStart_toEndOf="@id/descEdad"
             app:layout_constraintTop_toTopOf="@id/descEdad" />
 
         <TextView
-            android:id="@+id/descGenero"
+            android:id="@+id/descPozaDestino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:text="ID Poza destino: "
             android:layout_marginTop="15dp"
-            android:text="Género"
             android:textSize="25dp"
-            android:inputType="number"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/descEdad" />
+            app:layout_constraintStart_toStartOf="@id/descEdad"
+            app:layout_constraintTop_toBottomOf="@id/descEdad"/>
 
-        <Spinner
-            android:id="@+id/cmbGenero"
-            android:layout_width="150dp"
+        <EditText
+            android:id="@+id/txtIdPozaDestino"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            app:layout_constraintStart_toEndOf="@id/descGenero"
-            app:layout_constraintTop_toTopOf="@id/descGenero" />
+            app:layout_constraintStart_toEndOf="@id/descPozaDestino"
+            app:layout_constraintTop_toTopOf="@id/descPozaDestino"/>
 
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/vector_btnmas"
-            app:layout_constraintTop_toBottomOf="@id/descGenero"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="registrarClick"
+            app:layout_constraintTop_toBottomOf="@id/descPozaDestino" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
