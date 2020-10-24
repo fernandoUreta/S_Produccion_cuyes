@@ -1,8 +1,8 @@
-package com.example.proyectocuy.ModeloDatos;
-
+package com.example.appproduccioncuyes.ModeloDatos;
+import com.example.proyectocuy.ModeloDatos.Poza;
 import java.util.Date;
 
-public class Cuy extends Poza{
+public class Cuy extends Poza {
     public String cuyId;
     public String categoria;
     public String genero;
