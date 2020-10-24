@@ -1,4 +1,4 @@
-package com.example.proyectocuy.DatosActividades;
+package com.example.appproduccioncuyes.DatosActividades;
 
 public class DatosActividades {
     public String Engorde;

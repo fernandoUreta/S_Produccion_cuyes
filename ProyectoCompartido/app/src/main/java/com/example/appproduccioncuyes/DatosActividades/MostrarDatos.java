@@ -1,11 +1,4 @@
-package com.example.proyectocuy.DatosActividades;
-
-import android.content.Intent;
-import android.util.Log;
-import android.widget.Switch;
-
-import com.example.proyectocuy.DistribucionRecomendado;
-import com.example.proyectocuy.MainActivity;
+package com.example.appproduccioncuyes.DatosActividades;
 
 public class MostrarDatos {
     public static DatosActividades consultar(String lanzar){

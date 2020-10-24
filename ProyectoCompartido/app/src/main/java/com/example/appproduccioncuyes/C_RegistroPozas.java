@@ -1,17 +1,15 @@
 package com.example.appproduccioncuyes;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appproduccioncuyes.ModeloDatos.BD_ProduccionCuyes;
+import com.example.appproduccioncuyes.ConexionBD.BD_ProduccionCuyes;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.Recursos_Adicionales.ExampleDialog;
 

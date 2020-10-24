@@ -1,4 +1,5 @@
-package com.example.appproduccioncuyes.ModeloDatos;
+package com.example.appproduccioncuyes.ConexionBD;
+import com.example.appproduccioncuyes.ModeloDatos.Cuy;
 import com.example.proyectocuy.ConexionBD.ConexionSQLServer;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
