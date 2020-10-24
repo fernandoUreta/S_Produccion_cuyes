@@ -1,4 +1,4 @@
-package com.example.proyectocuy.Recursos_Adicionales;
+package com.example.appproduccioncuyes.Recursos_Adicionales;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

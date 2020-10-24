@@ -1,4 +1,4 @@
-package com.example.proyectocuy.ModeloDatos;
+package com.example.appproduccioncuyes.ModeloDatos;
 
 public class Poza {
     public String idPoza;

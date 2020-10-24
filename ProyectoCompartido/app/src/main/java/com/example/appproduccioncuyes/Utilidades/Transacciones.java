@@ -1,9 +1,9 @@
-package com.example.appproduccioncuyes.Gestion;
+package com.example.appproduccioncuyes.Utilidades;
 
 import com.example.appproduccioncuyes.ConexionBD.BD_ProduccionCuyes;
 import com.example.appproduccioncuyes.ModeloDatos.Cuy;
-import com.example.proyectocuy.ModeloDatos.Transaccion;
-import com.example.proyectocuy.Recursos_Adicionales.Fechas;
+import com.example.appproduccioncuyes.ModeloDatos.Transaccion;
+import com.example.appproduccioncuyes.Recursos_Adicionales.Fechas;
 
 
 public class Transacciones {

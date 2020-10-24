@@ -1,5 +1,5 @@
 package com.example.appproduccioncuyes.ModeloDatos;
-import com.example.proyectocuy.ModeloDatos.Poza;
+
 import java.util.Date;
 
 public class Cuy extends Poza {

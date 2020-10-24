@@ -1,6 +1,7 @@
-package com.example.proyectocuy.ModeloDatos;
+package com.example.appproduccioncuyes.ModeloDatos;
 
-import com.example.proyectocuy.BD_ProduccionCuyes;
+
+import com.example.appproduccioncuyes.ConexionBD.BD_ProduccionCuyes;
 
 import java.sql.Date;
 
@@ -16,7 +17,7 @@ public class Transaccion {
 
     public int obtenerID()
     {
-        int ultimo=BD_ProduccionCuyes.consultarUltimaTransaccion();
+        int ultimo= BD_ProduccionCuyes.consultarUltimaTransaccion();
         return ultimo+1;
     }
 

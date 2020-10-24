@@ -1,4 +1,4 @@
-package com.example.proyectocuy.ConexionBD;
+package com.example.appproduccioncuyes.ConexionBD;
 
 import android.os.StrictMode;
 
