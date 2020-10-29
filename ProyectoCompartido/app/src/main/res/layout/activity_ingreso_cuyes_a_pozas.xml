@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.IngresoCuyesAPozasActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.85"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/createHere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Poza"
+                android:textSize="@dimen/textSize_hight"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtIdPoza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/createHere"
+                android:paddingStart="10dp"
+                android:text="XXX"
+                android:textSize="@dimen/textSize_hight" />
+
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/relCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/txtCantidadPoza1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XXX"
+                        android:textSize="@dimen/textSize_hight" />
+
+                    <TextView
+                        android:id="@+id/txtDescCategoria1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_toRightOf="@+id/txtCantidadPoza1"
+                        android:text="Categoria I"
+                        android:textSize="@dimen/textSize_hight" />
+
+
+                    <TextView
+                        android:id="@+id/txtCantidadPoza2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCantidadPoza1"
+                        android:text="XXX"
+                        android:textSize="@dimen/textSize_hight" />
+
+                    <TextView
+                        android:id="@+id/txtDescCategoria2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtDescCategoria1"
+                        android:layout_marginStart="10dp"
+                        android:layout_toRightOf="@+id/txtCantidadPoza2"
+                        android:text="Categoria II"
+                        android:textSize="@dimen/textSize_hight" />
+
+                    <TextView
+                        android:id="@+id/txtCantidadPoza3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCantidadPoza2"
+                        android:text="XXX"
+                        android:textSize="@dimen/textSize_hight" />
+
+                    <TextView
+                        android:id="@+id/txtDescCategoria3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtDescCategoria2"
+                        android:layout_marginStart="10dp"
+                        android:layout_toRightOf="@+id/txtCantidadPoza3"
+                        android:text="Categoria II"
+                        android:textSize="@dimen/textSize_hight" />
+
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lindatos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relCategoria"
+                    android:layout_marginTop="@dimen/margin_defect"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/margin_defect">
+
+                    <TextView
+                        android:id="@+id/descIngreso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ingresa por: "
+                        android:textSize="@dimen/textSize_medium" />
+
+                    <Spinner
+                        android:id="@+id/spTipoIngreso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/descCategoria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Categoria: "
+
+                        android:textSize="@dimen/textSize_medium" />
+
+                    <Spinner
+                        android:id="@+id/spCategoria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:id="@+id/descGenero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Género: "
+
+                        android:textSize="@dimen/textSize_medium" />
+
+                    <Spinner
+                        android:id="@+id/spGenero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_defect"
+                        android:theme="@style/EditTextBlack">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtEdadCuy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingrese edad"
+                            android:inputType="number"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_defect"
+                        android:theme="@style/EditTextBlack">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCodigoCuy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingrese codigo" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/joinUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Agregar"
+                    android:theme="@style/RaisedButtonDark"
+                    android:layout_below="@id/lindatos"/>
+
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
