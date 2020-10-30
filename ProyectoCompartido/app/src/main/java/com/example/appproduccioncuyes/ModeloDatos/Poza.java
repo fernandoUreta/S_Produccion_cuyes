@@ -1,6 +1,6 @@
 package com.example.appproduccioncuyes.ModeloDatos;
 
-public class Poza {
+public class Poza{
     public String idPoza;
     public float largo;
     public float ancho;

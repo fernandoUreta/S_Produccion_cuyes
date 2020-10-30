@@ -15,10 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.85"
-            android:gravity="center">
+            android:gravity="center_horizontal">
 
             <TextView
-                android:id="@+id/createHere"
+                android:id="@+id/descPoza"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Poza"
@@ -26,14 +26,23 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtIdPoza"
+                android:id="@+id/tvIdPoza"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/createHere"
+                android:layout_toRightOf="@+id/descPoza"
                 android:paddingStart="10dp"
                 android:text="XXX"
                 android:textSize="@dimen/textSize_hight" />
 
+            <TextView
+                android:id="@+id/tvTipoPoza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXXXX"
+                android:textSize="@dimen/textSize_hight"
+                android:textStyle="italic"
+                android:textAlignment="center"
+                android:layout_below="@id/descPoza"/>
 
         </RelativeLayout>
 
@@ -54,55 +63,55 @@
                     android:gravity="center_horizontal">
 
                     <TextView
-                        android:id="@+id/txtCantidadPoza1"
+                        android:id="@+id/tvCantidadCuy1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="XXX"
                         android:textSize="@dimen/textSize_hight" />
 
                     <TextView
-                        android:id="@+id/txtDescCategoria1"
+                        android:id="@+id/tvDescCategoria1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_toRightOf="@+id/txtCantidadPoza1"
+                        android:layout_toRightOf="@+id/tvCantidadCuy1"
                         android:text="Categoria I"
                         android:textSize="@dimen/textSize_hight" />
 
 
                     <TextView
-                        android:id="@+id/txtCantidadPoza2"
+                        android:id="@+id/tvCantidadCuy2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtCantidadPoza1"
+                        android:layout_below="@+id/tvCantidadCuy1"
                         android:text="XXX"
                         android:textSize="@dimen/textSize_hight" />
 
                     <TextView
-                        android:id="@+id/txtDescCategoria2"
+                        android:id="@+id/tvDescCategoria2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/txtDescCategoria1"
+                        android:layout_below="@id/tvDescCategoria1"
                         android:layout_marginStart="10dp"
-                        android:layout_toRightOf="@+id/txtCantidadPoza2"
+                        android:layout_toRightOf="@+id/tvCantidadCuy2"
                         android:text="Categoria II"
                         android:textSize="@dimen/textSize_hight" />
 
                     <TextView
-                        android:id="@+id/txtCantidadPoza3"
+                        android:id="@+id/tvCantidadCuy3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtCantidadPoza2"
+                        android:layout_below="@+id/tvCantidadCuy2"
                         android:text="XXX"
                         android:textSize="@dimen/textSize_hight" />
 
                     <TextView
-                        android:id="@+id/txtDescCategoria3"
+                        android:id="@+id/tvDescCategoria3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/txtDescCategoria2"
+                        android:layout_below="@id/tvDescCategoria2"
                         android:layout_marginStart="10dp"
-                        android:layout_toRightOf="@+id/txtCantidadPoza3"
+                        android:layout_toRightOf="@+id/tvCantidadCuy3"
                         android:text="Categoria II"
                         android:textSize="@dimen/textSize_hight" />
 
@@ -190,12 +199,13 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/joinUs"
+                    android:id="@+id/btnAgregar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Agregar"
                     android:theme="@style/RaisedButtonDark"
-                    android:layout_below="@id/lindatos"/>
+                    android:layout_below="@id/lindatos"
+                    android:onClick="registrarClick"/>
 
 
             </RelativeLayout>
