@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipos_pozas">
+        <item>Empadre</item>
+        <item>Engorde</item>
+        <item>Recria</item>
+        <item>Padrillo</item>
+    </string-array>
+</resources>

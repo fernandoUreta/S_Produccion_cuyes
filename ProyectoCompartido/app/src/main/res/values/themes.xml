@@ -13,4 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.AppCuyes" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/deepOrange_500</item>
+        <item name="colorPrimaryDark">@color/deepOrange_700</item>
+        <item name="colorAccent">@color/yellow_a200</item>
+    </style>
 </resources>
