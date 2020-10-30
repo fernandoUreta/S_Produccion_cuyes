@@ -1,14 +1,22 @@
 package com.example.appproduccioncuyes.ConexionBD;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.appproduccioncuyes.ModeloDatos.Actividad;
 import com.example.appproduccioncuyes.ModeloDatos.Cuy;
 import com.example.appproduccioncuyes.ModeloDatos.Poza;
 import com.example.appproduccioncuyes.ModeloDatos.Transaccion;
 
 
-
+import java.security.AccessController;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import static android.content.ContentValues.TAG;
+import static android.widget.Toast.LENGTH_LONG;
 
 public class BD_ProduccionCuyes {
 
@@ -242,37 +250,24 @@ public class BD_ProduccionCuyes {
         return v;
     }
 
-
-    /*
-    public static Poza consultarPoza(String idPoza)
+    //ObtenerCuyes de Pozas con edad al limite
+    public static Actividad obtenerCuyesLimiteEdadEnPoza(String tipoPoza, int edadLimite)
     {
-        Poza poza=new Poza();
+        Actividad actividad=new Actividad();
+        int tamaño;
         try {
             Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("EXEC SP_C_tblPozas "+idPoza);
-            if (rs.next()){
-                poza.idPoza=rs.getString(1);
-                poza.largo=Float.parseFloat(rs.getString(2));
-                poza.ancho=Float.parseFloat(rs.getString(3));
-                poza.clasificacion=rs.getString(4);
-                poza.capacidad=Integer.parseInt(rs.getString(5));
+            ResultSet rs=stm.executeQuery("EXEC SP_C_CuyesEdadMax '"+tipoPoza+"',"+edadLimite);
+            while (rs.next()){
+
+                actividad.setCuyId(rs.getString(1));
+                actividad.setIdPoza(rs.getString(2));
+                actividad.setEdad(Integer.parseInt(rs.getString(1)));
             }
-            return poza;
-        }catch (Exception e){
-            return null;
+        }catch (Exception e) {
+            Log.d(TAG, "Error", e);
         }
+        return actividad;
     }
 
-    public static boolean eliminarPoza(String idPoza)
-    {
-        boolean v;
-        try {
-            PreparedStatement pst=ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_E_tblPozas "+idPoza);
-            pst.executeUpdate();
-            v=true;
-        }catch (SQLException e){
-            v=false;
-        }
-        return v;
-    }*/
 }
