@@ -9,7 +9,7 @@ set @fechahoy=(GETDATE())
 set @valor = DATEDIFF (DAY, @FechaNacimiento , @fechahoy )
 print @valor
 
-DROP PROCEDURE SP_calcular_edadCuy
+GO
 
 CREATE PROCEDURE SP_C_CuyesEdadMax
 @tipoPoza as CHAR(15),
