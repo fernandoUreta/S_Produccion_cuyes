@@ -3,6 +3,8 @@ package com.example.appproduccioncuyes.ModeloDatos;
 public class Actividad extends Cuy{
 
     int edad;
+    String tipoCuy;
+
     public void setCuyId(String idCuy) {
         super.cuyId = idCuy;
     }

@@ -26,7 +26,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
             idCuy = (TextView) itemView.findViewById(R.id.tvIdCuy);
             idPoza = (TextView) itemView.findViewById(R.id.tvIdPoza);
             edadCuy = (TextView) itemView.findViewById(R.id.tvEdadCuy);
-            //fotoActividad = (ImageView) itemView.findViewWithTag(R.drawable.cuy_bebes);
+
         }
     }
         public List<ActividadCardview> actividadLista;
