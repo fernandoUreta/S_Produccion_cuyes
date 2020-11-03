@@ -1,14 +1,25 @@
 package com.example.appproduccioncuyes.ConexionBD;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.appproduccioncuyes.ModeloDatos.Actividad;
+import com.example.appproduccioncuyes.ModeloDatos.ActividadCardview;
 import com.example.appproduccioncuyes.ModeloDatos.Cuy;
 import com.example.appproduccioncuyes.ModeloDatos.Poza;
 import com.example.appproduccioncuyes.ModeloDatos.Transaccion;
 
 
-
+import java.security.AccessController;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.ContentValues.TAG;
+import static android.widget.Toast.LENGTH_LONG;
 
 public class BD_ProduccionCuyes {
 
@@ -242,37 +253,38 @@ public class BD_ProduccionCuyes {
         return v;
     }
 
-
-    /*
-    public static Poza consultarPoza(String idPoza)
+    //ObtenerCuyes de Pozas con edad al limite
+    public static List<ActividadCardview> obtenerCuyesLimiteEdadEnPoza(String tipoPoza, int edadLimite)
     {
-        Poza poza=new Poza();
+        List<ActividadCardview> actividad=new ArrayList<ActividadCardview>();
+        int tamaño;
         try {
             Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("EXEC SP_C_tblPozas "+idPoza);
-            if (rs.next()){
-                poza.idPoza=rs.getString(1);
-                poza.largo=Float.parseFloat(rs.getString(2));
-                poza.ancho=Float.parseFloat(rs.getString(3));
-                poza.clasificacion=rs.getString(4);
-                poza.capacidad=Integer.parseInt(rs.getString(5));
+            ResultSet rs=stm.executeQuery("EXEC SP_C_CuyesEdadMax '"+tipoPoza+"',"+edadLimite);
+            while (rs.next()){
+                //actividad.add(rs.getString(1),rs.getString(2),rs.getInt(1));
             }
-            return poza;
-        }catch (Exception e){
-            return null;
+        }catch (Exception e) {
+            Log.d(TAG, "Error", e);
         }
+        return actividad;
     }
 
-    public static boolean eliminarPoza(String idPoza)
+    //Actualizar----
+    public static List<ActividadCardview> obtenerCuyesLimiteEdadEnPoza(String tipoPoza, String tipoCuy, int edadLimite )
     {
-        boolean v;
+        List<ActividadCardview> actividad=new ArrayList<ActividadCardview>();
+        int tamaño;
         try {
-            PreparedStatement pst=ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_E_tblPozas "+idPoza);
-            pst.executeUpdate();
-            v=true;
-        }catch (SQLException e){
-            v=false;
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_C_CuyesEdadMax '"+tipoPoza+"',"+edadLimite);
+            while (rs.next()){
+                //actividad.add(rs.getString(1),rs.getString(2),rs.getInt(1));
+            }
+        }catch (Exception e) {
+            Log.d(TAG, "Error", e);
         }
-        return v;
-    }*/
+        return actividad;
+    }
+
 }

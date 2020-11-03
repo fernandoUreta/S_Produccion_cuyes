@@ -7,16 +7,21 @@ CREATE PROCEDURE SP_A_tblDetalleTransaccion
 AS
 INSERT INTO tblDetalleTransaccion VALUES (@idTransaccion,@idCuy,@tipoMovi)
 
+go
+
 --C
 CREATE PROCEDURE SP_C_tblDetalleTransaccion
 @idTransaccion AS CHAR(15)
 AS
 SELECT * FROM tblDetalleTransaccion WHERE ID_Transaccion=@idTransaccion
 
+go
 
 --M
 CREATE PROCEDURE SP_M_tblDetalleTransaccion
 AS
+ 
+go
 
 --E
 CREATE PROCEDURE SP_E_tblDetalleTransaccion

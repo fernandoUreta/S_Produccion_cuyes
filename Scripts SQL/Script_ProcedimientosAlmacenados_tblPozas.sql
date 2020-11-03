@@ -39,6 +39,7 @@ CREATE PROCEDURE SP_MostrarTotalPozas
 AS
 SELECT COUNT(*) FROM tblPozas
 
+GO
 --Consultar cuyes por poza y categoria
 CREATE PROCEDURE SP_C_CantiCuyes_Poza_Tipo_tblPozas
 @IdPoza as VARCHAR(4),
