@@ -205,7 +205,8 @@
                     android:text="Agregar"
                     android:theme="@style/RaisedButtonDark"
                     android:layout_below="@id/lindatos"
-                    android:onClick="registrarClick"/>
+                    android:onClick="registrarClick"
+                    />
 
 
             </RelativeLayout>

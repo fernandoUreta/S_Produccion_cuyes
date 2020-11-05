@@ -43,7 +43,7 @@ public class C_RegistroPozas extends AppCompatActivity {
         txtLargo = (EditText) findViewById(R.id.txtLargo);
         txtCantidad = (EditText) findViewById(R.id.txtCantidad);
         txtCantidadPozasCreadas = (EditText) findViewById(R.id.txtCantidadPozasTotal);
-        actualizarTotal();
+
 
     }
 
@@ -89,18 +89,19 @@ public class C_RegistroPozas extends AppCompatActivity {
                 case "Padrillo":registrarPozas("D",1);
                     break;
             }
-            limpiarTextos();
-            actualizarTotal();
+            //limpiarTextos();
+            //actualizarTotal();
         }
     };
 
+    /*
     public void limpiarTextos()
     {
         txtCantidadPozasCreadas.setText("");
         txtCantidad.setText("");
         txtLargo.setText("");
         txtAncho.setText("");
-    }
+    }*/
 
 
     public void registrarPozas(String tipo, int capacidad)
@@ -118,11 +119,13 @@ public class C_RegistroPozas extends AppCompatActivity {
         }
 
     }
+    /*
     public void actualizarTotal()
     {
         txtCantidadPozasCreadas.setText(String.valueOf(BD_ProduccionCuyes.consultarCantidadPozas()));
-    }
+    }*/
 
+    /*
     public void btnAtras(View v){
         Intent i = new Intent(this,DistribucionRecomendado.class);
         startActivity(i);
@@ -132,4 +135,5 @@ public class C_RegistroPozas extends AppCompatActivity {
         Intent i = new Intent(this,PozEmpadreRecomend.class);
         startActivity(i);
     }
+     */
 }

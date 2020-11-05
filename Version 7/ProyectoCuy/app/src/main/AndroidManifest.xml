@@ -13,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".prueba"></activity>
-        <activity android:name=".C_RegistroPozas" />
+        <activity android:name=".C_RegistroPozas">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".PozPadrilloRecomend" />
         <activity android:name=".PozRecriaRecomend" />
@@ -29,10 +34,7 @@
 
         </activity>
         <activity android:name=".C_RegistroSalidaCuyes">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".Splash"></activity>
         <activity android:name=".MainActivity" />
