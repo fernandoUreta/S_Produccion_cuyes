@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             /*for (int i = 0; i<30 ; i++){
                 tabla.addCell("CELDA"+i);
             }*/
-            document.add(llenarTabla(tabla,"Ingreso"));
+            document.add(llenarTabla(tabla,"Salida"));
         }catch (DocumentException e){
         }catch (IOException e){
         }finally {
@@ -95,11 +95,17 @@ public class MainActivity extends AppCompatActivity {
         table.addCell("Fecha");
         table.addCell("Motivo");
         table.addCell("Poza");
+        Toast.makeText(this,"Cantidad: "+report.size(),Toast.LENGTH_LONG).show();
 
-        for (int i = 1; i<report.size() ; i++){
-            table.addCell(report.get(i).fecha);
-            table.addCell(report.get(i).razon);
-            table.addCell(report.get(i).idPoza);
+        try {
+            for (int i = 0; i<report.size(); i++){
+                table.addCell(String.valueOf(report.get(i).fecha));
+                table.addCell(String.valueOf(report.get(i).razon));
+                table.addCell(String.valueOf(report.get(i).idPoza));
+            }
+            return table;
+        }catch (Exception e){
+            Toast.makeText(this,"No funciona"+e.toString(),Toast.LENGTH_LONG).show();
         }
         return table;
     }

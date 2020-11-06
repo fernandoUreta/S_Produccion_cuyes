@@ -1,9 +1,9 @@
 package com.example.pdf;
 
 public class FilaReporte {
-    String fecha;
-    String razon;
-    String idPoza;
+    public String fecha;
+    public String razon;
+    public String idPoza;
 
     public FilaReporte(String fecha, String razon, String idPoza) {
         this.fecha = fecha;

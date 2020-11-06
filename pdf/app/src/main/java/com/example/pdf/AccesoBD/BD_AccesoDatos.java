@@ -78,7 +78,7 @@ public static List<FilaReporte> reporte(String tipoReporte,Context context)
                     rs.getString(3)));
         }
     }catch (Exception e){
-        Toast.makeText(context,"No vale",Toast.LENGTH_LONG).show();
+        Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();
         report=null;
     }
     return report;
