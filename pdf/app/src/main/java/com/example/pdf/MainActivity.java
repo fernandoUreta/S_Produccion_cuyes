@@ -89,18 +89,18 @@ public class MainActivity extends AppCompatActivity {
     public PdfPTable llenarTabla(PdfPTable table,String tipo)
     {
         List<FilaReporte> report;
-        report=BD_AccesoDatos.reporte(tipo);
+        report=BD_AccesoDatos.reporte(tipo,getApplicationContext());
 
         //Set titulos
         table.addCell("Fecha");
         table.addCell("Motivo");
         table.addCell("Poza");
 
-        /*for (int i = 1; i<report.size() ; i++){
+        for (int i = 1; i<report.size() ; i++){
             table.addCell(report.get(i).fecha);
             table.addCell(report.get(i).razon);
             table.addCell(report.get(i).idPoza);
-        }*/
+        }
         return table;
     }
 

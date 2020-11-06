@@ -65,12 +65,12 @@ public static List<Actividad> obtenerCuyesLimiteEdadEnPoza(String tipoCuy, Strin
     }
     return actividad;
 }
-public static List<FilaReporte> reporte(String tipoReporte)
+public static List<FilaReporte> reporte(String tipoReporte,Context context)
 {
     List<FilaReporte> report=new ArrayList<>();
     try {
         Statement stm=ConexionSQLServer.conectarBD().createStatement();
-        ResultSet rs=stm.executeQuery("EXEC SP_MostrarTotalPozas");
+        ResultSet rs=stm.executeQuery("EXEC SP_ConsultarReporteJhon "+tipoReporte);
         while (rs.next()){
             report.add(new FilaReporte(
                     rs.getString(1),
@@ -78,6 +78,7 @@ public static List<FilaReporte> reporte(String tipoReporte)
                     rs.getString(3)));
         }
     }catch (Exception e){
+        Toast.makeText(context,"No vale",Toast.LENGTH_LONG).show();
         report=null;
     }
     return report;
