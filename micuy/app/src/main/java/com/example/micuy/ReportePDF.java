@@ -37,12 +37,12 @@ public class ReportePDF {
         this.context=context;
     }
     public void openDocument(){
+         
         createFile();
         try{
             document=new Document(PageSize.A4);
             pdfWriter=pdfWriter.getInstance(document,new FileOutputStream(pdfFile));
             document.open();
-
         }catch (Exception e){
             Log.e("openDocument",e.toString());
         }
@@ -124,8 +124,5 @@ public class ReportePDF {
         intent.putExtra("path",pdfFile.getAbsolutePath());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
-
-
-
     }
 }

@@ -13,6 +13,7 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -36,7 +37,13 @@ public class MainActivity extends AppCompatActivity {
         reportePDF.closeDocument();
     }
     public void pdfView(View view){
-        reportePDF.viewPDF();
+        try {
+            reportePDF.viewPDF();
+        }catch (Exception e)
+        {
+            Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
+        }
+
     }
     private ArrayList<String[]>getClients(){
         ArrayList<String []>rows=new ArrayList<>();

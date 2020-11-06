@@ -1,16 +1,12 @@
-package com.example.appproduccioncuyes.ConexionBD;
+    package com.example.appproduccioncuyes.ConexionBD;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
 import com.example.appproduccioncuyes.ModeloDatos.Actividad;
-import com.example.appproduccioncuyes.ModeloDatos.ActividadCardview;
 import com.example.appproduccioncuyes.ModeloDatos.Cuy;
 import com.example.appproduccioncuyes.ModeloDatos.Poza;
 import com.example.appproduccioncuyes.ModeloDatos.Transaccion;
 
 
-import java.security.AccessController;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
-import static android.widget.Toast.LENGTH_LONG;
 
 public class BD_ProduccionCuyes {
 
@@ -254,15 +249,14 @@ public class BD_ProduccionCuyes {
     }
 
     //ObtenerCuyes de Pozas con edad al limite
-    public static List<ActividadCardview> obtenerCuyesLimiteEdadEnPoza(String tipoPoza, int edadLimite)
+    public static List<Actividad> obtenerCuyesLimiteEdadEnPoza(String tipoPoza, int edadLimite)
     {
-        List<ActividadCardview> actividad=new ArrayList<ActividadCardview>();
-        int tamaño;
+        List<Actividad> actividad=new ArrayList<Actividad>();
         try {
             Statement stm=ConexionSQLServer.conectarBD().createStatement();
             ResultSet rs=stm.executeQuery("EXEC SP_C_CuyesEdadMax '"+tipoPoza+"',"+edadLimite);
             while (rs.next()){
-                //actividad.add(rs.getString(1),rs.getString(2),rs.getInt(1));
+                actividad.add(new Actividad(rs.getInt(1),rs.getString(2),rs.getString(1)));
             }
         }catch (Exception e) {
             Log.d(TAG, "Error", e);
@@ -270,21 +264,5 @@ public class BD_ProduccionCuyes {
         return actividad;
     }
 
-    //Actualizar----
-    public static List<ActividadCardview> obtenerCuyesLimiteEdadEnPoza(String tipoPoza, String tipoCuy, int edadLimite )
-    {
-        List<ActividadCardview> actividad=new ArrayList<ActividadCardview>();
-        int tamaño;
-        try {
-            Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("EXEC SP_C_CuyesEdadMax '"+tipoPoza+"',"+edadLimite);
-            while (rs.next()){
-                //actividad.add(rs.getString(1),rs.getString(2),rs.getInt(1));
-            }
-        }catch (Exception e) {
-            Log.d(TAG, "Error", e);
-        }
-        return actividad;
-    }
 
 }
