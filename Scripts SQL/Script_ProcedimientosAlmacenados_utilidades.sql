@@ -24,6 +24,15 @@ SELECT ID_Cuy,cuyGenero,DATEDIFF (DAY,cuyFechaNaci,@fechahoy)AS Edad,ID_Pozas,ID
 SELECT ID_Pozas,ID_Cuy,edad,cuyGenero,ID_Categoria AS CategoriaCuy FROM #Lista WHERE Edad>=@edadMaxima
 DROP TABLE #Lista 
 
+--Consultar reporte de entrada o salida 
+CREATE PROCEDURE SP_ConsultarReporte
+@TipoIngreso as char(10)
+AS
+SELECT fecha,Razon,ID_Pozas FROM tblTransacciones 
+INNER JOIN tblDetalleTransaccion ON tblTransacciones.ID_Transaccion=tblDetalleTransaccion.ID_Transaccion 
+INNER JOIN tblCuyes ON tblDetalleTransaccion.ID_Cuyes=tblCuyes.ID_Cuy
+INNER JOIN tblTipoMovimiento ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi WHERE tblTipoMovimiento.Tipo=@TipoIngreso
+
  
 
 

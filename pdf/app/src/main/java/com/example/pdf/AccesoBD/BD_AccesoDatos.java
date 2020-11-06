@@ -70,7 +70,7 @@ public static List<FilaReporte> reporte(String tipoReporte,Context context)
     List<FilaReporte> report=new ArrayList<>();
     try {
         Statement stm=ConexionSQLServer.conectarBD().createStatement();
-        ResultSet rs=stm.executeQuery("EXEC SP_ConsultarReporteJhon "+tipoReporte);
+        ResultSet rs=stm.executeQuery("EXEC SP_ConsultarReporte "+tipoReporte);
         while (rs.next()){
             report.add(new FilaReporte(
                     rs.getString(1),
