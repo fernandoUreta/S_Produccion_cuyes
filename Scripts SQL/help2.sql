@@ -237,3 +237,31 @@
 		select * from tblCuyes
 
 		SET LANGUAGE Español
+
+		SELECT * FROM tblDetalleTransaccion
+
+		--TIPO GENERAL ENTRADA
+		SELECT fecha,Razon,ID_Pozas FROM tblTransacciones 
+			INNER JOIN tblDetalleTransaccion ON tblTransacciones.ID_Transaccion=tblDetalleTransaccion.ID_Transaccion 
+			INNER JOIN tblCuyes ON tblDetalleTransaccion.ID_Cuyes=tblCuyes.ID_Cuy
+			INNER JOIN tblTipoMovimiento ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi WHERE tblTipoMovimiento.Tipo='Ingreso'
+
+--POREPORTE
+CREATE PROCEDURE SP_ConsultarReporte
+@TipoIngreso as char(10)
+AS
+SELECT fecha,Razon,ID_Pozas FROM tblTransacciones 
+INNER JOIN tblDetalleTransaccion ON tblTransacciones.ID_Transaccion=tblDetalleTransaccion.ID_Transaccion 
+INNER JOIN tblCuyes ON tblDetalleTransaccion.ID_Cuyes=tblCuyes.ID_Cuy
+INNER JOIN tblTipoMovimiento ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi WHERE tblTipoMovimiento.Tipo=@TipoIngreso
+
+INSERT INTO tblDetalleTransaccion VALUES('1','145','IC');
+
+
+EXEC SP_ConsultarReporte 'Ingreso'
+
+EXEC SP_ConsultarReporte Salida
+
+
+
+
