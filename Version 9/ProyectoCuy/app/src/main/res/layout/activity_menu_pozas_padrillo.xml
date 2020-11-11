@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MenuPozasPadrillo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_fondocuy"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pozas de Padrillo"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <ExpandableListView
+            android:id="@+id/expLV"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="Atras"
+            android:background="@drawable/btn_iniciosesion"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>

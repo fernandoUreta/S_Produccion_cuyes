@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_fondocuy">
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Registro de pozas"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDescCant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Cuenta con: "
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@id/txtCantidadPozasTotal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+
+
+        <EditText
+            android:id="@+id/txtCantidadPozasTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:hint="Cantidad"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDescCant"
+            app:layout_constraintEnd_toEndOf="@id/tvDescCuyes"
+            app:layout_constraintStart_toEndOf="@id/tvDescCant"
+            app:layout_constraintTop_toTopOf="@+id/tvDescCant" />
+
+        <TextView
+            android:id="@+id/tvDescCuyes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="pozas"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/txtCantidadPozasTotal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtCantidadPozasTotal"
+            app:layout_constraintTop_toTopOf="@id/txtCantidadPozasTotal" />
+
+
+        <TextView
+            android:id="@+id/descSeleccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Seleccione el tipo de poza: "
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescCant" />
+
+        <Spinner
+            android:id="@+id/spTipodePoza"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descSeleccion" />
+
+        <Button
+            android:id="@+id/btnMasInfo"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_baseline_help_24"
+            app:layout_constraintStart_toEndOf="@id/spTipodePoza"
+            app:layout_constraintTop_toTopOf="@id/spTipodePoza" />
+
+        <TextView
+            android:id="@+id/descDimen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Dimensiones (en centímetros): "
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@id/descSeleccion"
+            app:layout_constraintTop_toBottomOf="@id/descSeleccion" />
+
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/txtAncho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:hint="Ancho"
+            android:inputType="number"
+            app:layout_constraintEnd_toStartOf="@id/txtLargo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descDimen" />
+
+        <EditText
+            android:id="@+id/txtLargo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:hint="Largo"
+            android:inputType="number"
+            app:layout_constraintEnd_toStartOf="@id/txtCantidad"
+            app:layout_constraintStart_toEndOf="@id/txtAncho"
+            app:layout_constraintTop_toTopOf="@id/txtAncho" />
+
+        <TextView
+            android:id="@+id/descCant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Ingrese la cantidad: "
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@id/descSeleccion"
+            app:layout_constraintTop_toBottomOf="@id/txtAncho" />
+
+        <EditText
+            android:id="@+id/txtCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@id/descCant"
+            app:layout_constraintTop_toTopOf="@id/descCant"
+            app:layout_constraintBottom_toBottomOf="@id/descCant"/>
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@android:color/holo_orange_light"
+            android:onClick="registrarPoza"
+            android:text="Agregar"
+            android:textColor="@android:color/white"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descCant" />
+
+        <Button
+            android:id="@+id/btnAtras"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:onClick="btnAtras"
+            android:text="Atras"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnSiguiente"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnSiguiente"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:onClick="btnSiguiente"
+            android:text="Siguiente"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnAtras" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

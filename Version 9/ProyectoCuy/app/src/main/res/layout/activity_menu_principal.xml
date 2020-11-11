@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    tools:context=".MenuPrincipal">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/mycuy" />
+
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_iniciosesion"
+        android:onClick="btnPozas"
+        android:text="POZAS"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_iniciosesion"
+        android:onClick="btnCalendario"
+        android:text="Calendario"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_iniciosesion"
+        android:onClick="btnReporte"
+        android:text="REPORTES"
+        android:textSize="20dp" />
+
+</LinearLayout>
