@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pdf.AccesoBD.BD_AccesoDatos;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
@@ -23,6 +24,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOError;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     String Nombre_Directorio="ReportesPDFs";
@@ -51,12 +55,17 @@ public class MainActivity extends AppCompatActivity {
         btnIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                crearPDF();
+                crearPDF("Ingreso");
                 Toast.makeText(MainActivity.this,"Se creo el PDF", Toast.LENGTH_LONG).show();
             }
         });
     }
-    public void crearPDF(){
+    public void reporteSalida(View view)
+    {
+        crearPDF("Salida");
+        Toast.makeText(MainActivity.this,"Se creo el PDF de salidas", Toast.LENGTH_LONG).show();
+    }
+    public void crearPDF(String tipo){
         Document document=new Document();
         try{
             File file=crearFichero(Nombre_Documento);
@@ -69,18 +78,43 @@ public class MainActivity extends AppCompatActivity {
             document.add(new Paragraph("REPORTE DE INGRESOS\n\n"));
             document.add(new Paragraph( "Se muestran los ingresos a las pozas por nacimiento, adquisición o traslado de pozas\n\n"));
 
-            // Insertamos una tabla
-            PdfPTable tabla=new PdfPTable(4);
-            for (int i = 0; i<30 ; i++){
-                tabla.addCell("CELDA"+i);
-            }
-            document.add(tabla);
+
+            PdfPTable tabla=new PdfPTable(3);
+
+            document.add(llenarTabla(tabla,tipo));
         }catch (DocumentException e){
         }catch (IOException e){
         }finally {
             document.close();
         }
     }
+
+    public PdfPTable llenarTabla(PdfPTable table,String tipo)
+    {
+        List<FilaReporte> report;
+        report=BD_AccesoDatos.reporte(tipo,getApplicationContext());
+
+        //Set titulos
+        table.addCell("Fecha");
+        table.addCell("Motivo");
+        table.addCell("Poza");
+        Toast.makeText(this,"Cantidad: "+report.size(),Toast.LENGTH_LONG).show();
+
+        try {
+            for (int i = 0; i<report.size(); i++){
+                table.addCell(String.valueOf(report.get(i).fecha));
+                table.addCell(String.valueOf(report.get(i).razon));
+                table.addCell(String.valueOf(report.get(i).idPoza));
+            }
+            return table;
+        }catch (Exception e){
+            Toast.makeText(this,"No funciona"+e.toString(),Toast.LENGTH_LONG).show();
+        }
+        return table;
+    }
+
+
+
     public File crearFichero(String nombreFichero){
         File ruta=getRuta();
 
