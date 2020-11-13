@@ -33,6 +33,19 @@ INNER JOIN tblDetalleTransaccion ON tblTransacciones.ID_Transaccion=tblDetalleTr
 INNER JOIN tblCuyes ON tblDetalleTransaccion.ID_Cuyes=tblCuyes.ID_Cuy
 INNER JOIN tblTipoMovimiento ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi WHERE tblTipoMovimiento.Tipo=@TipoIngreso
 
+
+--Cantidad de cuyes que salen por tipo
+CREATE PROCEDURE SP_CANTIDAD_MP
+@motivo AS CHAR(9),
+@tipo AS CHAR(2),
+@cat AS CHAR(2),
+@gen AS CHAR(7)
+AS
+SELECT COUNT(tblCuyes.ID_Cuy) AS cantidad FROM tblDetalleTransaccion INNER JOIN tblTipoMovimiento 
+ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi and tblTipoMovimiento.ID_TipoMovi=@tipo INNER JOIN tblCuyes	
+ON tblDetalleTransaccion.ID_Cuyes = tblCuyes.ID_Cuy AND tblCuyes.cuyGenero=@gen AND tblCuyes.ID_Categoria=@cat AND tblTipoMovimiento.Tipo=@motivo
+
+EXEC SP_CANTIDAD_MP SALIDA ,IC,LC,MACHO
  
 
 
