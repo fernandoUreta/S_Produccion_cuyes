@@ -38,11 +38,8 @@ public class MenuPozasEmpadre extends AppCompatActivity {
         }
 
         listaA1.add("1");
-
         listaA2.add("2");
-
         listaA3.add("3");
-
         listaA4.add("4");
 
         mapChild.put(listCategoria.get(0),listaA1);
