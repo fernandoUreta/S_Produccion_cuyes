@@ -29,6 +29,7 @@
         android:layout_gravity="center"
         android:background="@drawable/btn_cuadrado"
         android:text="Ingresos"
+        android:onClick="btnIngresosClick"
         android:layout_width="200dp"
         android:layout_height="60dp"/>
     <Button
@@ -37,6 +38,7 @@
         android:background="@drawable/btn_cuadrado"
         android:text="Salidas"
         android:layout_width="200dp"
+        android:onClick="btnSalidasClick"
         android:layout_height="60dp"/>
     <Button
         android:layout_marginTop="30dp"
@@ -44,6 +46,7 @@
         android:background="@drawable/btn_cuadrado"
         android:text="Movimiento poblacional"
         android:layout_width="200dp"
+        android:onClick="btnMovimientoPoblacionalClick"
         android:layout_height="60dp"/>
 
 </LinearLayout>

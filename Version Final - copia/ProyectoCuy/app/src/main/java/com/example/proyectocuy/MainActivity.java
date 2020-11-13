@@ -103,16 +103,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void AutentificarIngresar(View v){
         Intent i = new Intent(this,RegistroCuy.class);
-        Usuarios user=new Usuarios();
-        user=InicioSesion.Consultar(usuario.getText().toString());
+        //Usuarios user=new Usuarios();
+        //user=InicioSesion.Consultar(usuario.getText().toString());
+        startActivity(i);
 
-
-        if (usuario.getText().toString()==user.Correo||usuario.getText().toString()!=user.Contraseña){
-            startActivity(i);
-        }
-        else {
-            Toast.makeText(this, "Contraseña invalida", Toast.LENGTH_SHORT).show();
-        }
+        //if (usuario.getText().toString()==user.Correo||usuario.getText().toString()!=user.Contraseña){
+          //  startActivity(i);
+        //}
+        //else {
+          //  Toast.makeText(this, "Contraseña invalida", Toast.LENGTH_SHORT).show();
+        //}
     }
     public List<Poza> obtenerPozaBD(){
         List<Poza> poza=new ArrayList<>();
