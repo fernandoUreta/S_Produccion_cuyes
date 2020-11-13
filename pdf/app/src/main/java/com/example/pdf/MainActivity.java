@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     String Nombre_Directorio="ReportesPDFs";
-    String Nombre_Documento="ReporteIngreso";
+    String Nombre_Documento="ReporteIngreso.pdf";
 
     TextView txtReporte;
     Button btnIngreso;
@@ -113,17 +113,15 @@ public class MainActivity extends AppCompatActivity {
         return table;
     }
 
-
-
     public File crearFichero(String nombreFichero){
         File ruta=getRuta();
-
         File fichero=null;
         if(ruta!=null){
             fichero=new File(ruta, nombreFichero);
         }
         return fichero;
     }
+
     public File getRuta(){
         File ruta=null;
 
