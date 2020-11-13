@@ -23,7 +23,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/btn_cuadrado"
         android:onClick="btnCuy"
-        android:text="Reportes de Cuyes/Pozas" />
+        android:text="Cuyes en Pozas" />
     <Button
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
