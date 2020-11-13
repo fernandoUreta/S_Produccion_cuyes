@@ -174,9 +174,21 @@ public class BD_ProduccionCuyes {
             return 0;
         }
     }
-    //Fin Pozas
+    public static int consultarReporteCuy(String idpoza)
+    {
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_C_ReporteCuy '"+idpoza+"'");
+            if (rs.next()){
+                return rs.getInt(1);
+            }else {
+                return 0;
+            }
+        }catch (Exception e){
+            return 0;
+        }
+    }
 
-    //Cuyes
     public static boolean registrarCuy(Cuy cuy)
     {
         boolean v;

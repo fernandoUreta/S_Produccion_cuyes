@@ -3,8 +3,8 @@
     package="com.example.proyectocuy">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".VistaPDFCuy"></activity>
-        <activity android:name=".ReporteCuyPoza" />
+        <activity android:name=".ReporteCuyPoza"></activity>
+        <activity android:name=".VistaPDFCuy" />
         <activity android:name=".MenuReportes" />
         <activity android:name=".VistaActividades" />
         <activity android:name=".AgregarActividad" />
