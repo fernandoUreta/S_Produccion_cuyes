@@ -15,6 +15,13 @@
         android:src="@drawable/mycuy"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
+    <Button
+        android:background="@drawable/btn_cuadrado"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Añadir Poza"
+        android:onClick="btnAñadirPoza"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

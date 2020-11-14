@@ -25,8 +25,13 @@ public class MenuPozas extends AppCompatActivity {
     public void btnRecria(View v){
         Intent i = new Intent(this,MenuPozasRecria.class);
         startActivity(i);
-    }public void btnPadrillos(View v){
+    }
+    public void btnPadrillos(View v){
         Intent i = new Intent(this,MenuPozasPadrillo.class);
+        startActivity(i);
+    }
+    public void btnAñadirPoza(View v){
+        Intent i = new Intent(this,C_RegistroPozas.class);
         startActivity(i);
     }
 
