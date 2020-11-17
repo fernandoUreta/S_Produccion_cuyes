@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Controller.RegistroPozasManualActivity">
+
+    <include layout="@layout/actionbar_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/margin_low"
+        android:layout_marginEnd="@dimen/margin_low"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cuenta con"
+                android:textSize="@dimen/textSize_medium" />
+
+            <TextView
+                android:id="@+id/tvCantidadPozas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_low"
+                android:text="XXX"
+                android:textSize="@dimen/textSize_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_low"
+                android:text="pozas"
+                android:textSize="@dimen/textSize_medium" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione el tipo de poza"
+            android:textSize="@dimen/textSize_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spTipoPozas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnHelpTiposPozas"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/vector_help"
+                android:onClick="btnInfoClick"
+                android:padding="@dimen/margin_low" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrese dimensiones en (cm)"
+            android:textSize="@dimen/textSize_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etAncho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Ancho"
+                android:inputType="numberDecimal"
+                android:textSize="@dimen/textSize_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Y "
+                android:textSize="@dimen/textSize_medium" />
+
+            <EditText
+                android:id="@+id/etLargo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Largo"
+                android:inputType="numberDecimal"
+                android:textSize="@dimen/textSize_medium"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrese cantidad"
+            android:textSize="@dimen/textSize_medium" />
+
+        <EditText
+            android:id="@+id/etCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad"
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/textSize_medium"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AGREGAR"
+            android:onClick="btnAgregarClick"
+            android:theme="@style/RaisedButtonDark" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

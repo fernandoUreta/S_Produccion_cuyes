@@ -36,8 +36,8 @@ public class Menu_general_pozasActivity extends AppCompatActivity {
     }
     public void btnRegistrarPozasClick(View view)
     {
-        //Intent intent=new Intent(this, RegistroPozasManualActivity.class);
-        //startActivity(intent);
+        Intent intent=new Intent(this, RegistroPozasManualActivity.class);
+        startActivity(intent);
     }
     public void btnEliminarPozasClick(View view)
     {

@@ -59,7 +59,20 @@ public class BD_AccesoDatos {
         }
     }
 
+    public static int consultarIdPoza(String identificador,Context context)
+    {
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_Obtener_Max_ID_Poza '"+identificador+"'");
+            if (rs.next()){
+                return rs.getInt(1);
+            }else {return 0;}
+        }catch (Exception e){
+            Toast.makeText(context,"Error: "+e.toString(),Toast.LENGTH_LONG);
+            return -1;
+        }
 
+    }
 
     //Reportes
     public static List<FilaMovEntradaSalida_Reporte> reporte(String tipoReporte, Context context)
