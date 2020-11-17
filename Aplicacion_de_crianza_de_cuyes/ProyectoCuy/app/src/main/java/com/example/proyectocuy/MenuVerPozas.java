@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MenuPozas extends AppCompatActivity {
+public class    MenuVerPozas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_pozas);
+        setContentView(R.layout.activity_menu_ver_pozas);
     }
 
     public void btnEmpadre(View v){

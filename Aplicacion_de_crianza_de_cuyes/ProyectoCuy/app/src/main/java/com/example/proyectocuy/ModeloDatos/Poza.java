@@ -1,6 +1,6 @@
 package com.example.proyectocuy.ModeloDatos;
 
-public class Poza {
+public class Poza{
     public String idPoza;
     public float largo;
     public float ancho;
@@ -14,10 +14,7 @@ public class Poza {
         this.capacidad = capacidad;
         this.clasificacion = clasificacion;
     }
-
-    public Poza() {
-
-    }
+    public Poza(){}
 
     public String getIdPoza() {
         return idPoza;
@@ -58,6 +55,5 @@ public class Poza {
     public void setClasificacion(String clasificacion) {
         this.clasificacion = clasificacion;
     }
+
 }
-
-

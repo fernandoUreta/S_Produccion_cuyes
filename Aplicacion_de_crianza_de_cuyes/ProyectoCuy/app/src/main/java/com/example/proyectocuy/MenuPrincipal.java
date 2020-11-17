@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.proyectocuy.Controller.Menu_general_pozasActivity;
+
 public class MenuPrincipal extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     public void btnPozas(View v){
-        Intent i = new Intent(this,MenuPozas.class);
+        Intent i = new Intent(this, Menu_general_pozasActivity.class);
         startActivity(i);
     }
     public void btnCalendario(View v){

@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.example.proyectocuy.ModeloDatos.FilaMovEntradaSalida_Reporte;
 import com.example.proyectocuy.ModeloDatos.FilaMovPoblacional_reporte;
+import com.example.proyectocuy.ModeloDatos.Poza;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BD_AccesoDatos {
+
+    //Pozas
+    public static void registrarPoza(Poza poza, Context context) {
+        try {
+            PreparedStatement pst = ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblPozas '" +
+                    poza.getIdPoza() + "'," +
+                    poza.getLargo() +
+                    "," + poza.getAncho() +
+                    ",'" + poza.getClasificacion() +
+                    "'," + poza.getCapacidad());
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            Toast.makeText(context, "Error: " + e.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static void eliminarPoza(String idPoza,Context context)
+    {
+        try {
+            PreparedStatement pst=ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_E_tblPozas "+idPoza);
+            pst.executeUpdate();
+            Toast.makeText(context,"Poza eliminada",Toast.LENGTH_SHORT).show();
+        }catch (SQLException e){
+            Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static int consultarCantidadPozas(Context context)
+    {
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_MostrarTotalPozas");
+            if (rs.next()){
+                return rs.getInt(1);
+            }
+            return 0;
+        }catch (Exception e){
+            Toast.makeText(context,"Error: "+e.toString(),Toast.LENGTH_LONG);
+            return 0;
+        }
+    }
+
 
 
     //Reportes
