@@ -46,6 +46,15 @@ ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi and tblTipoMo
 ON tblDetalleTransaccion.ID_Cuyes = tblCuyes.ID_Cuy AND tblCuyes.cuyGenero=@gen AND tblCuyes.ID_Categoria=@cat AND tblTipoMovimiento.Tipo=@motivo
 
 EXEC SP_CANTIDAD_MP SALIDA ,IC,LC,MACHO
+
+--Obtener id_máximo de determinado tipo de poza
+CREATE PROCEDURE SP_Obtener_Max_ID_Poza
+@identificador AS CHAR
+AS
+SELECT MAX(convert(int,SUBSTRING(ID_Pozas,2, 1) + SUBSTRING(ID_Pozas,3,1)))
+FROM tblPozas WHERE ID_Pozas like @identificador+'%'
+
+EXEC SP_Obtener_Max_ID_Poza 'A'
  
 
 
