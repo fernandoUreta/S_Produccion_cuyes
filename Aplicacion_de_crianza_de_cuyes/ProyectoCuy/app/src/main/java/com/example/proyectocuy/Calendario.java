@@ -3,6 +3,7 @@ package com.example.proyectocuy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +18,7 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
+        showToolbar("Calendario",true);
         calendarView=findViewById(R.id.Calendario);
         calendarView.setOnDateChangeListener(this);
     }
@@ -63,5 +65,12 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         });
         AlertDialog dialog=builder.create();
         dialog.show();
+    }
+    public void showToolbar(String tittle, Boolean upButton)
+    {
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(tittle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 }

@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="@dimen/margin_hight"
+        android:layout_weight="1"
         android:src="@drawable/image_poza_menu" />
 
     <LinearLayout
@@ -20,12 +21,15 @@
         android:layout_marginStart="@dimen/margin_hight"
         android:layout_marginTop="@dimen/margin_hight"
         android:layout_marginEnd="@dimen/margin_hight"
+        android:layout_marginBottom="@dimen/margin_hight"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_low"
+            android:layout_weight="1"
             android:onClick="btnConsultarPozasClick"
             android:text="Ver Pozas"
             android:textSize="@dimen/textSize_hight"
@@ -36,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_low"
+            android:layout_weight="1"
             android:onClick="btnRegistrarPozasClick"
             android:text="Registrar pozas"
             android:textSize="@dimen/textSize_hight"
@@ -46,6 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_low"
+            android:layout_weight="1"
             android:onClick="btnEliminarPozasClick"
             android:text="Eliminar pozas"
             android:textSize="@dimen/textSize_hight"

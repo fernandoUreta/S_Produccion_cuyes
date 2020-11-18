@@ -25,7 +25,8 @@
             android:parentActivityName=".MenuPrincipal"/>
         <activity android:name=".VistaActividades" />
         <activity android:name=".AgregarActividad" />
-        <activity android:name=".Calendario" />
+        <activity android:name=".Calendario"
+            android:parentActivityName=".MenuPrincipal"/>
         <activity android:name=".MenuPozasRecria" />
         <activity android:name=".MenuPozasEngorde" />
         <activity android:name=".MenuPozasPadrillo" />
