@@ -14,7 +14,7 @@
         android:layout_height="300dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:src="@drawable/mycuy" />
+        android:src="@drawable/mycuy"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,20 +26,16 @@
             android:layout_height="150dp"
             android:layout_margin="@dimen/margin_low"
             android:layout_weight="1"
-            android:background="@drawable/btn_cuadrado"
-            android:onClick="btnEmpadre"
-            android:text="POZAS de empadre (A)"
-            android:textSize="25dp" />
+            android:background="@drawable/img_btnempadre"
+            android:onClick="btnEmpadre" />
 
         <Button
             android:layout_width="180dp"
             android:layout_height="150dp"
             android:layout_margin="@dimen/margin_low"
             android:layout_weight="1"
-            android:background="@drawable/btn_cuadrado"
-            android:onClick="btnEngorde"
-            android:text="POZAS de engorde (b)"
-            android:textSize="25dp" />
+            android:background="@drawable/img_btnengorde"
+            android:onClick="btnEngorde"/>
     </LinearLayout>
 
     <LinearLayout
@@ -51,21 +47,17 @@
             android:layout_width="180dp"
             android:layout_height="150dp"
             android:layout_margin="@dimen/margin_low"
-            android:background="@drawable/btn_cuadrado"
+            android:background="@drawable/img_btnrecria"
             android:onClick="btnRecria"
-            android:layout_weight="1"
-            android:text="POZAS   de  recría       (C)"
-            android:textSize="25dp" />
+            android:layout_weight="1" />
 
         <Button
             android:layout_width="180dp"
             android:layout_height="150dp"
             android:layout_margin="@dimen/margin_low"
-            android:background="@drawable/btn_cuadrado"
+            android:background="@drawable/img_btnpadrillo"
             android:onClick="btnPadrillos"
-            android:layout_weight="1"
-            android:text="POZAS de padrillo (D)"
-            android:textSize="25dp" />
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </LinearLayout>
