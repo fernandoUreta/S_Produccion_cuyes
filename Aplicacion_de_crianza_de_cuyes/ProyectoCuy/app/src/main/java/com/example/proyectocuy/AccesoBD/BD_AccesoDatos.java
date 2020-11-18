@@ -40,7 +40,7 @@ public class BD_AccesoDatos {
             pst.executeUpdate();
             Toast.makeText(context,"Poza eliminada",Toast.LENGTH_SHORT).show();
         }catch (SQLException e){
-            Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(context,"Hay cuyes en esa poza",Toast.LENGTH_LONG).show();
         }
     }
 

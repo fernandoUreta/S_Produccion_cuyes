@@ -30,10 +30,7 @@ public class    MenuVerPozas extends AppCompatActivity {
         Intent i = new Intent(this,MenuPozasPadrillo.class);
         startActivity(i);
     }
-    public void btnAñadirPoza(View v){
-        Intent i = new Intent(this,C_RegistroPozas.class);
-        startActivity(i);
-    }
+
 
 
 }

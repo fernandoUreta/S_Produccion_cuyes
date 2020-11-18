@@ -4,75 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuVerPozas"
-    android:orientation="vertical"
     android:background="@drawable/fondo"
-    android:padding="20dp">
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MenuVerPozas">
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/mycuy"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
-    <Button
-        android:background="@drawable/btn_cuadrado"
         android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Añadir Poza"
-        android:onClick="btnAñadirPoza"/>
+        android:layout_marginTop="20dp"
+        android:src="@drawable/mycuy" />
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
-            android:padding="20dp"
             android:layout_width="180dp"
             android:layout_height="150dp"
-            android:text="POZAS de empadre (A)"
-            android:onClick="btnEmpadre"
-            android:background="@drawable/btn_cuadrado"
-            android:layout_marginTop="20dp"
-            android:textSize="25dp"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"/>
-        <Button
-            android:padding="20dp"
-            android:layout_width="180dp"
-            android:layout_height="150dp"
-            android:textSize="25dp"
-            android:text="POZAS de engorde (b)"
-            android:background="@drawable/btn_cuadrado"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:onClick="btnEngorde"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:padding="20dp"
-            android:layout_width="180dp"
-            android:layout_height="150dp"
-            android:text="POZAS   de  recría       (C)"
-            android:background="@drawable/btn_cuadrado"
-            android:layout_marginTop="20dp"
-            android:textSize="25dp"
-            android:layout_gravity="center"
             android:layout_marginRight="10dp"
-            android:onClick="btnRecria"/>
-        <Button
+            android:background="@drawable/btn_cuadrado"
+            android:onClick="btnEmpadre"
             android:padding="20dp"
+            android:text="POZAS de empadre (A)"
+            android:textSize="25dp" />
+
+        <Button
             android:layout_width="180dp"
             android:layout_height="150dp"
-            android:textSize="25dp"
-            android:text="POZAS de padrillo (D)"
-            android:background="@drawable/btn_cuadrado"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:onClick="btnPadrillos"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_cuadrado"
+            android:onClick="btnEngorde"
+            android:padding="20dp"
+            android:text="POZAS de engorde (b)"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_cuadrado"
+            android:onClick="btnRecria"
+            android:padding="20dp"
+            android:text="POZAS   de  recría       (C)"
+            android:textSize="25dp" />
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_cuadrado"
+            android:onClick="btnPadrillos"
+            android:padding="20dp"
+            android:text="POZAS de padrillo (D)"
+            android:textSize="25dp" />
     </LinearLayout>
 
 </LinearLayout>
