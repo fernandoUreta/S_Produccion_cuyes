@@ -1,6 +1,7 @@
 package com.example.proyectocuy.Controller;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -37,6 +38,11 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
         etLargo=(EditText)findViewById(R.id.etLargo);
         etCantidad=(EditText)findViewById(R.id.etCantidad);
 
+        limpiarCampos();
+        etAncho.setText("");
+        etLargo.setText("");
+        etCantidad.setText("");
+
         //Declarado y Llenado del spinner
         spTiposPozas = (Spinner) findViewById(R.id.spTipoPozas);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipos_pozas, R.layout.spinner_formato);
@@ -69,8 +75,8 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
     }
     public void btnAgregarClick(View v)
     {
-        if (etCantidad.getText().toString()==""&& etLargo.getText().toString()==""
-        && etAncho.getText().toString()=="")
+        if (TextUtils.isEmpty(etCantidad.getText().toString().trim())||TextUtils.isEmpty(etLargo.getText().toString().trim())||
+                TextUtils.isEmpty(etAncho.getText().toString().trim()))
         {
             Toast.makeText(this,"Ingrese todos los valores",Toast.LENGTH_LONG).show();
         }
@@ -79,7 +85,7 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
             registrarPozas();
             limpiarCampos();
             actualizarTotal();
-         }
+        }
     }
 
     public void registrarPozas()
