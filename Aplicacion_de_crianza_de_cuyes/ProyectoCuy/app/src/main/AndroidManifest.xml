@@ -21,7 +21,8 @@
         <activity android:name=".Controller.RegistroPozasManualActivity"
             android:parentActivityName=".Controller.Menu_general_pozasActivity"></activity>
         <activity android:name=".VistaPDFCuy" />
-        <activity android:name=".MenuReportes" />
+        <activity android:name=".MenuReportes"
+            android:parentActivityName=".MenuPrincipal"/>
         <activity android:name=".VistaActividades" />
         <activity android:name=".AgregarActividad" />
         <activity android:name=".Calendario" />

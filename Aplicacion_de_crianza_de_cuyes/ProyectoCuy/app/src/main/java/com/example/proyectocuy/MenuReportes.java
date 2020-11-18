@@ -18,6 +18,7 @@ public class MenuReportes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_reportes);
+        showToolbar("REPORTES",true);
 
     //Permisos
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
@@ -44,6 +45,14 @@ public class MenuReportes extends AppCompatActivity {
     public void btnMovimientoPoblacionalClick(View view)
     {
         PdfGenerador.crearPDF_MovimientoPoblacional(this);
+    }
+
+    public void showToolbar(String tittle, Boolean upButton)
+    {
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(tittle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
 }

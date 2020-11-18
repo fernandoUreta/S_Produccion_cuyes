@@ -13,36 +13,34 @@
         android:layout_height="300dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:src="@drawable/mycuy" />
+        android:src="@drawable/img_imgcuyprincipal"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="107dp"
-        android:layout_margin="@dimen/margin_hight"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="@dimen/margin_hight"
+        android:layout_marginTop="@dimen/margin_low"
+        android:layout_marginEnd="@dimen/margin_hight"
         android:background="@drawable/img_btn_pozas"
         android:onClick="btnPozas"
-        android:textSize="20dp"/>
-
-    <Button
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_iniciosesion"
-        android:onClick="btnCalendario"
-        android:text="Calendario"
         android:textSize="20dp" />
 
     <Button
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:layout_marginStart="@dimen/margin_hight"
+        android:layout_marginTop="@dimen/margin_low"
+        android:layout_marginEnd="@dimen/margin_hight"
+        android:background="@drawable/img_btncalendario"
+        android:onClick="btnCalendario" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:layout_marginStart="@dimen/margin_hight"
         android:layout_marginTop="20dp"
-        android:background="@drawable/btn_iniciosesion"
-        android:onClick="btnReporte"
-        android:text="REPORTES"
-        android:textSize="20dp" />
+        android:layout_marginEnd="@dimen/margin_hight"
+        android:background="@drawable/img_btnreportes"
+        android:onClick="btnReporte" />
 
 </LinearLayout>

@@ -142,7 +142,7 @@
         android:background="@drawable/btn_siguiente"
         android:onClick="btnSiguienteClick"
         android:padding="@dimen/margin_low"
-        android:text="Siguiente"
+        android:text="Finalizar"
         android:textStyle="bold"
         android:visibility="gone" />
 
