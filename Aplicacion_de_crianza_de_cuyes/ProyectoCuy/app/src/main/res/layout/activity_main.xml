@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@drawable/fondo"
     android:orientation="vertical"
-    android:background="@drawable/fondo">
+    tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="150dp"
@@ -86,8 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:gravity="center"
-                android:text="¿Aun no tienes cuenta?"
                 android:onClick="Consultar"
+                android:text="¿Aun no tienes cuenta?"
                 android:textSize="15dp"></TextView>
 
             <TextView

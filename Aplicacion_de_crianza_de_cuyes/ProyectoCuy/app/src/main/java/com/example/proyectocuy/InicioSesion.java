@@ -1,5 +1,7 @@
 package com.example.proyectocuy;
 
+
+import android.content.Context;
 import android.widget.Toast;
 
 import java.sql.ResultSet;
@@ -13,13 +15,9 @@ public class InicioSesion {
         try {
             Statement stm= Conexion.conectarBD().createStatement();
             ResultSet rs=stm.executeQuery("SELECT * FROM tblUsuario WHERE usuCorreo ='"+usuario+"'");
-
             if (rs.next()){
-                user.Correo=rs.getString(4);
-                user.Contraseña=rs.getString(5);
-
-                user.Correo=String.valueOf(user.Correo);
-                user.Contraseña=String.valueOf(user.Contraseña);
+                user.correo =rs.getString(4).replace(" ","");
+                user.contraseña =rs.getString(5).replace(" ","");
             }return user;
         }catch (Exception e){
             return null;

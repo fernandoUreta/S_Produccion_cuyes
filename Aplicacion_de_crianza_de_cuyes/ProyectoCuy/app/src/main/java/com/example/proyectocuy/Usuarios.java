@@ -1,6 +1,6 @@
 package com.example.proyectocuy;
 
 public class Usuarios {
-    String Correo;
-    String Contraseña;
+    public String correo;
+    public String contraseña;
 }
