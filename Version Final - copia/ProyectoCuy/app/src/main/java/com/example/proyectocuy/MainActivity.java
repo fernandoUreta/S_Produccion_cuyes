@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         usuario=findViewById(R.id.edtIScorreo);
         contraseña=findViewById(R.id.edtIScontraseña);
 
+        Toast.makeText(this, InicioSesion.Consultar("oscar").Correo+InicioSesion.Consultar("oscar").Contraseña, Toast.LENGTH_LONG).show();
+
         obtenerPozaBD();
 
         SignIn= findViewById(R.id.sign_in_button);
@@ -103,8 +105,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void AutentificarIngresar(View v){
         Intent i = new Intent(this,RegistroCuy.class);
+
+
         Usuarios user=new Usuarios();
         user=InicioSesion.Consultar(usuario.getText().toString());
+
         try {
             if (usuario.getText().toString().matches(user.Correo.replace(" ",""))){
                 if (contraseña.getText().toString().matches(user.Contraseña.replace(" ",""))){

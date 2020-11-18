@@ -34,27 +34,16 @@ public class MenuPozasRecria extends AppCompatActivity {
     }
 
     private void cargarDatos() {
-        ArrayList<String> listaMadres=new ArrayList<>();
-        ArrayList<String> listaPadrillo=new ArrayList<>();
-        ArrayList<String> listaGazapos=new ArrayList<>();
-        ArrayList<String> listaEdad=new ArrayList<>();
+        ArrayList<String> listaA1=new ArrayList<>();
 
-        for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasRecria();i++){
-            listCategoria.add("C"+i);
+        for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
+            listCategoria.add("A"+i);
         }
 
-        listaMadres.add("10");
-
-        listaPadrillo.add("10");
-
-        listaGazapos.add("10");
-
-        listaEdad.add("10");
-
-        mapChild.put(listCategoria.get(0),listaMadres);
-        mapChild.put(listCategoria.get(1),listaPadrillo);
-        mapChild.put(listCategoria.get(2),listaGazapos);
-        mapChild.put(listCategoria.get(3),listaEdad);
+        listaA1.add("1");
+        for (int i=0;i<BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
+            mapChild.put(listCategoria.get(i),listaA1);
+        }
 
         adapter=new ExpPCAdapterRec(listCategoria, mapChild, this);
         expLV.setAdapter(adapter);

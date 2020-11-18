@@ -29,23 +29,15 @@ public class MenuPozasEmpadre extends AppCompatActivity {
     }
     private void cargarDatos(){
         ArrayList<String> listaA1=new ArrayList<>();
-        ArrayList<String> listaA2=new ArrayList<>();
-        ArrayList<String> listaA3=new ArrayList<>();
-        ArrayList<String> listaA4=new ArrayList<>();
 
         for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
             listCategoria.add("A"+i);
         }
 
         listaA1.add("1");
-        listaA2.add("2");
-        listaA3.add("3");
-        listaA4.add("4");
-
-        mapChild.put(listCategoria.get(0),listaA1);
-        mapChild.put(listCategoria.get(1),listaA2);
-        mapChild.put(listCategoria.get(2),listaA3);
-        mapChild.put(listCategoria.get(3),listaA4);
+        for (int i=0;i<BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
+            mapChild.put(listCategoria.get(i),listaA1);
+        }
 
         adapter=new ExpPCAdapter(listCategoria, mapChild, this);
         expLV.setAdapter(adapter);
