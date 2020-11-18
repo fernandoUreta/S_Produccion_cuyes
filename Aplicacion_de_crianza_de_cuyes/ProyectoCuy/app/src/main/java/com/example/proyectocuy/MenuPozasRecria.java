@@ -1,6 +1,7 @@
 package com.example.proyectocuy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.widget.ExpandableListView;
@@ -24,7 +25,7 @@ public class MenuPozasRecria extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_pozas_recria);
-
+        showToolbar("Pozas de recría",true);
         expLV=(ExpandableListView) findViewById(R.id.expLV);
         listCategoria=new ArrayList<>();
         mapChild = new HashMap<>();
@@ -47,5 +48,12 @@ public class MenuPozasRecria extends AppCompatActivity {
 
         adapter=new ExpPCAdapterRec(listCategoria, mapChild, this);
         expLV.setAdapter(adapter);
+    }
+    public void showToolbar(String tittle, Boolean upButton)
+    {
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(tittle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 }

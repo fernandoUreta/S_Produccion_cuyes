@@ -5,6 +5,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 
+import com.example.proyectocuy.ModeloDatos.Actividad;
 import com.example.proyectocuy.ModeloDatos.FilaMovEntradaSalida_Reporte;
 import com.example.proyectocuy.ModeloDatos.FilaMovPoblacional_reporte;
 import com.example.proyectocuy.ModeloDatos.Poza;
@@ -72,6 +73,22 @@ public class BD_AccesoDatos {
             return -1;
         }
 
+    }
+
+    //Obtener pozas con cuyes en maxima edad
+    public static List<Actividad> obtenerCuyesLimiteEdadEnPoza(String tipoCuy, String tipoPoza, int edadLimite, String descripcion, Context context)
+    {
+        List<Actividad> actividad=new ArrayList<>();
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_C_CuyesEdadMax '"+tipoCuy+"','"+tipoPoza+"',"+edadLimite);
+            while (rs.next()){
+                actividad.add(new Actividad(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4),rs.getString(5),descripcion));
+            }
+        }catch (Exception e) {
+            Toast.makeText(context,"Error: ",Toast.LENGTH_LONG);
+        }
+        return actividad;
     }
 
     //Reportes

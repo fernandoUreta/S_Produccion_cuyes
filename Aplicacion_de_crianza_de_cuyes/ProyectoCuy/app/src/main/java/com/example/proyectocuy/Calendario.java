@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,9 +13,17 @@ import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
+import com.example.proyectocuy.Adapter.ActividadesAdapter;
+import com.example.proyectocuy.ModeloDatos.Actividad;
+import com.example.proyectocuy.Tools.AdministradorActividades;
+
+import java.util.List;
+
 public class Calendario extends AppCompatActivity implements CalendarView.OnDateChangeListener{
     CalendarView calendarView;
-
+    private RecyclerView rvActividades;
+    private ActividadesAdapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +31,13 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         showToolbar("Calendario",true);
         calendarView=findViewById(R.id.Calendario);
         calendarView.setOnDateChangeListener(this);
+
+        //RecyclerView
+        rvActividades = findViewById(R.id.rvActividades);
+        rvActividades.setLayoutManager(new LinearLayoutManager(this));
+
+        mAdapter=new ActividadesAdapter(this,llenarLista());
+        rvActividades.setAdapter(mAdapter);
     }
 
     @Override
@@ -30,7 +47,6 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         items[0]="Agregar evento";
         items[1]="ver eventos";
         items[2]="Cancelar";
-
 
 
         final int dia,mes,anio;
@@ -65,6 +81,13 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         });
         AlertDialog dialog=builder.create();
         dialog.show();
+    }
+    public List<Actividad> llenarLista()
+    {
+        List<Actividad> actividades;
+        AdministradorActividades admAct=new AdministradorActividades(getApplicationContext());
+        actividades=admAct.getActividadesAll();
+        return actividades;
     }
     public void showToolbar(String tittle, Boolean upButton)
     {

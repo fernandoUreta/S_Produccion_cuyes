@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_low"
             android:layout_weight="1"
+            android:onClick="btnEliminarPozasClick"
             android:background="@drawable/img_btneliminarpoza"
             android:theme="@style/RaisedButtonDark" />
 

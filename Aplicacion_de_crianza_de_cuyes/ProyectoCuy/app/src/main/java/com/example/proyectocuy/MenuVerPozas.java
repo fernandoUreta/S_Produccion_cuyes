@@ -1,6 +1,7 @@
 package com.example.proyectocuy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ public class    MenuVerPozas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_ver_pozas);
+        showToolbar("Pozas",true);
     }
 
     public void btnEmpadre(View v){
@@ -29,6 +31,13 @@ public class    MenuVerPozas extends AppCompatActivity {
     public void btnPadrillos(View v){
         Intent i = new Intent(this,MenuPozasPadrillo.class);
         startActivity(i);
+    }
+    public void showToolbar(String tittle, Boolean upButton)
+    {
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(tittle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
 
