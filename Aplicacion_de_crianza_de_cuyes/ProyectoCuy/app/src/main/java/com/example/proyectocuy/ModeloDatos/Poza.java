@@ -1,6 +1,8 @@
 package com.example.proyectocuy.ModeloDatos;
 
-public class Poza{
+import java.io.Serializable;
+
+public class Poza implements Serializable {
     public String idPoza;
     public float largo;
     public float ancho;

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".Controller.Menu_general_pozasActivity">
 
-    <include layout="@layout/actionbar_toolbar"/>
+    <include layout="@layout/actionbar_toolbar" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -14,28 +14,45 @@
         android:layout_margin="@dimen/margin_hight"
         android:src="@drawable/image_poza_menu" />
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="btnConsultarPozasClick"
-        android:text="Ver Pozas"
-        android:theme="@style/RaisedButtonDark" />
+        android:layout_marginStart="@dimen/margin_hight"
+        android:layout_marginTop="@dimen/margin_hight"
+        android:layout_marginEnd="@dimen/margin_hight"
+        android:orientation="vertical">
 
-    <Button
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_low"
+            android:onClick="btnConsultarPozasClick"
+            android:text="Ver Pozas"
+            android:textSize="@dimen/textSize_hight"
+            android:theme="@style/RaisedButtonDark" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnRegistrarPozasClick"
-        android:text="Registrar pozas"
-        android:theme="@style/RaisedButtonDark" />
+        <Button
 
-    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_low"
+            android:onClick="btnRegistrarPozasClick"
+            android:text="Registrar pozas"
+            android:textSize="@dimen/textSize_hight"
+            android:theme="@style/RaisedButtonDark" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnEliminarPozasClick"
-        android:text="Eliminar pozas"
-        android:theme="@style/RaisedButtonDark" />
+        <Button
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_low"
+            android:onClick="btnEliminarPozasClick"
+            android:text="Eliminar pozas"
+            android:textSize="@dimen/textSize_hight"
+            android:theme="@style/RaisedButtonDark" />
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

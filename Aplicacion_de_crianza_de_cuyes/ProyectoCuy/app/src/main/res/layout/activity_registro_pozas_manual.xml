@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_low"
         android:layout_marginEnd="@dimen/margin_low"
         android:orientation="vertical">
@@ -127,11 +127,24 @@
             android:id="@+id/btnAgregar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AGREGAR"
             android:onClick="btnAgregarClick"
+            android:text="AGREGAR"
             android:theme="@style/RaisedButtonDark" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSiguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/textSize_hight"
+        android:background="@drawable/btn_siguiente"
+        android:onClick="btnSiguienteClick"
+        android:padding="@dimen/margin_low"
+        android:text="Siguiente"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
 
 </LinearLayout>

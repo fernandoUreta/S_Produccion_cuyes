@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyectocuy.Controller.RegistroPozasManualActivity;
 import com.example.proyectocuy.DatosActividades.DatosActividades;
 import com.example.proyectocuy.ModeloDatos.Poza;
 
@@ -152,7 +153,8 @@ public class DistribucionRecomendado extends AppCompatActivity {
     }
 
     public void CrearPozaManual(View v) {
-        Intent i = new Intent(this, C_RegistroPozas.class);
+        Intent i = new Intent(this, RegistroPozasManualActivity.class);
+        i.putExtra("show_nextButtom",true);
         startActivity(i);
     }
     /*

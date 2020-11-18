@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="Theme.AppCuyes.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.AppCuyes.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

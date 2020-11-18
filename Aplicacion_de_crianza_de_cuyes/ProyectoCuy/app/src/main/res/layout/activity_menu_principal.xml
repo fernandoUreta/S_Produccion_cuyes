@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo"
+    android:background="@drawable/fondo_app"
     android:orientation="vertical"
     tools:context=".MenuPrincipal">
 
@@ -16,14 +16,14 @@
         android:src="@drawable/mycuy" />
 
     <Button
-        android:layout_width="220dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:layout_margin="@dimen/margin_hight"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/btn_iniciosesion"
+        android:background="@drawable/img_btn_pozas"
         android:onClick="btnPozas"
-        android:text="POZAS"
-        android:textSize="20dp" />
+        android:textSize="20dp"/>
 
     <Button
         android:layout_width="220dp"

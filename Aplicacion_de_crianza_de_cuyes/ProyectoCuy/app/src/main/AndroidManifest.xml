@@ -30,7 +30,6 @@
         <activity android:name=".MenuPozasPadrillo" />
         <activity android:name=".MenuPozasEmpadre" />
         <activity android:name=".MenuVerPozas" />
-        <activity android:name=".C_RegistroPozas" />
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".PozPadrilloRecomend" />
         <activity android:name=".PozRecriaRecomend" />

@@ -1,19 +1,25 @@
 package com.example.proyectocuy.Controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
+import com.example.proyectocuy.MenuPrincipal;
 import com.example.proyectocuy.ModeloDatos.Poza;
+import com.example.proyectocuy.PozEmpadreRecomend;
 import com.example.proyectocuy.R;
 import com.example.proyectocuy.Tools.Mensaje;
 
@@ -23,17 +29,20 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
     TextView tvCantidadPozas;
     Spinner spTiposPozas;
     EditText etAncho,etLargo,etCantidad;
+    Button btnSiguiente;
 
+    Boolean mostrarNextButtom=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_pozas_manual);
+
         showToolbar("Registro de pozas",true);
 
         //Declarado
         tvCantidadPozas=(TextView)findViewById(R.id.tvCantidadPozas);
-
+        btnSiguiente=findViewById(R.id.btnSiguiente);
         etAncho=(EditText)findViewById(R.id.etAncho);
         etLargo=(EditText)findViewById(R.id.etLargo);
         etCantidad=(EditText)findViewById(R.id.etCantidad);
@@ -48,6 +57,14 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipos_pozas, R.layout.spinner_formato);
         spTiposPozas.setAdapter(adapter);
 
+        //Ajustar Interfaz
+        try {
+            mostrarNextButtom=getIntent().getExtras().getBoolean("show_nextButtom");
+            if(mostrarNextButtom==true)
+            {
+                btnSiguiente.setVisibility(View.VISIBLE);
+            }
+        }catch (Exception e){}
 
         //INICIALIZAR
         actualizarTotal();
@@ -126,13 +143,17 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
         Mensaje dialogInfoCuy=new Mensaje(titulo,mensaje);
         dialogInfoCuy.show(getSupportFragmentManager(),"Informative dialog");
     }
+    public void btnSiguienteClick(View v){
+        Intent i = new Intent(this, MenuPrincipal.class);
+        startActivity(i);
+    }
     public void showToolbar(String tittle, Boolean upButton)
     {
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(tittle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
-    }
+     }
     public void limpiarCampos()
     {
         etCantidad.setText("");
