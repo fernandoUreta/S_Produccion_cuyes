@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fondo_app"
     tools:context=".Controller.Menu_general_pozasActivity">
 
     <include layout="@layout/actionbar_toolbar" />
@@ -13,7 +14,7 @@
         android:layout_height="200dp"
         android:layout_margin="@dimen/margin_hight"
         android:layout_weight="1"
-        android:src="@drawable/image_poza_menu" />
+        android:src="@drawable/img_pozaprincipal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,8 +32,7 @@
             android:layout_margin="@dimen/margin_low"
             android:layout_weight="1"
             android:onClick="btnConsultarPozasClick"
-            android:text="Ver Pozas"
-            android:textSize="@dimen/textSize_hight"
+            android:background="@drawable/img_btnverpozas"
             android:theme="@style/RaisedButtonDark" />
 
         <Button
@@ -42,8 +42,7 @@
             android:layout_margin="@dimen/margin_low"
             android:layout_weight="1"
             android:onClick="btnRegistrarPozasClick"
-            android:text="Registrar pozas"
-            android:textSize="@dimen/textSize_hight"
+            android:background="@drawable/img_btnregistrarpoza"
             android:theme="@style/RaisedButtonDark" />
 
         <Button
@@ -52,9 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_low"
             android:layout_weight="1"
-            android:onClick="btnEliminarPozasClick"
-            android:text="Eliminar pozas"
-            android:textSize="@dimen/textSize_hight"
+            android:background="@drawable/img_btneliminarpoza"
             android:theme="@style/RaisedButtonDark" />
 
 
