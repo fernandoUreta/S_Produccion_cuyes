@@ -38,12 +38,12 @@ public class MenuPozasPadrillo extends AppCompatActivity {
     private void cargarDatos() {
         ArrayList<String> listaA1=new ArrayList<>();
 
-        for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasPadrillo();i++){
+        for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
             listCategoria.add("D"+i);
         }
 
         listaA1.add("1");
-        for (int i=0;i<BD_ProduccionCuyes.consultarCantidadPozasPadrillo();i++){
+        for (int i=0;i<BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
             mapChild.put(listCategoria.get(i),listaA1);
         }
 
