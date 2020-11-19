@@ -37,12 +37,12 @@ public class MenuPozasEngorde extends AppCompatActivity {
     private void cargarDatos() {
         ArrayList<String> listaA1=new ArrayList<>();
 
-        for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
+        for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasEngorde();i++){
             listCategoria.add("B"+i);
         }
 
         listaA1.add("1");
-        for (int i=0;i<BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
+        for (int i=0;i<BD_ProduccionCuyes.consultarCantidadPozasEngorde();i++){
             mapChild.put(listCategoria.get(i),listaA1);
         }
 
