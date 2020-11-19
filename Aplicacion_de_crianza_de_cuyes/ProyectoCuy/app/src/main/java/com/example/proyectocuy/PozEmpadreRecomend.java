@@ -11,12 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.proyectocuy.ConexionBD.ConexionSQLServer;
-import com.example.proyectocuy.DatosActividades.DatosActividades;
+
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.Recursos_Adicionales.Fechas;
 
-import java.util.ArrayList;
+
 
 public class PozEmpadreRecomend extends AppCompatActivity {
     int contador =0;

@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proyectocuy.AccesoBD.ConexionSQLServer;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -37,7 +39,7 @@ public class InicioCorreo extends AppCompatActivity implements View.OnClickListe
     public void agregarUsuario(){
         try {
 
-            PreparedStatement pst= Conexion.conectarBD().prepareStatement("insert into tblUsuario values(?,?,?,?,?)");
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("insert into tblUsuario values(?,?,?,?,?)");
             pst.setString(1,edtDNI.getText().toString());
             pst.setString(2,edtNom.getText().toString());
             pst.setString(3,edtCel.getText().toString());

@@ -1,7 +1,6 @@
 package com.example.proyectocuy;
-import android.widget.Toast;
 
-import com.example.proyectocuy.ConexionBD.ConexionSQLServer;
+import com.example.proyectocuy.AccesoBD.ConexionSQLServer;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Poza;
 
