@@ -6,11 +6,9 @@ import android.widget.Toast;
 
 
 import com.example.proyectocuy.ModeloDatos.Actividad;
-import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.FilaMovEntradaSalida_Reporte;
 import com.example.proyectocuy.ModeloDatos.FilaMovPoblacional_reporte;
 import com.example.proyectocuy.ModeloDatos.Poza;
-import com.example.proyectocuy.ModeloDatos.Transaccion;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +33,6 @@ public class BD_AccesoDatos {
             Toast.makeText(context, "Error: " + e.toString(), Toast.LENGTH_LONG).show();
         }
     }
-
 
     public static void eliminarPoza(String idPoza,Context context)
     {
@@ -94,106 +91,6 @@ public class BD_AccesoDatos {
         return actividad;
     }
 
-    //Cuyes
-    public static boolean registrarCuy(Cuy cuy)
-    {
-        boolean v;
-        try {
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblCuyes " +
-                    "'"+cuy.getCuyId()+"','"+cuy.getIdPoza()+"','"+cuy.getCategoria()+"','"+cuy.getGenero()+"','"+cuy.getFechaNaci()+"'");
-            pst.executeUpdate();
-            v=true;
-        }catch (SQLException e){
-            v=false;
-        }
-        return v;
-    }
-
-    public static Cuy consultarCuy(String cuyID)
-    {
-        Cuy cuy=new Cuy();
-        try {
-            Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("EXEC SP_C_tblCuyes '"+cuyID+"'");
-            if (rs.next()){
-                cuy.setCuyId(rs.getString(1));
-                cuy.setIdPoza(rs.getString(2));
-                cuy.setCategoria(rs.getString(3));
-                cuy.setGenero(rs.getString(4));
-                cuy.setFechaNaci(rs.getDate(5));
-            }
-            return cuy;
-        }catch (Exception e){
-            return null;
-        }
-
-    }
-
-    public static void eliminarCuy(String cuyID)
-    {
-        try {
-            PreparedStatement pst=ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_E_tblCuyes "+cuyID);
-            pst.executeUpdate();
-        }catch (SQLException e){
-
-        }
-    }
-    public static int consultarCantiTipoCuyPoza(String idPoza,String idCatCuy)
-    {
-        int cantidad=0;
-        try {
-            Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("EXEC SP_C_CantiCuyes_Poza_Tipo_tblPozas '"+idPoza+"','"+idCatCuy+"'");
-            if (rs.next()){
-                cantidad=Integer.parseInt(rs.getString(1));
-            }
-            return cantidad;
-        }catch (Exception e){
-            return 0;
-        }
-    }
-
-    //Transacciones
-    public static int consultarUltimaTransaccion()
-    {
-        try {
-            Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("EXEC SP_C_UltimoID");
-            if (rs.next()){
-                return rs.getInt(1);
-            }
-            else return -1;
-        }catch (Exception e){
-            return -1;
-        }
-    }
-    public static boolean registrarTransaccion(Transaccion transaccion)
-    {
-        try {
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblTransaccion '"+transaccion.getIdTransaccion()+"'," +
-                    "'"+transaccion.getIdUsuario()+"'," +
-                    "'"+transaccion.getFecha()+"'");
-            pst.executeUpdate();
-            return true;
-        }catch (SQLException e){
-            return false;
-        }
-
-    }
-    //Detalle transacciones
-
-    public static boolean registrarDetalle(int transaID,String cuyID,String tipoMovi)
-    {
-        boolean v;
-        try {
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblDetalleTransaccion "+transaID+",'"+cuyID+"','"+tipoMovi+"'");
-            pst.executeUpdate();
-            v=true;
-        }catch (SQLException e){
-            v=false;
-        }
-        return v;
-    }
     //Reportes
     public static List<FilaMovEntradaSalida_Reporte> reporte(String tipoReporte, Context context)
     {
@@ -279,8 +176,6 @@ public class BD_AccesoDatos {
 
         return report;
     }
-
-
 
 
 }

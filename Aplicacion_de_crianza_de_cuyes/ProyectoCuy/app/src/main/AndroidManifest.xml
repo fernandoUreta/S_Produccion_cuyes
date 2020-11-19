@@ -48,8 +48,6 @@
         <activity android:name=".Usuario" />
         <activity android:name=".ContrasenaOlvidada" />
         <activity android:name=".InicioCorreo" />
-        <activity android:name=".Controller.RegistroIngresoCuyesPozasActivity"
-            android:parentActivityName=".MenuPozasEmpadre"/>
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
