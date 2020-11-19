@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void AutentificarIngresar(View v){
         Intent i = new Intent(this,RegistroCuy.class);
+        startActivity(i);
+        /*
         Usuarios user;
         user=InicioSesion.Consultar(usuario.getText().toString());
         try {
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }catch (Exception e){
             Toast.makeText(this, "Usuario no existe", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     public void Consultar(View v){
