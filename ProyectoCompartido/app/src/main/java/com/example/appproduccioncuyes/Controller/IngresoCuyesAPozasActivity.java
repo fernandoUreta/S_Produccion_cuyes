@@ -57,6 +57,7 @@ public class IngresoCuyesAPozasActivity extends AppCompatActivity {
 
         try {
             poza.setClasificacion("Recría Hembra");
+          
             adaptarInterfaz(poza);
 
             spGenero.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_formato,generos));
@@ -66,11 +67,6 @@ public class IngresoCuyesAPozasActivity extends AppCompatActivity {
 
         
         //-----------------------------------------------------------
-
-
-
-
-
     }
 
     public void registrarClick(View view)
