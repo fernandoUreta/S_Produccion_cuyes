@@ -105,7 +105,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void AutentificarIngresar(View v){
         Intent i = new Intent(this,RegistroCuy.class);
-        
+
+
         Usuarios user=new Usuarios();
         user=InicioSesion.Consultar(usuario.getText().toString());
 

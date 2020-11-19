@@ -38,7 +38,7 @@ public class MenuPozasEngorde extends AppCompatActivity {
         ArrayList<String> listaA1=new ArrayList<>();
 
         for (int i=1;i<=BD_ProduccionCuyes.consultarCantidadPozasEmpadre();i++){
-            listCategoria.add("B"+i);
+            listCategoria.add("A"+i);
         }
 
         listaA1.add("1");
