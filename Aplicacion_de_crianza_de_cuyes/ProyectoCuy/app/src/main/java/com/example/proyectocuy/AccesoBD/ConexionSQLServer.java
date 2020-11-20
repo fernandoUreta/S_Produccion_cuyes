@@ -15,6 +15,8 @@ public class ConexionSQLServer {
     
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
             cnn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.5.104;databaseName=BDProduccionCuyes;user=sa;password=123456;");
+            //Conexión servidor en nube
+            //cnn= DriverManager.getConnection("jdbc:jtds:sqlserver://35.193.201.117;databaseName=BDProduccionCuyes;user=sqlserver;password=cuyes1000%;");
         }catch (Exception e){
             return null;
         }
