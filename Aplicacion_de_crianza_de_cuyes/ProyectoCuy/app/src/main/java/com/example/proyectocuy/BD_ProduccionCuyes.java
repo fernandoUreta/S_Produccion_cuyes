@@ -107,19 +107,7 @@ public class BD_ProduccionCuyes {
         return poza;
     }
 
-    public static int consultarCantidadCuy(String categoria,String idpoza)
-    {
-        try {
-            Statement stm=ConexionSQLServer.conectarBD().createStatement();
-            ResultSet rs=stm.executeQuery("select count(*) from tblCuyes where ID_Categoria='"+categoria+"' and ID_Pozas='"+idpoza+"'");
-            if (rs.next()){
-                return rs.getInt(1);
-            }
-            return 0;
-        }catch (Exception e){
-            return 0;
-        }
-    }
+
 
     public static int consultarCantidadPozasEmpadre()
     {

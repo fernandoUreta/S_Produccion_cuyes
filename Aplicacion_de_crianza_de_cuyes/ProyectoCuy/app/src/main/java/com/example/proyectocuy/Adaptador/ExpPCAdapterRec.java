@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
 import com.example.proyectocuy.BD_ProduccionCuyes;
 import com.example.proyectocuy.Controller.RegistroIngresoCuyesPozasActivity;
 import com.example.proyectocuy.ModeloDatos.Poza;
@@ -102,8 +103,8 @@ public class ExpPCAdapterRec extends BaseExpandableListAdapter {
                 Toast.makeText(context, listCategoria.get(groupPosition), Toast.LENGTH_SHORT).show();
             }
         });
-        tvCantMaA.setText(String.valueOf(BD_ProduccionCuyes.consultarCantidadCuy("6",listCategoria.get(groupPosition))));
-        tvCantMaP.setText(String.valueOf(BD_ProduccionCuyes.consultarCantidadCuy("7",listCategoria.get(groupPosition))));
+        tvCantMaA.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"RC")));
+        tvCantMaP.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"RC")));
 
         return convertView;
     }
