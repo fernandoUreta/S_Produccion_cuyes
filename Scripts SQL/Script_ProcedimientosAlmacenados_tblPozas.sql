@@ -6,7 +6,7 @@ CREATE PROCEDURE SP_A_tblPozas
 @clasificacion as varchar(10),
 @capacidad as int
 as
-insert into tblPozas values(@id_poza,@largo,@ancho,@clasificacion,@capacidad);
+insert into tblPozas values(@id_poza,@largo,@ancho,@clasificacion,@capacidad,'T');
 
 GO
 --Consultar Poza
@@ -14,14 +14,14 @@ GO
 CREATE PROCEDURE SP_C_tblPozas
 @id_Poza as varchar(4)
 as
-select * from tblPozas WHERE ID_Pozas=@id_Poza
+select * from tblPozas WHERE ID_Pozas=@id_Poza and disponible='T'
 
 GO
 --Eliminar Poza
 CREATE PROCEDURE SP_E_tblPozas
 @id_Poza as varchar(4)
 as
-delete from tblPozas where ID_Pozas=@id_Poza
+update tblPozas set disponible='F' WHERE ID_Pozas=@id_Poza
 
 GO
 --Actualizar Poza
