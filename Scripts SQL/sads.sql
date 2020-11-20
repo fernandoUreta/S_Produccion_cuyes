@@ -1,3 +1,0 @@
-SELECT * FROM tblPozas
-DELETE FROM tblPozas
-DELETE FROM tblCuyes
