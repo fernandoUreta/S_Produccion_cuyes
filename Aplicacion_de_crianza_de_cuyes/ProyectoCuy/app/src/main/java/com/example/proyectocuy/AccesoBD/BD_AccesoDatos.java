@@ -109,7 +109,7 @@ public class BD_AccesoDatos {
         return v;
     }
 
-    public static Cuy consultarCuy(String cuyID)
+    public static Cuy consultarCuy(String cuyID,Context context)
     {
         Cuy cuy=new Cuy();
         try {
@@ -122,20 +122,22 @@ public class BD_AccesoDatos {
                 cuy.setGenero(rs.getString(4));
                 cuy.setFechaNaci(rs.getDate(5));
             }
+            Toast.makeText(context,cuyID,Toast.LENGTH_LONG).show();
             return cuy;
         }catch (Exception e){
+            Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();
             return null;
         }
 
     }
 
-    public static void eliminarCuy(String cuyID)
+    public static void eliminarCuy(String cuyID,Context context)
     {
         try {
             PreparedStatement pst=ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_E_tblCuyes "+cuyID);
             pst.executeUpdate();
         }catch (SQLException e){
-
+            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
         }
     }
     public static int consultarCantiTipoCuyPoza(String idPoza,String idCatCuy)
@@ -182,7 +184,7 @@ public class BD_AccesoDatos {
     }
     //Detalle transacciones
 
-    public static boolean registrarDetalle(int transaID,String cuyID,String tipoMovi)
+    public static boolean registrarDetalle(int transaID,String cuyID,String tipoMovi,Context context)
     {
         boolean v;
         try {

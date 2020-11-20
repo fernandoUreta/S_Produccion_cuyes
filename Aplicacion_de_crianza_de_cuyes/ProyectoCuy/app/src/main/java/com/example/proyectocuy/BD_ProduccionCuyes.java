@@ -77,6 +77,8 @@ public class BD_ProduccionCuyes {
         return v;
     }
 
+
+
     public static int consultarCantidadPozas()
     {
         try {
@@ -176,6 +178,26 @@ public class BD_ProduccionCuyes {
         }
     }
 
+    public static Cuy consultarCuy(String cuyID)
+    {
+        Cuy cuy=new Cuy();
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_C_tblCuyes '"+cuyID+"'");
+            if (rs.next()){
+                cuy.setCuyId(rs.getString(1));
+                cuy.setIdPoza(rs.getString(2));
+                cuy.setCategoria(rs.getString(3));
+                cuy.setGenero(rs.getString(4));
+                cuy.setFechaNaci(rs.getDate(5));
+            }
+            return cuy;
+        }catch (Exception e){
+            return null;
+        }
+
+    }
+
     public static boolean registrarCuy(Cuy cuy)
     {
         boolean v;
@@ -188,6 +210,21 @@ public class BD_ProduccionCuyes {
             v=false;
         }
         return v;
+    }
+
+    public static int consultarCantiTipoCuyPoza(String idPoza,String idCatCuy)
+    {
+        int cantidad=0;
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_C_CantiCuyes_Poza_Tipo_tblPozas '"+idPoza+"','"+idCatCuy+"'");
+            if (rs.next()){
+                cantidad=Integer.parseInt(rs.getString(1));
+            }
+            return cantidad;
+        }catch (Exception e){
+            return 0;
+        }
     }
 
 }

@@ -1,6 +1,9 @@
 package com.example.proyectocuy.Tools;
 
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
@@ -23,7 +26,7 @@ public class Transacciones {
         }
     }
 
-    public static void RegistrarEntradaCuyes(Cuy cuy, Transaccion transaccion, String tipoMovi)
+    public static void RegistrarEntradaCuyes(Cuy cuy, Transaccion transaccion, String tipoMovi,Context context)
     {
 
         String movimiento="";
@@ -35,25 +38,32 @@ public class Transacciones {
             case "Otros":movimiento="IO";break;
         }
         BD_AccesoDatos.registrarCuy(cuy);
-        BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento);
+        BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
     }
 
-    public static  void RegistrarSalidaCuyes(Cuy cuy,Transaccion transaccion,String idPozaDestino,String tipoMovi)
+    public static  void RegistrarSalidaCuyes(Cuy cuy, Transaccion transaccion, String idPozaDestino, String tipoMovi, Context context)
     {
-        BD_AccesoDatos.eliminarCuy(cuy.getCuyId());
-        cuy.setIdPoza(idPozaDestino);
-        BD_AccesoDatos.registrarCuy(cuy);
+        try {
+            BD_AccesoDatos.eliminarCuy(cuy.getCuyId(),context);
+            cuy.setIdPoza(idPozaDestino);
+            BD_AccesoDatos.registrarCuy(cuy);
 
-        String movimiento="";
-        switch (tipoMovi)
+            String movimiento="";
+            switch (tipoMovi)
+            {
+                case "Muerte":movimiento="SM";break;
+                case "Venta":movimiento="SV";break;
+                case "Consumo":movimiento="SC";break;
+                case "Rotación":movimiento="SR";break;
+                case "Otros":movimiento="SO";break;
+            }
+            BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
+            Toast.makeText(context,"Llega aquí",Toast.LENGTH_LONG).show();
+        }catch (Exception e)
         {
-            case "Muerte":movimiento="SM";break;
-            case "Venta":movimiento="SV";break;
-            case "Consumo":movimiento="SC";break;
-            case "Rotación":movimiento="SR";break;
-            case "Otros":movimiento="SO";break;
+            Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();
         }
-        BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento);
+
     }
 
 

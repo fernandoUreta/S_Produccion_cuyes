@@ -109,7 +109,7 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
     {
         if (validarCampos()==true)
         {
-            Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion,spTipoIngreso.getSelectedItem().toString());
+            Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion,spTipoIngreso.getSelectedItem().toString(),this);
             adaptarInterfaz(poza);
             restablecerCampos();
         }else {};
