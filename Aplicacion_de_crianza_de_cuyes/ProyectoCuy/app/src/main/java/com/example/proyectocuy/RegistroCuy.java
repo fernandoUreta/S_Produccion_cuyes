@@ -1,9 +1,6 @@
 package com.example.proyectocuy;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,10 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.proyectocuy.DatosActividades.DatosActividades;
-import com.example.proyectocuy.DatosActividades.MostrarDatos;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
 
@@ -203,7 +198,5 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
         String gazapos=gaz.getText().toString();
         i.putExtra("gazapos",gazapos);
         startActivity(i);
-
     }
-
 }

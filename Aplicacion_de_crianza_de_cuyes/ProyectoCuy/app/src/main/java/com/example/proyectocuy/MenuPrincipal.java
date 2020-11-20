@@ -1,9 +1,5 @@
 package com.example.proyectocuy;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.proyectocuy.Controller.Menu_general_pozasActivity;
 
@@ -36,16 +36,16 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(i);
     }
     public void btnCalendario(View v){
-        Intent i = new Intent(this,Calendario.class);
+        Intent i = new Intent(this, Calendario.class);
         startActivity(i);
     }
     public void btnReporte(View v){
-        Intent i = new Intent(this,MenuReportes.class);
+        Intent i = new Intent(this, MenuReportes.class);
         startActivity(i);
     }
     public void showToolbar(String tittle, Boolean upButton)
     {
-        androidx.appcompat.widget.Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(tittle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
@@ -58,7 +58,7 @@ public class MenuPrincipal extends AppCompatActivity {
         irLogin();
     }
     private void irLogin(){
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
     }
@@ -71,10 +71,10 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
-        if (id==R.id.action_salir){
+        if (id== R.id.action_salir){
             finish();
             System.exit(0);
-        }else if (id==R.id.action_cerrar_sesion){
+        }else if (id== R.id.action_cerrar_sesion){
             cerrarSesion();
         }
         return super.onOptionsItemSelected(item);
