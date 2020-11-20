@@ -123,7 +123,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     private Cuy capturarCuy()
     {
         Cuy cuy=new Cuy();
-        cuy.setCuyId(etCodigoCuy.getText().toString());
+        cuy.setCuyId(txtIdCuy.getText().toString());
         cuy.setIdPoza(tvIdPoza.getText().toString());
         switch (spCategoria.getSelectedItem().toString())
         {
@@ -135,7 +135,6 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
             case "Lactante":cuy.setCategoria("LC");break;
         }
         cuy.setGenero(spGenero.getSelectedItem().toString());
-        cuy.setFechaNaci(Fechas.calcularFechaNacimiento(Integer.parseInt(txtEdad.getText().toString())));
 
         return cuy;
     }
