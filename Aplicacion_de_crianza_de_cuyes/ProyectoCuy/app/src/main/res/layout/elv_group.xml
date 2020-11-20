@@ -8,9 +8,8 @@
         android:id="@+id/tvGroup"
         android:gravity="center"
         android:textColor="@color/colorAnimacion"
-        android:background="@color/colorPrimaryDark"
-        android:padding="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:background="@drawable/btnmenupozas"
+        android:textSize="20dp"
+        android:padding="10dp"/>
 
 </LinearLayout>

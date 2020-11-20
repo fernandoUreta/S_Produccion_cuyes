@@ -35,4 +35,7 @@
     <color name="pink_A200">#ff4081</color>
     <color name="editTextColorWhite">#FFFFFF</color>
     <color name="editTextColorBlack">#000000</color>
+
+    <!--Oscar´s colors-->
+    <color name="color_menu_pozas">#fff5d9</color>
 </resources>

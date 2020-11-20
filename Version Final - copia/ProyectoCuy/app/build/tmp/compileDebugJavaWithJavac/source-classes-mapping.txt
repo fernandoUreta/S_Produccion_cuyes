@@ -1,0 +1,123 @@
+com/example/proyectocuy/PozEngordeRecomend.java
+ com.example.proyectocuy.PozEngordeRecomend
+com/example/proyectocuy/MenuReportes.java
+ com.example.proyectocuy.MenuReportes
+com/example/proyectocuy/BDSQLite.java
+ com.example.proyectocuy.BDSQLite
+com/example/proyectocuy/Tools/PdfGenerador.java
+ com.example.proyectocuy.Tools.PdfGenerador
+com/example/proyectocuy/Recursos_Adicionales/Fechas.java
+ com.example.proyectocuy.Recursos_Adicionales.Fechas
+com/example/proyectocuy/MenuPozasPadrillo.java
+ com.example.proyectocuy.MenuPozasPadrillo
+com/example/proyectocuy/PozEmpadreRecomend.java
+ com.example.proyectocuy.PozEmpadreRecomend
+com/example/proyectocuy/AccesoBD/BD_AccesoDatos.java
+ com.example.proyectocuy.AccesoBD.BD_AccesoDatos
+com/example/proyectocuy/ModeloDatos/FilaMovEntradaSalida_Reporte.java
+ com.example.proyectocuy.ModeloDatos.FilaMovEntradaSalida_Reporte
+com/example/proyectocuy/RegistrarCuyes.java
+ com.example.proyectocuy.RegistrarCuyes
+com/example/proyectocuy/VistaActividades.java
+ com.example.proyectocuy.VistaActividades
+ com.example.proyectocuy.VistaActividades$1
+com/example/proyectocuy/BuildConfig.java
+ com.example.proyectocuy.BuildConfig
+com/example/proyectocuy/InicioCorreo.java
+ com.example.proyectocuy.InicioCorreo
+com/example/proyectocuy/Splash.java
+ com.example.proyectocuy.Splash
+ com.example.proyectocuy.Splash$1
+com/example/proyectocuy/ConexionBD/ConexionSQLServer.java
+ com.example.proyectocuy.ConexionBD.ConexionSQLServer
+com/example/proyectocuy/RegistroCuy.java
+ com.example.proyectocuy.RegistroCuy
+ com.example.proyectocuy.RegistroCuy$1
+ com.example.proyectocuy.RegistroCuy$2
+ com.example.proyectocuy.RegistroCuy$3
+ com.example.proyectocuy.RegistroCuy$4
+ com.example.proyectocuy.RegistroCuy$5
+ com.example.proyectocuy.RegistroCuy$6
+ com.example.proyectocuy.RegistroCuy$7
+ com.example.proyectocuy.RegistroCuy$8
+com/example/proyectocuy/ReporteCuyPoza.java
+ com.example.proyectocuy.ReporteCuyPoza
+com/example/proyectocuy/ModeloDatos/Poza.java
+ com.example.proyectocuy.ModeloDatos.Poza
+com/example/proyectocuy/Adaptador/TemplatePDF.java
+ com.example.proyectocuy.Adaptador.TemplatePDF
+com/example/proyectocuy/VistaPDFCuy.java
+ com.example.proyectocuy.VistaPDFCuy
+com/example/proyectocuy/PozPadrilloRecomend.java
+ com.example.proyectocuy.PozPadrilloRecomend
+com/example/proyectocuy/Adaptador/ExpPCAdapterRec.java
+ com.example.proyectocuy.Adaptador.ExpPCAdapterRec
+ com.example.proyectocuy.Adaptador.ExpPCAdapterRec$1
+ com.example.proyectocuy.Adaptador.ExpPCAdapterRec$2
+com/example/proyectocuy/Adaptador/ExpPCAdapter.java
+ com.example.proyectocuy.Adaptador.ExpPCAdapter
+ com.example.proyectocuy.Adaptador.ExpPCAdapter$1
+ com.example.proyectocuy.Adaptador.ExpPCAdapter$2
+com/example/proyectocuy/ConsultarUsuario.java
+ com.example.proyectocuy.ConsultarUsuario
+ com.example.proyectocuy.ConsultarUsuario$1
+com/example/proyectocuy/ModeloDatos/FilaMovPoblacional_reporte.java
+ com.example.proyectocuy.ModeloDatos.FilaMovPoblacional_reporte
+com/example/proyectocuy/MenuPozasRecria.java
+ com.example.proyectocuy.MenuPozasRecria
+com/example/proyectocuy/PozRecriaRecomend.java
+ com.example.proyectocuy.PozRecriaRecomend
+com/example/proyectocuy/C_RegistroPozas.java
+ com.example.proyectocuy.C_RegistroPozas
+ com.example.proyectocuy.C_RegistroPozas$1
+ com.example.proyectocuy.C_RegistroPozas$2
+com/example/proyectocuy/BD_ProduccionCuyes.java
+ com.example.proyectocuy.BD_ProduccionCuyes
+com/example/proyectocuy/Usuario.java
+ com.example.proyectocuy.Usuario
+com/example/proyectocuy/ModeloDatos/Cuy.java
+ com.example.proyectocuy.ModeloDatos.Cuy
+com/example/proyectocuy/MenuPozasEngorde.java
+ com.example.proyectocuy.MenuPozasEngorde
+com/example/proyectocuy/Calendario.java
+ com.example.proyectocuy.Calendario
+ com.example.proyectocuy.Calendario$1
+com/example/proyectocuy/ContrasenaOlvidada.java
+ com.example.proyectocuy.ContrasenaOlvidada
+com/example/proyectocuy/DatosActividades/DatosActividades.java
+ com.example.proyectocuy.DatosActividades.DatosActividades
+com/example/proyectocuy/DatosActividades/MostrarDatos.java
+ com.example.proyectocuy.DatosActividades.MostrarDatos
+com/example/proyectocuy/Usuarios.java
+ com.example.proyectocuy.Usuarios
+com/example/proyectocuy/DistribucionRecomendado.java
+ com.example.proyectocuy.DistribucionRecomendado
+com/example/proyectocuy/MenuPrincipal.java
+ com.example.proyectocuy.MenuPrincipal
+com/example/proyectocuy/Adaptador/ExpPCAdapterPad.java
+ com.example.proyectocuy.Adaptador.ExpPCAdapterPad
+ com.example.proyectocuy.Adaptador.ExpPCAdapterPad$1
+ com.example.proyectocuy.Adaptador.ExpPCAdapterPad$2
+com/example/proyectocuy/Adaptador/ExpPCAdapterEngRec.java
+ com.example.proyectocuy.Adaptador.ExpPCAdapterEngRec
+ com.example.proyectocuy.Adaptador.ExpPCAdapterEngRec$1
+ com.example.proyectocuy.Adaptador.ExpPCAdapterEngRec$2
+com/example/proyectocuy/Conexion.java
+ com.example.proyectocuy.Conexion
+com/example/proyectocuy/AgregarActividad.java
+ com.example.proyectocuy.AgregarActividad
+com/example/proyectocuy/Recursos_Adicionales/ExampleDialog.java
+ com.example.proyectocuy.Recursos_Adicionales.ExampleDialog
+ com.example.proyectocuy.Recursos_Adicionales.ExampleDialog$1
+com/example/proyectocuy/AccesoBD/ConexionSQLServer.java
+ com.example.proyectocuy.AccesoBD.ConexionSQLServer
+com/example/proyectocuy/MainActivity.java
+ com.example.proyectocuy.MainActivity
+ com.example.proyectocuy.MainActivity$1
+ com.example.proyectocuy.MainActivity$2
+com/example/proyectocuy/MenuPozas.java
+ com.example.proyectocuy.MenuPozas
+com/example/proyectocuy/InicioSesion.java
+ com.example.proyectocuy.InicioSesion
+com/example/proyectocuy/MenuPozasEmpadre.java
+ com.example.proyectocuy.MenuPozasEmpadre
