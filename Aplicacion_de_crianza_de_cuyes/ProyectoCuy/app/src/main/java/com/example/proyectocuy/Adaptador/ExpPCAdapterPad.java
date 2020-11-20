@@ -92,8 +92,7 @@ public class ExpPCAdapterPad extends BaseExpandableListAdapter {
                 Bundle pozaData=new Bundle();
                 pozaData.putSerializable("poza",poza);
                 i.putExtras(pozaData);
-                context.startActivity(i);
-                Toast.makeText(context, listCategoria.get(groupPosition), Toast.LENGTH_SHORT).show();    }
+                context.startActivity(i);}
         });
         salida.setOnClickListener(new View.OnClickListener() {
             @Override

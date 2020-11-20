@@ -97,7 +97,6 @@ public class ExpPCAdapter extends BaseExpandableListAdapter {
                 pozaData.putSerializable("poza",poza);
                 i.putExtras(pozaData);
                 context.startActivity(i);
-                Toast.makeText(context, listCategoria.get(groupPosition), Toast.LENGTH_SHORT).show();
             }
         });
         salida.setOnClickListener(new View.OnClickListener() {
