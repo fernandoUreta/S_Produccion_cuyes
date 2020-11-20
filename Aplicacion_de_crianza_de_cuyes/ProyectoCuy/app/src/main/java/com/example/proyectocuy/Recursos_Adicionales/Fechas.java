@@ -9,11 +9,12 @@ public class Fechas {
 
     public static java.sql.Date calcularFechaNacimiento(int edad)
     {
-
         fechaHoy.add(Calendar.DAY_OF_YEAR,-edad);
         java.sql.Date fechaNacimiento =convert(fechaHoy.getTime());
+        fechaHoy=Calendar.getInstance();
         return fechaNacimiento;
     }
+
     public static java.sql.Date mostrarFechaHoy()
     {
         java.sql.Date fechaHoySQL=convert(fechaHoy.getTime());

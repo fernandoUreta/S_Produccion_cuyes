@@ -75,7 +75,6 @@ public class PozEmpadreRecomend extends AppCompatActivity {
 
     public void pulsarBoton(View v){
         int a;
-        Cuy cuy=new Cuy();
         a=Integer.parseInt(cantidadGazapos.getText().toString());
         if (contador<valor1){
             contador ++;
@@ -85,14 +84,17 @@ public class PozEmpadreRecomend extends AppCompatActivity {
             int acuPadri=cuyTotal++;
             cantidadGazapos.setText("");
             for (int i=1;i<=valor1/valor1;i++){
+                Cuy cuy = new Cuy();
                 cuy.cuyId="CP"+acuPadri;
                 cuy.idPoza=texto;
                 cuy.categoria="3";
                 cuy.genero="Macho";
                 cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                 BD_ProduccionCuyes.registrarCuy(cuy);
+                cuy=null;
             }
             for (int i=1;i<=a;i++){
+                Cuy cuy = new Cuy();
                 cuy.cuyId="CG"+cuyLact;
                 cuy.idPoza=texto;
                 cuy.categoria="8";
@@ -100,9 +102,11 @@ public class PozEmpadreRecomend extends AppCompatActivity {
                 cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                 BD_ProduccionCuyes.registrarCuy(cuy);
                 cuyLact++;
+                cuy=null;
             }
             if (cajaTexto.getText().toString().matches("A2")||cajaTexto.getText().toString().matches("A3")){
                 for (int i=1;i<=valor1*2.5;i++){
+                    Cuy cuy = new Cuy();
                     cuy.cuyId="CMM"+cuyMa;
                     cuy.idPoza=texto;
                     cuy.categoria="1";
@@ -110,9 +114,11 @@ public class PozEmpadreRecomend extends AppCompatActivity {
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                     BD_ProduccionCuyes.registrarCuy(cuy);
                     cuyMa++;
+                    cuy=null;
                 }
             }else {
                 for (int i=1;i<=valor1*2.5;i++){
+                    Cuy cuy = new Cuy();
                     cuy.cuyId="CMP"+cuyMa;
                     cuy.idPoza=texto;
                     cuy.categoria="2";
@@ -120,6 +126,7 @@ public class PozEmpadreRecomend extends AppCompatActivity {
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                     BD_ProduccionCuyes.registrarCuy(cuy);
                     cuyMa++;
+                    cuy=null;
                 }
             }
         }else {
