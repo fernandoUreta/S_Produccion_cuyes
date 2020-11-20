@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_light"
+    android:background="@drawable/fondo_app"
     android:orientation="vertical"
     tools:context=".MenuPozasEmpadre">
 
@@ -14,16 +14,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="10dp">
-
-
         <ExpandableListView
             android:id="@+id/expLV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp" />
-
     </LinearLayout>
-
-
 </LinearLayout>
