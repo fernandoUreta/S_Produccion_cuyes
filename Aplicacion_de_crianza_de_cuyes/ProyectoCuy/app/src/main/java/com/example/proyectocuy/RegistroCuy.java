@@ -22,19 +22,11 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
     TextView cantidadCuy;
     EditText madrM,madrP,padr,engM,engH,recM,recH,gaz;
     Button siguDistri;
-    private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_cuy);
-        init();
 
-        String usuario =preferences.getString("usuario_id",null);
-        String contraseña=preferences.getString("contraseña_id",null);
-
-        if (usuario !=null && contraseña !=null){
-            Toast.makeText(this, "Bienvenido"+usuario, Toast.LENGTH_SHORT).show();
-        }
         madrM=findViewById(R.id.edtRMadrMad);
         madrP=findViewById(R.id.edtRMadrPr);
         padr=findViewById(R.id.edtRPadri);
@@ -56,10 +48,6 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
         recH.setText("20");
         gaz.setText("20");
 
-    }
-
-    private void init() {
-        preferences=getSharedPreferences("Preferences",MODE_PRIVATE);
     }
 
     private void CalcularRecorrido(){
