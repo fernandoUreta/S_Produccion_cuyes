@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -29,11 +30,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     GoogleSignInClient mGoogleSignInClient;
 
     SignInButton SignIn;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        preferences=getSharedPreferences("Preferences",MODE_PRIVATE);
+        validarSesion();
+        
         //captura el dato que ingresa
         usuario=findViewById(R.id.edtIScorreo);
         contraseña=findViewById(R.id.edtIScontraseña);
@@ -53,10 +59,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-
-
     }
 
+    private void validarSesion() {
+        String usuario =preferences.getString("usuario_id",null);
+        String contraseña=preferences.getString("contraseña_id",null);
+        if (usuario !=null && contraseña !=null){
+            inicioSesion();
+        }
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -102,12 +113,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else {
                 if (user.correo.matches(usuario.getText().toString())&&user.contraseña.matches(contraseña.getText().toString()))
                 {
-                    startActivity(i);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("usuario_id", user.correo);
+                    editor.putString("contraseña_id", user.contraseña);
+                    editor.commit();
+                    inicioSesion();
                 }else{Toast.makeText(this, "Verifique los datos ingresados", Toast.LENGTH_SHORT).show();}
             }
         }catch (Exception e){
             Toast.makeText(this, "Usuario no existe", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void inicioSesion() {
+        Intent i = new Intent(this,RegistroCuy.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
     }
 
     public void Consultar(View v){
