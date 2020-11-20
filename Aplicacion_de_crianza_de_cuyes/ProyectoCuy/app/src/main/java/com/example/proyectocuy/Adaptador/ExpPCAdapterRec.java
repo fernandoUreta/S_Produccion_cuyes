@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
 import com.example.proyectocuy.BD_ProduccionCuyes;
 import com.example.proyectocuy.Controller.RegistroIngresoCuyesPozasActivity;
+import com.example.proyectocuy.Controller.RegistroSalidaCuyesPozasActivity;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.R;
 
@@ -99,6 +100,13 @@ public class ExpPCAdapterRec extends BaseExpandableListAdapter {
         salida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Poza poza=new Poza();
+                poza.setIdPoza(listCategoria.get(groupPosition));
+                Intent i=new Intent(context, RegistroSalidaCuyesPozasActivity.class);
+                Bundle pozaData=new Bundle();
+                pozaData.putSerializable("poza",poza);
+                i.putExtras(pozaData);
+                context.startActivity(i);
                 Toast.makeText(context, listCategoria.get(groupPosition), Toast.LENGTH_SHORT).show();
             }
         });
