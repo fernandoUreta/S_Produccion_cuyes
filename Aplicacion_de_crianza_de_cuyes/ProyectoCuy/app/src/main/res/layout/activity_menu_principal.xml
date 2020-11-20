@@ -18,7 +18,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="107dp"
+        android:layout_height="100dp"
         android:layout_marginStart="@dimen/margin_hight"
         android:layout_marginTop="@dimen/margin_low"
         android:layout_marginEnd="@dimen/margin_hight"
@@ -28,7 +28,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="107dp"
+        android:layout_height="100dp"
         android:layout_marginStart="@dimen/margin_hight"
         android:layout_marginTop="@dimen/margin_low"
         android:layout_marginEnd="@dimen/margin_hight"
@@ -37,7 +37,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="107dp"
+        android:layout_height="100dp"
         android:layout_marginStart="@dimen/margin_hight"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="@dimen/margin_hight"
