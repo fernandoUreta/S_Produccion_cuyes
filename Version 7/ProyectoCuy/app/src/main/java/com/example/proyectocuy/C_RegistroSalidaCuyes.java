@@ -73,9 +73,6 @@ public class C_RegistroSalidaCuyes extends AppCompatActivity {
     public void registrarClick(View view)
     {
         this.cuy=consultarCuy(txtID.getText().toString());
-        //txtEdad.setText(String.valueOf(Fechas.calcularEdad(cuy.fechaNaci)));
-        cmbCategoria.setSelection(2);
-
         String categoria=cuy.getCategoria();
         switch (categoria)
         {
@@ -97,27 +94,6 @@ public class C_RegistroSalidaCuyes extends AppCompatActivity {
     {
         Cuy cuy;
         cuy=BD_ProduccionCuyes.consultarCuy(idCuy);
-        return cuy;
-    }
-
-    //Registro de ingreso de cuy
-    private Cuy capturarCuy()
-    {
-        Cuy cuy=new Cuy();
-        cuy.setCuyId(txtID.getText().toString());
-        cuy.setIdPoza(txtIdPoza.getText().toString());
-        switch (cmbCategoria.getSelectedItem().toString())
-        {
-            case "Madre madura":cuy.setCategoria("MM");break;
-            case "Madre primeriza":cuy.setCategoria("MP");break;
-            case "Padrillo":cuy.setCategoria("PD");break;
-            case "Engorde":cuy.setCategoria("EG");break;
-            case "Recria":cuy.setCategoria("EC");break;
-            case "Lactante":cuy.setCategoria("LC");break;
-        }
-        cuy.setGenero(cmbGenero.getSelectedItem().toString());
-        cuy.setFechaNaci(Fechas.calcularFechaNacimiento(Integer.parseInt(txtEdad.getText().toString())));
-
         return cuy;
     }
 
