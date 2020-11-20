@@ -52,6 +52,8 @@
             android:parentActivityName=".MenuVerPozas"/>
         <activity android:name=".Controller.RegistroSalidaCuyesPozasActivity"
             android:parentActivityName=".MenuVerPozas"/>
+        <activity android:name=".Controller.C_RegistroSalidaCuyes"
+            android:parentActivityName=".MenuVerPozas"></activity>
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

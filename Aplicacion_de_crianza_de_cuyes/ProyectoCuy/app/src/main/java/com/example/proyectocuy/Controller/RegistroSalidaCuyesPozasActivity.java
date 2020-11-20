@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
+import com.example.proyectocuy.BD_ProduccionCuyes;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
@@ -31,7 +32,8 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
 
     Transaccion transaccion=new Transaccion();
     String[]generos;
-    String[]tiposCuy;
+
+    Cuy cuy=new Cuy();
     Poza poza=new Poza();
 
     //Datos provenientes del disparador
@@ -50,8 +52,8 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         tvCantidadCuyes2 =(TextView)findViewById(R.id.tvCantidadCuy2);
         tvCantidadCuyes3 =(TextView)findViewById(R.id.tvCantidadCuy3);
 
-        txtIdCuy=(TextInputEditText)findViewById(R.id.etIdPozaDestino);
-        txtIdPozaDestino=(TextInputEditText)findViewById(R.id.etCodigoCuy);
+        txtIdCuy=(TextInputEditText)findViewById(R.id.etCodigoCuy);
+        txtIdPozaDestino=(TextInputEditText)findViewById(R.id.etIdPozaDestino);
 
         tvDesc1=(TextView)findViewById(R.id.tvDescCategoria1);
         tvDesc2=(TextView)findViewById(R.id.tvDescCategoria2);
@@ -82,8 +84,6 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
             tvIdPoza.setText(poza.getIdPoza());
             adaptarInterfaz(poza);
 
-            spGenero.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_formato,generos));
-            spCategoria.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_formato,tiposCuy));
         }catch (Exception e){
             Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
         }
@@ -99,16 +99,15 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
-    public void btnAgregarClick(View view)
+    public void btnRegistrarSalidaClick(View view)
     {
-        if (validarCampos()==true)
-        {
-            Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion, spTipoSalida.getSelectedItem().toString());
-            adaptarInterfaz(poza);
-            restablecerCampos();
-        }else {};
-
+        if (validarCampos()==true) {
+            this.cuy = BD_AccesoDatos.consultarCuy(txtIdCuy.getText().toString(), this);
+            String categoria=cuy.getCategoria();
+            Transacciones.RegistrarSalidaCuyes(cuy,transaccion,txtIdPozaDestino.getText().toString(),spTipoSalida.getSelectedItem().toString(),this);
+        }
     }
+
     public boolean validarCampos()
     {
         if(TextUtils.isEmpty(txtIdPozaDestino.toString().trim())||TextUtils.isEmpty(txtIdCuy.getText().toString().trim()))
@@ -119,24 +118,6 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         else{
             return true;
         }
-    }
-    private Cuy capturarCuy()
-    {
-        Cuy cuy=new Cuy();
-        cuy.setCuyId(txtIdCuy.getText().toString());
-        cuy.setIdPoza(tvIdPoza.getText().toString());
-        switch (spCategoria.getSelectedItem().toString())
-        {
-            case "Madre madura":cuy.setCategoria("MM");break;
-            case "Madre primeriza":cuy.setCategoria("MP");break;
-            case "Padrillo":cuy.setCategoria("PD");break;
-            case "Engorde":cuy.setCategoria("EG");break;
-            case "Recria":cuy.setCategoria("EC");break;
-            case "Lactante":cuy.setCategoria("LC");break;
-        }
-        cuy.setGenero(spGenero.getSelectedItem().toString());
-
-        return cuy;
     }
 
     private void restablecerCampos()
@@ -171,15 +152,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
                     tvDesc3.setText("Lactantes");
                     tvCantidadCuyes3.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"LC")));
                     generos=new String[2];
-                    tiposCuy=new String[4];
 
-                    this.tiposCuy[0]="Madre madura";
-                    this.tiposCuy[1]="Madre primeriza";
-                    this.tiposCuy[2]="Padrillo";
-                    this.tiposCuy[3]="Lactante";
-
-                    this.generos[0]="Macho";
-                    this.generos[1]="Hembra";
 
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
@@ -195,76 +168,64 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
                     tvDesc1.setText("Padrillos");
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"PD")));
                     generos=new String[1];
-                    tiposCuy=new String[1];
-                    this.generos[0]="Macho";
-                    this.tiposCuy[0]="Padrillo";
+
                 }break;
 
                 //To analizar
                 case "Recría":{
                     tvDesc1.setText("Cuyes");
                     generos=new String[1];
-                    tiposCuy=new String[1];
+
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
                     this.generos[0]="Macho";
-                    this.tiposCuy[0]="Recria";
+
                 }break;
                 //
 
                 case "Recría Macho":{
                     tvDesc1.setText("Machos");
                     generos=new String[1];
-                    tiposCuy=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     this.generos[0]="Macho";
-                    this.tiposCuy[0]="Recria";
 
                 }break;
                 case "Recría Hembra":{
                     tvDesc1.setText("Hembras");
                     generos=new String[1];
-                    tiposCuy=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     this.generos[0]="Hembra";
-                    this.tiposCuy[0]="Recria";
                 }break;
                 case "Engorde Macho":{
                     tvDesc1.setText("Machos");
                     generos=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
-                    tiposCuy=new String[1];
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     this.generos[0]="Macho";
-                    this.tiposCuy[0]="Engorde";
                 }break;
                 case "Engorde Hembra":{
                     tvDesc1.setText("Hembras engorde");
                     generos=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
-                    tiposCuy=new String[1];
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     this.generos[0]="Hembra";
-                    this.tiposCuy[0]="Engorde";
                 }break;
                 //Analizar
                 case "Engorde":{
                     tvDesc1.setText("Cuyes");
                     generos=new String[2];
-                    tiposCuy=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     this.generos[0]="Hembra";
                     this.generos[1]="Macho";
-                    this.tiposCuy[0]="Engorde";
                 }break;
             }
 
