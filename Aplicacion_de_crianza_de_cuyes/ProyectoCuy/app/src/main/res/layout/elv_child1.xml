@@ -53,20 +53,18 @@
             android:id="@+id/btnIngreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
+            android:background="@drawable/ingreso"
             android:textColor="@color/editTextColorWhite"
             android:layout_marginRight="30dp"
             android:textSize="18dp"
-            android:text="Ingreso"
             android:layout_weight="1"/>
         <Button
             android:id="@+id/btnSalida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
+            android:background="@drawable/retiro"
             android:textColor="@color/editTextColorWhite"
             android:textSize="18dp"
-            android:text="Salida"
             android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>
