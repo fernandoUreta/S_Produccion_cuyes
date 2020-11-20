@@ -16,6 +16,7 @@ import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
+
 import com.example.proyectocuy.R;
 import com.example.proyectocuy.Recursos_Adicionales.Fechas;
 import com.example.proyectocuy.Tools.Transacciones;
@@ -23,11 +24,10 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
 
-    Spinner spTipoIngreso, spCategoria, spGenero;
+    Spinner spTipoSalida, spCategoria, spGenero;
     TextView tvCantidadCuyes1, tvCantidadCuyes2, tvCantidadCuyes3;
     TextView tvDesc1, tvDesc2, tvDesc3,tvTipoPoza,tvIdPoza;
-    TextInputEditText txtCodigo, txtEdad;
-    EditText etEdadCuy,etCodigoCuy;
+    TextInputEditText txtIdCuy, txtIdPozaDestino;
 
     Transaccion transaccion=new Transaccion();
     String[]generos;
@@ -40,23 +40,18 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro_ingreso_cuyes_pozas);
+        setContentView(R.layout.activity_registro_salida_cuyes_pozas);
         showToolbar("Salida de cuyes",true);
 
         //Asignacion
-        spTipoIngreso=findViewById(R.id.spTipoIngreso);
-        spCategoria=findViewById(R.id.spCategoria);
-        spGenero=findViewById(R.id.spGenero);
-
-        etEdadCuy=findViewById(R.id.etEdadCuy);
-        etCodigoCuy=findViewById(R.id.etCodigoCuy);
+        spTipoSalida =findViewById(R.id.spTipoIngreso);
 
         tvCantidadCuyes1 =(TextView) findViewById(R.id.tvCantidadCuy1);
         tvCantidadCuyes2 =(TextView)findViewById(R.id.tvCantidadCuy2);
         tvCantidadCuyes3 =(TextView)findViewById(R.id.tvCantidadCuy3);
 
-        txtCodigo=(TextInputEditText)findViewById(R.id.etCodigoCuy);
-        txtEdad=(TextInputEditText)findViewById(R.id.etEdadCuy);
+        txtIdCuy=(TextInputEditText)findViewById(R.id.etIdPozaDestino);
+        txtIdPozaDestino=(TextInputEditText)findViewById(R.id.etCodigoCuy);
 
         tvDesc1=(TextView)findViewById(R.id.tvDescCategoria1);
         tvDesc2=(TextView)findViewById(R.id.tvDescCategoria2);
@@ -64,8 +59,8 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         tvTipoPoza=(TextView)findViewById(R.id.tvTipoPoza);
         tvIdPoza=(TextView)findViewById(R.id.tvIdPoza);
 
-        ArrayAdapter<CharSequence> adapterTipoIngreso = ArrayAdapter.createFromResource(this, R.array.tipoIngresoCuy,R.layout.spinner_formato);
-        spTipoIngreso.setAdapter(adapterTipoIngreso);
+        ArrayAdapter<CharSequence> adapterTipoIngreso = ArrayAdapter.createFromResource(this, R.array.tipoSalidaCuy,R.layout.spinner_formato);
+        spTipoSalida.setAdapter(adapterTipoIngreso);
 
         Bundle pozaRecibida=getIntent().getExtras();
         if(pozaRecibida!=null)
@@ -108,7 +103,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     {
         if (validarCampos()==true)
         {
-            Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion,spTipoIngreso.getSelectedItem().toString());
+            Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion, spTipoSalida.getSelectedItem().toString());
             adaptarInterfaz(poza);
             restablecerCampos();
         }else {};
@@ -116,7 +111,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     }
     public boolean validarCampos()
     {
-        if(TextUtils.isEmpty(etEdadCuy.getText().toString().trim())||TextUtils.isEmpty(etCodigoCuy.getText().toString().trim()))
+        if(TextUtils.isEmpty(txtIdPozaDestino.toString().trim())||TextUtils.isEmpty(txtIdCuy.getText().toString().trim()))
         {
             Toast.makeText(this,"Ingrese los valores solicitados",Toast.LENGTH_SHORT).show();
             return false;
@@ -128,7 +123,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     private Cuy capturarCuy()
     {
         Cuy cuy=new Cuy();
-        cuy.setCuyId(etCodigoCuy.getText().toString());
+        cuy.setCuyId(txtIdCuy.getText().toString());
         cuy.setIdPoza(tvIdPoza.getText().toString());
         switch (spCategoria.getSelectedItem().toString())
         {
@@ -140,15 +135,14 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
             case "Lactante":cuy.setCategoria("LC");break;
         }
         cuy.setGenero(spGenero.getSelectedItem().toString());
-        cuy.setFechaNaci(Fechas.calcularFechaNacimiento(Integer.parseInt(txtEdad.getText().toString())));
 
         return cuy;
     }
 
     private void restablecerCampos()
     {
-        etCodigoCuy.setText("");
-        etEdadCuy.setText("");
+        txtIdPozaDestino.setText("");
+        txtIdCuy.setText("");
     }
 
     private void adaptarInterfaz(Poza poza) {

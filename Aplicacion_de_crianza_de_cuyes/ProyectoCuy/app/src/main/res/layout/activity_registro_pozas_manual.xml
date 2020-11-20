@@ -26,24 +26,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cuenta con"
                 android:layout_margin="@dimen/margin_low"
+                android:text="Cuenta con"
                 android:textSize="@dimen/textSize_hight" />
 
             <TextView
                 android:id="@+id/tvCantidadPozas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XXX"
                 android:layout_margin="@dimen/margin_low"
+                android:text="XXX"
                 android:textSize="@dimen/textSize_hight"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="pozas"
                 android:layout_margin="@dimen/margin_low"
+                android:text="pozas"
                 android:textSize="@dimen/textSize_hight" />
 
         </LinearLayout>
@@ -127,14 +127,13 @@
 
         <Button
             android:id="@+id/btnAgregar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:layout_marginTop="@dimen/margin_hight"
-            android:layout_marginStart="@dimen/margin_hight"
-            android:layout_marginEnd="@dimen/margin_hight"
-            android:layout_gravity="center_horizontal"
-            android:onClick="btnAgregarClick"
-            android:background="@drawable/img_btnagregar"/>
+            android:layout_marginEnd="@dimen/margin_low"
+            android:background="@drawable/img_btnagregar"
+            android:onClick="btnAgregarClick" />
 
     </LinearLayout>
 
