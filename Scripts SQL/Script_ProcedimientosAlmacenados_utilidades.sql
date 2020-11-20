@@ -24,6 +24,8 @@ SELECT ID_Cuy,cuyGenero,DATEDIFF (DAY,cuyFechaNaci,@fechahoy)AS Edad,ID_Pozas,ID
 SELECT ID_Pozas,ID_Cuy,edad,cuyGenero,ID_Categoria AS CategoriaCuy FROM #Lista WHERE Edad>=@edadMaxima
 DROP TABLE #Lista 
 
+GO
+
 --Consultar reporte de entrada o salida 
 CREATE PROCEDURE SP_ConsultarReporte
 @TipoIngreso as char(10)
@@ -33,6 +35,7 @@ INNER JOIN tblDetalleTransaccion ON tblTransacciones.ID_Transaccion=tblDetalleTr
 INNER JOIN tblCuyes ON tblDetalleTransaccion.ID_Cuyes=tblCuyes.ID_Cuy
 INNER JOIN tblTipoMovimiento ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi WHERE tblTipoMovimiento.Tipo=@TipoIngreso
 
+GO
 
 --Cantidad de cuyes que salen por tipo
 CREATE PROCEDURE SP_CANTIDAD_MP
@@ -45,7 +48,7 @@ SELECT COUNT(tblCuyes.ID_Cuy) AS cantidad FROM tblDetalleTransaccion INNER JOIN 
 ON tblDetalleTransaccion.ID_TipoMovi=tblTipoMovimiento.ID_TipoMovi and tblTipoMovimiento.ID_TipoMovi=@tipo INNER JOIN tblCuyes	
 ON tblDetalleTransaccion.ID_Cuyes = tblCuyes.ID_Cuy AND tblCuyes.cuyGenero=@gen AND tblCuyes.ID_Categoria=@cat AND tblTipoMovimiento.Tipo=@motivo
 
-EXEC SP_CANTIDAD_MP SALIDA ,IC,LC,MACHO
+GO
 
 --Obtener id_máximo de determinado tipo de poza
 CREATE PROCEDURE SP_Obtener_Max_ID_Poza
@@ -54,7 +57,6 @@ AS
 SELECT MAX(convert(int,SUBSTRING(ID_Pozas,2, 1) + SUBSTRING(ID_Pozas,3,1)))
 FROM tblPozas WHERE ID_Pozas like @identificador+'%'
 
-EXEC SP_Obtener_Max_ID_Poza 'A'
  
 
 
