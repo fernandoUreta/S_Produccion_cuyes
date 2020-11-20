@@ -1,4 +1,5 @@
 CREATE DATABASE BDProduccionCuyes
+GO
 use BDProduccionCuyes
 GO
 CREATE TABLE tblCategoria --OK
@@ -15,7 +16,7 @@ CREATE TABLE tblPozas --OK
 	Dimen_A float,--ANCHO
 	pozClasificacion varchar(10),--Recria, empadre, padrillo y engorde
 	pozCapacidadCuyes int,--Máximo Rec:20 , Emp:10 , Pad: 1 , Eng: 10
-	disponible char() -- T-> disponible F->no disponible o eliminado
+	disponible char(1) -- T-> disponible F->no disponible o eliminado
 )
 
 
