@@ -13,7 +13,7 @@ import com.example.proyectocuy.R;
 
 import java.util.List;
 
-public class ActividadesAdapter extends RecyclerView.Adapter<ActividadesAdapter.MyViewHolder> {
+public class    ActividadesAdapter extends RecyclerView.Adapter<ActividadesAdapter.MyViewHolder> {
     private List<Actividad> listActividades;
 
     private LayoutInflater mInflater;

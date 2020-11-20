@@ -14,8 +14,10 @@ CREATE TABLE tblPozas --OK
 	Dimen_L float,--LARGO
 	Dimen_A float,--ANCHO
 	pozClasificacion varchar(10),--Recria, empadre, padrillo y engorde
-	pozCapacidadCuyes int  --Máximo Rec:20 , Emp:10 , Pad: 1 , Eng: 10
+	pozCapacidadCuyes int,--Máximo Rec:20 , Emp:10 , Pad: 1 , Eng: 10
+	disponible char() -- T-> disponible F->no disponible o eliminado
 )
+
 
 CREATE TABLE tblCuyes --OK
 (

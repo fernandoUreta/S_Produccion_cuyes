@@ -23,7 +23,6 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
     CalendarView calendarView;
     private RecyclerView rvActividades;
     private ActividadesAdapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
