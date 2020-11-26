@@ -111,6 +111,7 @@ public class ExpPCAdapterEngRec extends BaseExpandableListAdapter {
                 Toast.makeText(context, listCategoria.get(groupPosition), Toast.LENGTH_SHORT).show();
             }
         });
+
         tvCantMaA.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"EG")));
         tvCantMaP.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"EG")));
 

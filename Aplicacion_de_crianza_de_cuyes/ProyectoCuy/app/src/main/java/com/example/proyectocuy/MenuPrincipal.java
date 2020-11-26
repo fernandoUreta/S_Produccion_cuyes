@@ -26,8 +26,7 @@ public class MenuPrincipal extends AppCompatActivity {
         String contraseña=preferences.getString("contraseña_id",null);
 
         if (usuario !=null && contraseña !=null){
-            Toast.makeText(this, usuario, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, contraseña, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bienvenido "+usuario, Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1,5 +1,5 @@
 CREATE PROCEDURE SP_A_tblCuyes
-@id_Cuy as varchar(4),
+@id_Cuy as varchar(16),
 @id_Pozas as varchar(4),
 @id_Categoria as char(2),
 @genero as char(6),
@@ -34,3 +34,7 @@ as
 delete from tblCuyes where ID_Cuy=@id_Cuy
 
 
+CREATE PROCEDURE SP_C_ReporteCuy
+@id_poza as varchar(4)
+as
+select count(*) from tblCuyes where ID_Pozas like @id_poza

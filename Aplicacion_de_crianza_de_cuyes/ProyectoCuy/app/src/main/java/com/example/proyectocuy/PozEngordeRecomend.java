@@ -73,7 +73,7 @@ public class PozEngordeRecomend extends AppCompatActivity {
                 for (int i=1;i<=valor1*2.5;i++){
                     cuy.cuyId="CEM"+cuyTotal;
                     cuy.idPoza=texto;
-                    cuy.categoria="4";
+                    cuy.categoria="EG";
                     cuy.genero="Macho";
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(35);
                     BD_ProduccionCuyes.registrarCuy(cuy);
@@ -83,7 +83,7 @@ public class PozEngordeRecomend extends AppCompatActivity {
                 for (int i=1;i<=valor1*2.5;i++){
                     cuy.cuyId="CEH"+cuyTotal;
                     cuy.idPoza=texto;
-                    cuy.categoria="5";
+                    cuy.categoria="EG";
                     cuy.genero="Hembra";
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(35);
                     BD_ProduccionCuyes.registrarCuy(cuy);

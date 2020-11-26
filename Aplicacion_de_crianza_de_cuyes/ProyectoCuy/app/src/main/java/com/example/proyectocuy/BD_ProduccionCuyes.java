@@ -202,7 +202,7 @@ public class BD_ProduccionCuyes {
     {
         boolean v;
         try {
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblCuyes1 " +
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblCuyes " +
                     "'"+cuy.cuyId+"','"+cuy.idPoza+"','"+cuy.categoria+"','"+cuy.genero+"','"+cuy.fechaNaci+"'");
             pst.executeUpdate();
             v=true;

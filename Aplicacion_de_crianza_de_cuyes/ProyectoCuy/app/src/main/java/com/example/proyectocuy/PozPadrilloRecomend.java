@@ -57,7 +57,7 @@ public class PozPadrilloRecomend extends AppCompatActivity {
             for (int i=1;i<=valor1/valor1;i++){
                 cuy.cuyId="CPM"+cuyTotal;
                 cuy.idPoza=texto;
-                cuy.categoria="3";
+                cuy.categoria="PD";
                 cuy.genero="Macho";
                 cuy.fechaNaci= Fechas.calcularFechaNacimiento(15);
                 BD_ProduccionCuyes.registrarCuy(cuy);

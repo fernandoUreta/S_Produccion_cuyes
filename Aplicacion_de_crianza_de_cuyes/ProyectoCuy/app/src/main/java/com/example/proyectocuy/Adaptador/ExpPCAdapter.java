@@ -115,7 +115,7 @@ public class ExpPCAdapter extends BaseExpandableListAdapter {
             }
         });
 
-        tvCantMaA.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"MA")));
+        tvCantMaA.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"MM")));
         tvCantMaP.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"MP")));
         tvCantP.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"PD")));
         tvCantL.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"LC")));

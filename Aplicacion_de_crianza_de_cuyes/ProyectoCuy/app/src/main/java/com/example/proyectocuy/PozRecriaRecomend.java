@@ -65,7 +65,7 @@ public class PozRecriaRecomend extends AppCompatActivity {
                 for (int i=1;i<=valor1*2.5;i++){
                     cuy.cuyId="CRM"+cuyTotal;
                     cuy.idPoza=texto;
-                    cuy.categoria="6";
+                    cuy.categoria="RC";
                     cuy.genero="Macho";
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(15);
                     BD_ProduccionCuyes.registrarCuy(cuy);
@@ -75,7 +75,7 @@ public class PozRecriaRecomend extends AppCompatActivity {
                 for (int i=1;i<=valor1*2.5;i++){
                     cuy.cuyId="CRH"+cuyTotal;
                     cuy.idPoza=texto;
-                    cuy.categoria="7";
+                    cuy.categoria="RC";
                     cuy.genero="Hembra";
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(15);
                     BD_ProduccionCuyes.registrarCuy(cuy);

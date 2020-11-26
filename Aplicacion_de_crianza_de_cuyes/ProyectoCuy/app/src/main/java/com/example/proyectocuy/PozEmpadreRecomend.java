@@ -83,21 +83,23 @@ public class PozEmpadreRecomend extends AppCompatActivity {
             texto="A"+contador;
             int acuPadri=cuyTotal++;
             cantidadGazapos.setText("");
+            //creacion de cuyes padrillos ok
             for (int i=1;i<=valor1/valor1;i++){
                 Cuy cuy = new Cuy();
                 cuy.cuyId="CP"+acuPadri;
                 cuy.idPoza=texto;
-                cuy.categoria="3";
+                cuy.categoria="PD";
                 cuy.genero="Macho";
                 cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                 BD_ProduccionCuyes.registrarCuy(cuy);
                 cuy=null;
             }
+            //creacion de cuy lactantes ok
             for (int i=1;i<=a;i++){
                 Cuy cuy = new Cuy();
                 cuy.cuyId="CG"+cuyLact;
                 cuy.idPoza=texto;
-                cuy.categoria="8";
+                cuy.categoria="LC";
                 cuy.genero="Macho";
                 cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                 BD_ProduccionCuyes.registrarCuy(cuy);
@@ -109,7 +111,7 @@ public class PozEmpadreRecomend extends AppCompatActivity {
                     Cuy cuy = new Cuy();
                     cuy.cuyId="CMM"+cuyMa;
                     cuy.idPoza=texto;
-                    cuy.categoria="1";
+                    cuy.categoria="MM";
                     cuy.genero="Hembra";
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                     BD_ProduccionCuyes.registrarCuy(cuy);
@@ -121,7 +123,7 @@ public class PozEmpadreRecomend extends AppCompatActivity {
                     Cuy cuy = new Cuy();
                     cuy.cuyId="CMP"+cuyMa;
                     cuy.idPoza=texto;
-                    cuy.categoria="2";
+                    cuy.categoria="MP";
                     cuy.genero="Hembra";
                     cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
                     BD_ProduccionCuyes.registrarCuy(cuy);
