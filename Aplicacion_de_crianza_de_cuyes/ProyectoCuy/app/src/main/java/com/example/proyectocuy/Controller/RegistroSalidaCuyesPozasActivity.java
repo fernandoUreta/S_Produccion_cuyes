@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,13 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
-import com.example.proyectocuy.BD_ProduccionCuyes;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
 
 import com.example.proyectocuy.R;
-import com.example.proyectocuy.Recursos_Adicionales.Fechas;
 import com.example.proyectocuy.Tools.Transacciones;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -36,6 +33,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     Cuy cuy=new Cuy();
     Poza poza=new Poza();
 
+
     //Datos provenientes del disparador
     String idUsuario="70771304";
 
@@ -44,7 +42,6 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_salida_cuyes_pozas);
         showToolbar("Salida de cuyes",true);
-
         //Asignacion
         spTipoSalida =findViewById(R.id.spTipoIngreso);
 
@@ -87,7 +84,24 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        Transacciones.destruirTransaccion(transaccion.getIdTransaccion());
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Transacciones.destruirTransaccion(transaccion.getIdTransaccion());
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
         transaccion= Transacciones.generarTransaccion(idUsuario);
+
     }
 
 

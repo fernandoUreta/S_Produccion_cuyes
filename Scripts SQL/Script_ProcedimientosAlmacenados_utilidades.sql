@@ -66,9 +66,19 @@ CREATE PROCEDURE sp_salidaCuy_rotacion
 AS
 UPDATE tblCuyes set ID_Pozas=@idPozadestino WHERE ID_Cuy=@idCuy
 
---Salida de cuy con poza destino
+--Salida de cuy con estado
 CREATE PROCEDURE SP_salidaCuy
 @idCuy AS VARCHAR(16),
 @estado AS NCHAR(15)
 AS
 UPDATE tblCuyes set ID_Pozas=null,estado=@estado where ID_Cuy=@idCuy
+
+
+--Elimina transaccion sin datos
+CREATE PROCEDURE SP_limpiarTransaccion
+@idTransaccion as int
+AS
+DECLARE @a AS INT
+set @a=(SELECT COUNT(ID_Transaccion) FROM tblDetalleTransaccion WHERE ID_Transaccion=@idTransaccion)
+if @a=0
+delete from tblTransacciones where ID_Transaccion=@idTransaccion
