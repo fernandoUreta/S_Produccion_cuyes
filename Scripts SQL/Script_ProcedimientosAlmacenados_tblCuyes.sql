@@ -5,7 +5,7 @@ CREATE PROCEDURE SP_A_tblCuyes
 @genero as char(6),
 @fecha_naci as date
 as
-insert into tblCuyes values(@id_Cuy,@id_Pozas,@id_Categoria,@genero,@fecha_naci)
+insert into tblCuyes values(@id_Cuy,@id_Pozas,@id_Categoria,@genero,@fecha_naci,'Activo')
 
 
 GO
@@ -13,7 +13,8 @@ GO
 CREATE PROCEDURE SP_C_tblCuyes
 @id_Cuy as varchar(4)
 as
-select *from tblCuyes WHERE ID_Cuy=@id_Cuy
+select *from tblCuyes WHERE ID_Cuy=@id_Cuy and estado='activo'
+
 
 GO
 

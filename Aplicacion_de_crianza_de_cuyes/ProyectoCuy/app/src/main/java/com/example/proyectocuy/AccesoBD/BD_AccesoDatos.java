@@ -155,6 +155,28 @@ public class BD_AccesoDatos {
         }
     }
 
+    //Salida por rotacion
+    public static void salidaRotacion(String idCuy, String idPozadestino,Context context)
+    {
+        try {
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC sp_salidaCuy_rotacion '"+idCuy+"','"+idPozadestino+"'");
+            pst.executeUpdate();
+        }catch (SQLException e){
+            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();        }
+
+    }
+    //Salida permanente de cuyes
+    public static void salidaCuy(String idCuy,String tipoSalia,Context context)
+    {
+        try {
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_salidaCuy '"+idCuy+"','vendido'");
+            pst.executeUpdate();
+        }catch (SQLException e){
+            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     //Transacciones
     public static int consultarUltimaTransaccion()
     {
