@@ -305,8 +305,6 @@ public class BD_AccesoDatos {
     }
 
 
-
-
 }
 
 

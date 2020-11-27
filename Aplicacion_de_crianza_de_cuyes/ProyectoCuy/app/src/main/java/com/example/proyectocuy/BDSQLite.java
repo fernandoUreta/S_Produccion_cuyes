@@ -8,14 +8,14 @@ import androidx.annotation.Nullable;
 
 public class BDSQLite extends SQLiteOpenHelper {
     private String sql="create table eventos(" +
-            "idEvento integer AUTOINCREMENT, " +
+            "idEvento int identity , " +
             "nombreEvento varchar(40), " +
             "ubicacion varchar(60), " +
             "fechadesde date, " +
             "horadesde time, " +
             "fechahasta date, " +
             "horahasta time, " +
-            "descripcion varchar(60),);";
+            "descripcion varchar(60));";
     public BDSQLite(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }

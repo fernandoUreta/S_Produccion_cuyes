@@ -53,7 +53,6 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         mes=month+1;
         anio=year;
 
-
         builder.setTitle("Seleccione una tarea").setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

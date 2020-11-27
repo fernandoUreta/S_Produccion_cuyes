@@ -34,7 +34,6 @@ public class AgregarActividad extends AppCompatActivity implements View.OnClickL
         mes=bundle.getInt("mes");
         anio=bundle.getInt("anio");
 
-
         fechadesde.setText(dia+" - " +mes+" - "+anio);
         fechahasta.setText(dia+" - " +mes+" - "+anio);
 

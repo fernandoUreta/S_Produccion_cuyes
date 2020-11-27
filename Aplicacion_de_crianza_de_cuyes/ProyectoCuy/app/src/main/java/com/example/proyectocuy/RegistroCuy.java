@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
 
 import java.text.DecimalFormat;
 
@@ -42,7 +45,10 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
         recM.setText("20");
         recH.setText("20");
         gaz.setText("20");
-
+        if (BD_ProduccionCuyes.consultarCantidadPozas()>0){
+            Intent i = new Intent(this, MenuPrincipal.class);
+            startActivity(i);
+        }
     }
 
     private void CalcularRecorrido(){

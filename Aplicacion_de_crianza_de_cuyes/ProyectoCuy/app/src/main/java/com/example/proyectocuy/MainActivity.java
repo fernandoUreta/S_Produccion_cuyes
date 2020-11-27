@@ -130,6 +130,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
     }
+    private void inicioSesion1() {
+        Intent i = new Intent(this,MenuPrincipal.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+    }
 
     public void Consultar(View v){
         Intent i = new Intent(this,Usuario.class);

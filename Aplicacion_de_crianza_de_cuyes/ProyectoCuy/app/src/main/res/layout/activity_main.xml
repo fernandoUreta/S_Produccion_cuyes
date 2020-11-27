@@ -42,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
+            android:inputType="text"
             android:background="@drawable/btn_iniciosesion"
             android:gravity="center"
             android:hint="Ingrese Correo"></EditText>
