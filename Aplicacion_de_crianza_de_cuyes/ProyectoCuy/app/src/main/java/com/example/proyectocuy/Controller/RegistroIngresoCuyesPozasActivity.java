@@ -93,7 +93,6 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
         }
-        transaccion= Transacciones.generarTransaccion(idUsuario);
     }
 
 
@@ -103,6 +102,21 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(tittle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
+    }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Transacciones.destruirTransaccion(transaccion.getIdTransaccion());
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Transacciones.destruirTransaccion(transaccion.getIdTransaccion());
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        transaccion= Transacciones.generarTransaccion(idUsuario);
     }
 
     public void btnAgregarClick(View view)

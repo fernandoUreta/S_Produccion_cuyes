@@ -47,22 +47,21 @@ public class Transacciones {
         try {
 
             String movimiento="";
+            String estado="Activo";
             switch (tipoMovi)
             {
-                case "Muerte":movimiento="SM";break;
-                case "Venta":movimiento="SV";break;
-                case "Consumo":movimiento="SC";break;
-                case "Rotación":movimiento="SR";break;
-                case "Otros":movimiento="SO";break;
+                case "Muerte":movimiento="SM";estado="muerto";break;
+                case "Venta":movimiento="SV";estado="vendido";break;
+                case "Consumo":movimiento="SC";estado="consumido";break;
+                case "Rotación":movimiento="SR";estado="Activo";break;
+                case "Otros":movimiento="SO";estado="No habido";break;
             }
 
             if (tipoMovi!="Rotación")
             {
                 BD_AccesoDatos.salidaRotacion(cuy.getCuyId(),idPozaDestino,context);
-            }else {BD_AccesoDatos.salidaCuy(cuy.getCuyId(),tipoMovi,context);}
-
+            }else {BD_AccesoDatos.salidaCuy(cuy.getCuyId(),estado,context);}
             BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
-            Toast.makeText(context,"Llega aquí",Toast.LENGTH_LONG).show();
 
         }catch (Exception e)
         {
@@ -70,9 +69,9 @@ public class Transacciones {
         }
 
     }
-    public static void desctruirTransaccion()
+    public static void destruirTransaccion(int idtransaccion)
     {
-
+            BD_AccesoDatos.validartransaccion(idtransaccion);
     }
 
 

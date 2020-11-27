@@ -131,15 +131,6 @@ public class BD_AccesoDatos {
 
     }
 
-    public static void eliminarCuy(String cuyID,Context context)
-    {
-        try {
-            PreparedStatement pst=ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_E_tblCuyes "+cuyID);
-            pst.executeUpdate();
-        }catch (SQLException e){
-            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
-        }
-    }
     public static int consultarCantiTipoCuyPoza(String idPoza,String idCatCuy)
     {
         int cantidad=0;
@@ -166,10 +157,11 @@ public class BD_AccesoDatos {
 
     }
     //Salida permanente de cuyes
-    public static void salidaCuy(String idCuy,String tipoSalia,Context context)
+    public static void salidaCuy(String idCuy,String estado,Context context)
     {
         try {
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_salidaCuy '"+idCuy+"','vendido'");
+            Toast.makeText(context,"idCuy" + idCuy+"estado"+estado,Toast.LENGTH_SHORT).show();
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_salidaCuy '"+idCuy+"','"+estado);
             pst.executeUpdate();
         }catch (SQLException e){
             Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
@@ -201,6 +193,15 @@ public class BD_AccesoDatos {
             return true;
         }catch (SQLException e){
             return false;
+        }
+
+    }
+    public static void validartransaccion(int idtransaccion)
+    {
+        try {
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("SP_limpiarTransaccion "+idtransaccion);
+            pst.executeUpdate();
+        }catch (SQLException e){
         }
 
     }
