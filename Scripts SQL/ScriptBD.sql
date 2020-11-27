@@ -27,6 +27,7 @@ CREATE TABLE tblCuyes --OK
 	ID_Categoria CHAR(2),
 	cuyGenero char(6),
 	cuyFechaNaci date,
+	estado char(15),-- Activo, vendido, consumido, muerto
 	FOREIGN KEY (ID_Pozas) REFERENCES tblPozas(ID_Pozas),
 	FOREIGN KEY (ID_Categoria) REFERENCES tblCategoria(ID_Categoria)
 )

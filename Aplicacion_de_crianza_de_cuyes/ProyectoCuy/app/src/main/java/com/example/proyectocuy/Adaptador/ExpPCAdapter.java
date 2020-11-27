@@ -106,7 +106,7 @@ public class ExpPCAdapter extends BaseExpandableListAdapter {
             public void onClick(View v) {
                 Poza poza=new Poza();
                 poza.setIdPoza(listCategoria.get(groupPosition));
-                Intent i=new Intent(context, C_RegistroSalidaCuyes.class);
+                Intent i=new Intent(context, RegistroSalidaCuyesPozasActivity.class);
                 Bundle pozaData=new Bundle();
                 pozaData.putSerializable("poza",poza);
                 i.putExtras(pozaData);

@@ -37,6 +37,7 @@ public class Transacciones {
             case "Rotacion":movimiento="IR";break;
             case "Otros":movimiento="IO";break;
         }
+        Toast.makeText(context,"idCuy:"+cuy.getIdPoza(),Toast.LENGTH_LONG).show();
         BD_AccesoDatos.registrarCuy(cuy);
         BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
     }
@@ -44,9 +45,6 @@ public class Transacciones {
     public static  void RegistrarSalidaCuyes(Cuy cuy, Transaccion transaccion, String idPozaDestino, String tipoMovi, Context context)
     {
         try {
-            BD_AccesoDatos.eliminarCuy(cuy.getCuyId(),context);
-            cuy.setIdPoza(idPozaDestino);
-            BD_AccesoDatos.registrarCuy(cuy);
 
             String movimiento="";
             switch (tipoMovi)
@@ -57,12 +55,23 @@ public class Transacciones {
                 case "Rotación":movimiento="SR";break;
                 case "Otros":movimiento="SO";break;
             }
+
+            if (tipoMovi!="Rotación")
+            {
+                BD_AccesoDatos.salidaRotacion(cuy.getCuyId(),idPozaDestino,context);
+            }else {BD_AccesoDatos.salidaCuy(cuy.getCuyId(),tipoMovi,context);}
+
             BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
             Toast.makeText(context,"Llega aquí",Toast.LENGTH_LONG).show();
+
         }catch (Exception e)
         {
             Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();
         }
+
+    }
+    public static void desctruirTransaccion()
+    {
 
     }
 
