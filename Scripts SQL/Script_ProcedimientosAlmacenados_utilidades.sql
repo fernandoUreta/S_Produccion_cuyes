@@ -59,4 +59,16 @@ FROM tblPozas WHERE ID_Pozas like @identificador+'%'
 
  
 
+--Salida de cuy por rotación
+CREATE PROCEDURE sp_salidaCuy_rotacion
+@idCuy as char(16),
+@idPozadestino as varchar(4)
+AS
+UPDATE tblCuyes set ID_Pozas=@idPozadestino WHERE ID_Cuy=@idCuy
 
+--Salida de cuy con poza destino
+CREATE PROCEDURE SP_salidaCuy
+@idCuy AS VARCHAR(16),
+@estado AS NCHAR(15)
+AS
+UPDATE tblCuyes set ID_Pozas=null,estado=@estado where ID_Cuy=@idCuy

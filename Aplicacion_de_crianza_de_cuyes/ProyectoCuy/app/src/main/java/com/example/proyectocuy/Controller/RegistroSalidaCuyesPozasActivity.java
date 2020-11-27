@@ -104,6 +104,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         if (validarCampos()==true) {
             this.cuy = BD_AccesoDatos.consultarCuy(txtIdCuy.getText().toString(), this);
             Transacciones.RegistrarSalidaCuyes(cuy,transaccion,txtIdPozaDestino.getText().toString(),spTipoSalida.getSelectedItem().toString(),this);
+            restablecerCampos();
         }
     }
 
