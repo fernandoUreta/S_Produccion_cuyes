@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_app"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Ingrese la cantidad de cuyes"
+            android:textColor="@color/colorTextoNegro"
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Madres Maduras"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtRMadrMad"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Madres Primerisas"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtRMadrPr"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Padrillos"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtRPadri"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Engorde Machos"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtREngMach"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Engorde Hembras"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtREngHem"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Recria Machos"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtRRecrMach"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Recria Hembras"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtRRecrHem"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Gazapos"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtRGazap"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_cuadrado"
+                android:gravity="center"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="La cantidad de cuyes es:"
+            android:textSize="27dp" />
+
+        <TextView
+            android:id="@+id/txtCantidadCuy"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_siguiente"
+            android:gravity="center"
+            android:textSize="27dp" />
+
+        <Button
+            android:id="@+id/btnRCsiguiente"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_siguiente"
+            android:text="Siguiente"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+</LinearLayout>

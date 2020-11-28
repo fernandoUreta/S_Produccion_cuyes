@@ -116,11 +116,11 @@ public class BD_AccesoDatos {
             Statement stm=ConexionSQLServer.conectarBD().createStatement();
             ResultSet rs=stm.executeQuery("EXEC SP_C_tblCuyes '"+cuyID+"'");
             if (rs.next()){
-                cuy.setCuyId(rs.getString(1));
-                cuy.setIdPoza(rs.getString(2));
-                cuy.setCategoria(rs.getString(3));
-                cuy.setGenero(rs.getString(4));
-                cuy.setFechaNaci(rs.getDate(5));
+                cuy.setCuyId(rs.getString(0));
+                cuy.setIdPoza(rs.getString(1));
+                cuy.setCategoria(rs.getString(2));
+                cuy.setGenero(rs.getString(3));
+                cuy.setFechaNaci(rs.getDate(4));
             }
             Toast.makeText(context,cuyID,Toast.LENGTH_LONG).show();
             return cuy;
@@ -159,13 +159,13 @@ public class BD_AccesoDatos {
     //Salida permanente de cuyes
     public static void salidaCuy(String idCuy,String estado,Context context)
     {
-        try {
+        //try {
             Toast.makeText(context,"idCuy" + idCuy+"estado"+estado,Toast.LENGTH_SHORT).show();
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_salidaCuy '"+idCuy+"','"+estado);
-            pst.executeUpdate();
-        }catch (SQLException e){
-            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
-        }
+            //PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_salidaCuy '"+idCuy+"','"+estado);
+            //pst.executeUpdate();
+       // }catch (SQLException e){
+         //   Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+        //}
 
     }
 

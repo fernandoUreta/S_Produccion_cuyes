@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_app"
+    tools:context=".AgregarActividad">
+    <EditText
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_cuadrado"
+        android:id="@+id/edtNombreEvento"
+        android:hint="Ingrese nombre de evento"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/edtNombreEvento"
+        android:background="@drawable/btn_cuadrado"
+        android:id="@+id/edtUbicacion"
+        android:hint="Ingrese la ubicacion"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tvDesde"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/edtUbicacion"
+        android:layout_height="30dp"
+        android:text="Desde"/>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/edtFechaDesde"
+        android:layout_width="395dp"
+        android:inputType="date"
+        android:layout_height="30dp"
+        android:layout_below="@id/tvDesde"
+        android:background="@drawable/btn_cuadrado" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/edtHoraInicio"
+        android:layout_width="395dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/edtFechaDesde"
+        android:inputType="time"
+        android:hint="ingresa hora inicio"
+        android:background="@drawable/btn_cuadrado"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tvHasta"
+        android:layout_below="@id/edtHoraInicio"
+        android:layout_width="wrap_content"
+        android:text="Hasta"
+        android:layout_height="30dp"/>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/edtFechaHasta"
+        android:layout_below="@id/tvHasta"
+        android:background="@drawable/btn_cuadrado"
+        android:inputType="date"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/edtHoraHasta"
+        android:layout_below="@id/edtFechaHasta"
+        android:background="@drawable/btn_cuadrado"
+        android:layout_width="match_parent"
+        android:inputType="time"
+        android:layout_height="30dp"
+        android:hint="ingresa hora fin"/>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/edtDescripcion"
+        android:layout_below="@id/edtHoraHasta"
+        android:background="@drawable/btn_cuadrado"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:hint="Descripción"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnGuardarEvento"
+        android:text="Guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtDescripcion"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnCancelarEvento"
+        android:text="Cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/btnGuardarEvento"
+        android:layout_alignEnd="@id/edtDescripcion"/>
+</RelativeLayout>
