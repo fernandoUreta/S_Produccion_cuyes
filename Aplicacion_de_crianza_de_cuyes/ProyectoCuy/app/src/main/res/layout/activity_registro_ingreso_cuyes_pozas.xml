@@ -41,7 +41,6 @@
                     android:textSize="@dimen/textSize_hight" />
 
             </LinearLayout>
-
             <TextView
                 android:id="@+id/tvTipoPoza"
                 android:layout_width="match_parent"
@@ -52,7 +51,6 @@
                 android:textAlignment="center"
                 android:textSize="@dimen/textSize_hight"
                 android:textStyle="italic" />
-
 
             <ScrollView
                 android:layout_width="match_parent"

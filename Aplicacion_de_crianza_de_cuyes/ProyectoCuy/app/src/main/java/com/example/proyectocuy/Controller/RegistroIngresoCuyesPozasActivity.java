@@ -127,7 +127,6 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
             adaptarInterfaz(poza);
             restablecerCampos();
         }else {};
-
     }
     public boolean validarCampos()
     {
