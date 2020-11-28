@@ -61,7 +61,6 @@ public class Transacciones {
             {
                BD_AccesoDatos.salidaRotacion(cuy.getCuyId(),idPozaDestino,context);
             }else {BD_AccesoDatos.salidaCuy(cuy.getCuyId(),estado,context);}
-            BD_AccesoDatos.salidaCuy(cuy.getCuyId(),estado,context);
             BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
 
         }catch (Exception e)

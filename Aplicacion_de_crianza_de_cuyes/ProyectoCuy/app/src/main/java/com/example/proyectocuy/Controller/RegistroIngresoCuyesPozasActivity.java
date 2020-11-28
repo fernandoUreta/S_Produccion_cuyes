@@ -151,7 +151,7 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
             case "Madre primeriza":cuy.setCategoria("MP");break;
             case "Padrillo":cuy.setCategoria("PD");break;
             case "Engorde":cuy.setCategoria("EG");break;
-            case "Recria":cuy.setCategoria("EC");break;
+            case "Recria":cuy.setCategoria("RC");break;
             case "Lactante":cuy.setCategoria("LC");break;
         }
         cuy.setGenero(spGenero.getSelectedItem().toString());
