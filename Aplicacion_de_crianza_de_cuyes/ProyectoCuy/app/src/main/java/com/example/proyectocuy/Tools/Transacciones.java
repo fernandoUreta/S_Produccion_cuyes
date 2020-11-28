@@ -57,10 +57,10 @@ public class Transacciones {
                 case "Otros":movimiento="SO";estado="No habido";break;
             }
 
-            //if (tipoMovi!="Rotación")
-            //{
-            //    BD_AccesoDatos.salidaRotacion(cuy.getCuyId(),idPozaDestino,context);
-            //}else {BD_AccesoDatos.salidaCuy(cuy.getCuyId(),estado,context);}
+            if (tipoMovi!="Rotación")
+            {
+               BD_AccesoDatos.salidaRotacion(cuy.getCuyId(),idPozaDestino,context);
+            }else {BD_AccesoDatos.salidaCuy(cuy.getCuyId(),estado,context);}
             BD_AccesoDatos.salidaCuy(cuy.getCuyId(),estado,context);
             BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
 

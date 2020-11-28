@@ -224,12 +224,15 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
                 //To analizar
                 case "Recría":{
                     tvDesc1.setText("Cuyes");
-                    generos=new String[1];
+                    generos=new String[2];
                     tiposCuy=new String[1];
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
+                    int total=BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC");
+                    tvCantidadCuyes1.setText(String.valueOf(total));
+
                     this.generos[0]="Macho";
+                    this.generos[1]="Hembra";
                     this.tiposCuy[0]="Recria";
                 }break;
                 //

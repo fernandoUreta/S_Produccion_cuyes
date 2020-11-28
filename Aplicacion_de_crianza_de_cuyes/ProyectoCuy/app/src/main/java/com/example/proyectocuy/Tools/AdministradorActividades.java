@@ -46,7 +46,7 @@ public class AdministradorActividades {
         actividadesAll.addAll(activiPadrilloSalidaR);
         List<Actividad> activiPadrilloSalidaE=BD_AccesoDatos.obtenerCuyesLimiteEdadEnPoza("PD","Empadre",730,descripcion,context);
         actividadesAll.addAll(activiPadrilloSalidaE);
-        List<Actividad> activiPadrilloSalidaP=BD_AccesoDatos.obtenerCuyesLimiteEdadEnPoza("PD","Parillo",730,descripcion,context);
+        List<Actividad> activiPadrilloSalidaP=BD_AccesoDatos.obtenerCuyesLimiteEdadEnPoza("PD","Padrillo",730,descripcion,context);
         actividadesAll.addAll(activiPadrilloSalidaP);
 
     }
