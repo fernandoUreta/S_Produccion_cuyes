@@ -150,7 +150,7 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
             case "Madre primeriza":cuy.setCategoria("MP");break;
             case "Padrillo":cuy.setCategoria("PD");break;
             case "Engorde":cuy.setCategoria("EG");break;
-            case "Recria":cuy.setCategoria("EC");break;
+            case "Recria":cuy.setCategoria("RC");break;
             case "Lactante":cuy.setCategoria("LC");break;
         }
         cuy.setGenero(spGenero.getSelectedItem().toString());
@@ -223,12 +223,15 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
                 //To analizar
                 case "Recría":{
                     tvDesc1.setText("Cuyes");
-                    generos=new String[1];
+                    generos=new String[2];
                     tiposCuy=new String[1];
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
+                    int total=BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC");
+                    tvCantidadCuyes1.setText(String.valueOf(total));
+
                     this.generos[0]="Macho";
+                    this.generos[1]="Hembra";
                     this.tiposCuy[0]="Recria";
                 }break;
                 //
