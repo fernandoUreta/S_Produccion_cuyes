@@ -11,8 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.work.Data;
 
 import com.example.proyectocuy.Controller.Menu_general_pozasActivity;
+import com.example.proyectocuy.Tools.WorkManagerNotificacion;
+
+import java.util.Date;
 
 public class MenuPrincipal extends AppCompatActivity {
     private SharedPreferences preferences;
@@ -69,12 +73,22 @@ public class MenuPrincipal extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id=item.getItemId();
-        if (id== R.id.action_salir){
-            finish();
-            System.exit(0);
-        }else if (id== R.id.action_cerrar_sesion){
-            cerrarSesion();
+        switch (item.getItemId())
+        {
+            case R.id.action_salir:{
+                finish();
+                System.exit(0);
+            }break;
+            case R.id.action_cerrar_sesion:{
+                cerrarSesion();
+            }break;
+            case R.id.action_Notificaciones:{
+                String tag="kn95";
+                Data data=new Data.Builder().putString("titulo","Actividades").
+                        putString("mensaje","Hay actividades para hoy, toque aquí para verlas").build();
+                WorkManagerNotificacion.guardarNotificacion(data,tag,this);
+                Toast.makeText(this,"Iniciado",Toast.LENGTH_LONG).show();
+            }break;
         }
         return super.onOptionsItemSelected(item);
     }

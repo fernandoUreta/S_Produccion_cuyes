@@ -15,4 +15,11 @@
         android:title="@string/action_cerrar_sesion"
         app:showAsAction="never">
     </item>
+    <item
+        android:id="@+id/action_Notificaciones"
+        android:orderInCategory="100"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/action_notificaciones"
+        app:showAsAction="never">
+    </item>
 </menu>

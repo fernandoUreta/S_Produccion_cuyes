@@ -2,4 +2,5 @@
     <string name="app_name">Proyecto Cuy</string>
     <string name="action_salir">Salir</string>
     <string name="action_cerrar_sesion">Cerrar Sesión</string>
+    <string name="action_notificaciones">Notificaciones</string>
 </resources>

@@ -12,8 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
-import com.example.proyectocuy.BD_ProduccionCuyes;
-import com.example.proyectocuy.Controller.C_RegistroSalidaCuyes;
 import com.example.proyectocuy.Controller.RegistroIngresoCuyesPozasActivity;
 import com.example.proyectocuy.Controller.RegistroSalidaCuyesPozasActivity;
 import com.example.proyectocuy.ModeloDatos.Poza;
