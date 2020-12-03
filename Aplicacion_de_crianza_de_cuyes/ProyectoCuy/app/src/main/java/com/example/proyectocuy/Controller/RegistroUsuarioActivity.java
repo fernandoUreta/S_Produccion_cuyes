@@ -80,11 +80,13 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
             Toast.makeText(this, "La contraseña debe tener como mínimo 8 caracteres", Toast.LENGTH_SHORT).show();
         return false;
         }
-        else if (edtContra.getText().toString()!=edtConfirContra.getText().toString()) {
-            Toast.makeText(this,"Las contraseñas no coin coinciden",Toast.LENGTH_SHORT).show();
-            return false;
+        else if (edtContra.getText().toString().equals(edtConfirContra.getText().toString())) {
+            return true;
         }
-        else return true;
+        else {
+            Toast.makeText(this,"Las contraseñas no coinciden",Toast.LENGTH_SHORT).show();
+            return false;
+            }
     }
 
     @Override
