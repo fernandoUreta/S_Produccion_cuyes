@@ -1,4 +1,4 @@
-package com.example.proyectocuy;
+package com.example.proyectocuy.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectocuy.AccesoBD.ConexionSQLServer;
+import com.example.proyectocuy.MainActivity;
+import com.example.proyectocuy.R;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -49,7 +51,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
                 pst.executeUpdate();
 
                 Toast.makeText(getApplicationContext(),"REGISTRO AGREGADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(this,MainActivity.class);
+                Intent i=new Intent(this, MainActivity.class);
                 startActivity(i);
             }
           }catch (SQLException e){

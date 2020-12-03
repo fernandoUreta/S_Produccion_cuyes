@@ -48,7 +48,7 @@
         <activity android:name=".ConsultarUsuario" />
         <activity android:name=".Usuario" />
         <activity android:name=".ContrasenaOlvidada" />
-        <activity android:name=".RegistroUsuarioActivity" />
+        <activity android:name=".Controller.RegistroUsuarioActivity" />
         <activity android:name=".Controller.RegistroIngresoCuyesPozasActivity"
             android:parentActivityName=".MenuVerPozas"/>
         <activity android:name=".Controller.RegistroSalidaCuyesPozasActivity"
