@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void Registrar(View v){
-        Intent i = new Intent(this,InicioCorreo.class);
+        Intent i = new Intent(this, RegistroUsuarioActivity.class);
         startActivity(i);
     }
     public void RecuperarContraseña(View v){
