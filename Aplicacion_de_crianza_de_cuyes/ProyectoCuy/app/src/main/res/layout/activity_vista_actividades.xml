@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VistaActividades"
-    android:background="@drawable/fondo"
+    android:background="@drawable/fondo_app"
     android:padding="20dp">
     <ListView
         android:id="@+id/lsEventos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/btn_fondocuy"/>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

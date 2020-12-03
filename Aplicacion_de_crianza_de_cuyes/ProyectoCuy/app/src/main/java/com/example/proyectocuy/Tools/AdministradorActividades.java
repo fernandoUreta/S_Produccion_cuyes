@@ -58,7 +58,9 @@ public class AdministradorActividades {
     }
     private void retiro_de_engorde()
     {
-
+        String descripcion="Retiro de engordes por edad máxima alcanzada";
+        List<Actividad> activiEngordeSalida=BD_AccesoDatos.obtenerCuyesLimiteEdadEnPoza("EG","Engorde",550,descripcion,context);
+        actividadesAll.addAll(activiEngordeSalida);
     }
 
     public List<Actividad> getActividadesAll() {

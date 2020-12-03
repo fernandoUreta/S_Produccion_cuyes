@@ -16,10 +16,10 @@ import com.example.proyectocuy.ModeloDatos.Poza;
 
 public class DistribucionRecomendado extends AppCompatActivity {
 
-    int valor1, valor2, valor3, valor4, valor5, valor6, valor7, Total;
+    double valor1, valor2, valor3, valor4, valor5, valor6, valor7;
     int empradre, engordeB, recriaB, PePadrillo;
     int cantidadPengordeM, cantidadPengordeH, cantRecH, cantRecM;
-    int poz;
+    int madresMaduras,madresPimerisas,padrillosConver,Total;
 
     TextView totalpozas,pozEmpadre,pozPadrillo,pozEngorde,pozRecria;
     Button btnManual,btnSiguienteR;
@@ -39,36 +39,41 @@ public class DistribucionRecomendado extends AppCompatActivity {
 
         String mMadura = getIntent().getStringExtra("Enviando");
         Log.d("hola", mMadura);
-        valor1 = Integer.parseInt(mMadura);
+        valor1 = Double.parseDouble(mMadura);
+
         String mPrimerisa = getIntent().getStringExtra("madreP");
         Log.d("hola", mPrimerisa);
         valor2=Integer.parseInt(mPrimerisa);
 
-        empradre=(valor1/10)+(valor2/10);
+        madresMaduras=(int)Math.ceil(valor1/10);
+        madresPimerisas=(int)Math.ceil(valor2/10);
+
+        empradre=madresMaduras+madresPimerisas;
 
         String Padrillo = getIntent().getStringExtra("padrillo");
         Log.d("hola", Padrillo);
-        valor3=Integer.parseInt(Padrillo);
-        PePadrillo=valor3-empradre;
+        valor3=Double.parseDouble(Padrillo);
+        padrillosConver=(int)Math.ceil(valor3);
+        PePadrillo=padrillosConver-empradre;
 
         String engMacho = getIntent().getStringExtra("engordeMacho");
         Log.d("hola", engMacho);
-        valor4=Integer.parseInt(engMacho);
+        valor4=Double.parseDouble(engMacho);
         String engHembra = getIntent().getStringExtra("engordeHembra");
         Log.d("hola", engHembra);
-        valor5=Integer.parseInt(engHembra);
-        cantidadPengordeM=valor4/10;
-        cantidadPengordeH=valor5/10;
+        valor5=Double.parseDouble(engHembra);
+        cantidadPengordeM=(int)Math.ceil(valor4/10);
+        cantidadPengordeH=(int)Math.ceil(valor5/10);
         engordeB=cantidadPengordeM+cantidadPengordeH;
 
         String recMacho = getIntent().getStringExtra("recriaMacho");
         Log.d("hola", recMacho);
-        valor6=Integer.parseInt(recMacho);
+        valor6=Double.parseDouble(recMacho);
         String recHembra = getIntent().getStringExtra("recriaHembra");
         Log.d("hola", recHembra);
-        valor7=Integer.parseInt(recHembra);
-        cantRecH=valor6/10;
-        cantRecM=valor7/10;
+        valor7=Double.parseDouble(recHembra);
+        cantRecH=(int)Math.ceil(valor6/10);
+        cantRecM=(int)Math.ceil(valor7/10);
         recriaB=cantRecH+cantRecM;
 
         Total=empradre+PePadrillo+engordeB+recriaB;
@@ -114,6 +119,7 @@ public class DistribucionRecomendado extends AppCompatActivity {
         i.putExtra("PozRecria",recria);
         String padrillo=pozPadrillo.getText().toString();
         i.putExtra("PozPadrillo",padrillo);
+
 
         Poza poza=new Poza();
         for (int j=1;j<=empradre;j++){

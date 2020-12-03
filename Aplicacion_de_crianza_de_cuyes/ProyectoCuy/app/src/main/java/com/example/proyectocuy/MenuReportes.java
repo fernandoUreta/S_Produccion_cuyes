@@ -7,10 +7,15 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.proyectocuy.Tools.PdfGenerador;
+
+import java.io.File;
 
 public class MenuReportes extends AppCompatActivity {
 
@@ -37,7 +42,19 @@ public class MenuReportes extends AppCompatActivity {
     }
     public void btnIngresosClick(View view)
     {
-        PdfGenerador.crearPDF_Ingreso(this);
+        File outputFile = new File(Environment.getExternalStoragePublicDirectory (Environment.DIRECTORY_DOCUMENTS), "TESIS.pdf");
+        Uri uri = Uri.fromFile(outputFile);
+        try {
+            Intent i=new Intent("android.intent.action.MAIN");
+            i.setAction(Intent.ACTION_SEND);
+            i.setType("application/pdf");
+            i.putExtra(Intent.EXTRA_STREAM, PdfGenerador.getRuta());
+            startActivity(i);
+            PdfGenerador.crearPDF_Ingreso(this);
+        }catch (android.content.ActivityNotFoundException ex){
+            Toast.makeText(this, ex.toString(), Toast.LENGTH_SHORT).show();
+        }
+
     }
     public void btnSalidasClick(View view) {
         PdfGenerador.crearPDF_Salida(this);
