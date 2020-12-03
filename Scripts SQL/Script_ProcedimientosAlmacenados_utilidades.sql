@@ -57,7 +57,7 @@ AS
 SELECT MAX(convert(int,SUBSTRING(ID_Pozas,2, 1) + SUBSTRING(ID_Pozas,3,1)))
 FROM tblPozas WHERE ID_Pozas like @identificador+'%'
 
- 
+ GO
 
 --Salida de cuy por rotación
 CREATE PROCEDURE sp_salidaCuy_rotacion
@@ -66,6 +66,8 @@ CREATE PROCEDURE sp_salidaCuy_rotacion
 AS
 UPDATE tblCuyes set ID_Pozas=@idPozadestino WHERE ID_Cuy=@idCuy
 
+GO
+
 --Salida de cuy con estado
 CREATE PROCEDURE SP_salidaCuy
 @idCuy AS VARCHAR(16),
@@ -73,6 +75,7 @@ CREATE PROCEDURE SP_salidaCuy
 AS
 UPDATE tblCuyes set ID_Pozas=null,estado=@estado where ID_Cuy=@idCuy
 
+GO
 
 --Elimina transaccion sin datos
 CREATE PROCEDURE SP_limpiarTransaccion

@@ -34,6 +34,7 @@
             android:layout_weight="0.1"
             android:background="@drawable/btn_iniciosesion"
             android:gravity="center"
+            android:inputType="number"
             android:hint="Ingrese DNI"></EditText>
 
         <EditText
@@ -54,6 +55,7 @@
             android:layout_weight="0.1"
             android:background="@drawable/btn_iniciosesion"
             android:gravity="center"
+            android:inputType="phone"
             android:hint="Ingrese numero de celular"></EditText>
 
         <EditText
@@ -64,6 +66,7 @@
             android:layout_weight="0.1"
             android:background="@drawable/btn_iniciosesion"
             android:gravity="center"
+            android:inputType="textEmailAddress"
             android:hint="Ingrese su correo electronico"></EditText>
 
         <EditText

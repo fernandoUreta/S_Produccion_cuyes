@@ -34,6 +34,7 @@ CREATE PROCEDURE SP_E_tblCuyes
 as
 delete from tblCuyes where ID_Cuy=@id_Cuy
 
+GO
 
 CREATE PROCEDURE SP_C_ReporteCuy
 @id_poza as varchar(4)
