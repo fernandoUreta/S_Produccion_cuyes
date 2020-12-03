@@ -54,7 +54,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
                 Intent i=new Intent(this, MainActivity.class);
                 startActivity(i);
             }
-          }catch (SQLException e){
+          }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
     }
@@ -80,8 +80,10 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
             Toast.makeText(this, "La contraseña debe tener como mínimo 8 caracteres", Toast.LENGTH_SHORT).show();
         return false;
         }
-        else if (edtContra.getText().toString()==edtConfirContra.getText().toString())
+        else if (edtContra.getText().toString()!=edtConfirContra.getText().toString()) {
+            Toast.makeText(this,"Las contraseñas no coin coinciden",Toast.LENGTH_SHORT).show();
             return false;
+        }
         else return true;
     }
 
