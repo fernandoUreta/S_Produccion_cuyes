@@ -246,11 +246,17 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
                 }break;
 
                 case "Padrillo":{
-                    tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    tvDesc1.setVisibility(View.VISIBLE);
-                    tvDesc1.setText("Padrillos");
-                    tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"PD")));
-                    tiposCuy=new String[1];
+                    try {
+                        tvCantidadCuyes1.setVisibility(View.VISIBLE);
+                        tvDesc1.setVisibility(View.VISIBLE);
+                        tvDesc1.setText("Padrillos");
+                        tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"PD")));
+                        tiposCuy=new String[1];
+                        tiposCuy[0]="Padrillo";
+                    }catch (Exception e)
+                    {
+                        Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
+                    }
                 }break;
 
                 //To analizar
@@ -268,13 +274,13 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
 
                 case "Recría Macho":{
                     tvDesc1.setText("Machos");
-                    tiposCuy=new String[1];
+                    tiposCuy=new String[1]  ;
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     this.tiposCuy[0]="Recria";
-
                 }break;
+
                 case "Recría Hembra":{
                     tvDesc1.setText("Hembras");
                     tiposCuy=new String[1];
@@ -319,8 +325,6 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
         {
             Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
         }
-
-
     }
     private void init(){
         preferences=getSharedPreferences("Preferences",MODE_PRIVATE);
