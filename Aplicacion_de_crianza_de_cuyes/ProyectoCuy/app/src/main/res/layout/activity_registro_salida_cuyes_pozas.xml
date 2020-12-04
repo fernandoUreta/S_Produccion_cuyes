@@ -169,8 +169,8 @@
                         <Spinner
                             android:id="@+id/spTipoIngreso"
                             android:layout_width="wrap_content"
-                            android:minWidth="200sp"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:minWidth="200sp" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="200sp"
@@ -187,16 +187,19 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPoza"
                             android:layout_width="200sp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="@dimen/margin_low"
-                            android:theme="@style/EditTextBlack">
+                            android:theme="@style/EditTextBlack"
+                            android:visibility="gone">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etIdPozaDestino"
                                 android:layout_width="200sp"
                                 android:layout_height="wrap_content"
-                                android:hint="ID poza destino"/>
+                                android:hint="ID poza destino"
+                                android:visibility="gone" />
                         </com.google.android.material.textfield.TextInputLayout>
 
 

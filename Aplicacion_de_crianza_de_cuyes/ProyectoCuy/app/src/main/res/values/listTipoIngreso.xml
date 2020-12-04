@@ -3,7 +3,6 @@
     <string-array name="tipoIngresoCuy">
         <item>Compra</item>
         <item>Nacimiento</item>
-        <item>Rotación</item>
         <item>Otros</item>
     </string-array>
 </resources>

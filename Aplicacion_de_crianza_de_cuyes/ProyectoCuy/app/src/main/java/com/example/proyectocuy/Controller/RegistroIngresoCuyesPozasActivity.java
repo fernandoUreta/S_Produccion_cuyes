@@ -3,6 +3,7 @@ package com.example.proyectocuy.Controller;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -88,12 +89,41 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
             tvIdPoza.setText(poza.getIdPoza());
             adaptarInterfaz(poza);
 
-            spGenero.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_formato,generos));
             spCategoria.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_formato,tiposCuy));
         }catch (Exception e){
             Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
         }
+
+        spCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spGenero.setAdapter(null);
+                Toast.makeText(getApplicationContext(),"Holi",Toast.LENGTH_SHORT).show();
+                if(spCategoria.getSelectedItem().toString().equals("Madre madura")||spCategoria.getSelectedItem().toString().equals("Madre primeriza"))
+                {
+                    //generos=null;
+                    generos=new String[1];
+                    generos[0]="Hembra";
+                }
+                else if (spCategoria.getSelectedItem().toString().equals("Padrillo")){
+                    //generos=null;
+                    generos=new String[1];
+                    generos[0]="Macho";
+                }else {
+                    //generos=null;
+                    generos=new String[2];
+                    generos[0]="Macho";
+                    generos[1]="Hembra";
+                }
+                spGenero.setAdapter(new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_formato,generos));
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+        });
     }
+
 
 
     public void showToolbar(String tittle, Boolean upButton)
@@ -190,7 +220,6 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
                     tvCantidadCuyes2.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"PD")));
                     tvDesc3.setText("Lactantes");
                     tvCantidadCuyes3.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"LC")));
-                    generos=new String[2];
                     tiposCuy=new String[4];
 
                     this.tiposCuy[0]="Madre madura";
@@ -198,8 +227,6 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
                     this.tiposCuy[2]="Padrillo";
                     this.tiposCuy[3]="Lactante";
 
-                    this.generos[0]="Macho";
-                    this.generos[1]="Hembra";
 
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
@@ -214,79 +241,62 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvDesc1.setText("Padrillos");
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"PD")));
-                    generos=new String[1];
                     tiposCuy=new String[1];
-                    this.generos[0]="Macho";
-                    this.tiposCuy[0]="Padrillo";
                 }break;
 
                 //To analizar
                 case "Recría":{
                     tvDesc1.setText("Cuyes");
-                    generos=new String[2];
                     tiposCuy=new String[1];
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     int total=BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC");
                     tvCantidadCuyes1.setText(String.valueOf(total));
 
-                    this.generos[0]="Macho";
-                    this.generos[1]="Hembra";
                     this.tiposCuy[0]="Recria";
                 }break;
                 //
 
                 case "Recría Macho":{
                     tvDesc1.setText("Machos");
-                    generos=new String[1];
                     tiposCuy=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.generos[0]="Macho";
                     this.tiposCuy[0]="Recria";
 
                 }break;
                 case "Recría Hembra":{
                     tvDesc1.setText("Hembras");
-                    generos=new String[1];
                     tiposCuy=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"RC")));
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.generos[0]="Hembra";
                     this.tiposCuy[0]="Recria";
                 }break;
                 case "Engorde Macho":{
                     tvDesc1.setText("Machos");
-                    generos=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
                     tiposCuy=new String[1];
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.generos[0]="Macho";
                     this.tiposCuy[0]="Engorde";
                 }break;
                 case "Engorde Hembra":{
                     tvDesc1.setText("Hembras engorde");
-                    generos=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
                     tiposCuy=new String[1];
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.generos[0]="Hembra";
                     this.tiposCuy[0]="Engorde";
                 }break;
                 //Analizar
                 case "Engorde":{
                     tvDesc1.setText("Cuyes");
-                    generos=new String[2];
                     tiposCuy=new String[1];
                     tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
                     tvDesc1.setVisibility(View.VISIBLE);
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.generos[0]="Hembra";
-                    this.generos[1]="Macho";
                     this.tiposCuy[0]="Engorde";
                 }break;
             }

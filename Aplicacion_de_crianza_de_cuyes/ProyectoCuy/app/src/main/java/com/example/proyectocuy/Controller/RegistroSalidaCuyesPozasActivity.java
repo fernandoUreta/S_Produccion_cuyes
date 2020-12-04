@@ -1,8 +1,10 @@
 package com.example.proyectocuy.Controller;
 
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ import com.example.proyectocuy.ModeloDatos.Transaccion;
 import com.example.proyectocuy.R;
 import com.example.proyectocuy.Tools.Transacciones;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
 
@@ -26,6 +29,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     TextView tvCantidadCuyes1, tvCantidadCuyes2, tvCantidadCuyes3;
     TextView tvDesc1, tvDesc2, tvDesc3,tvTipoPoza,tvIdPoza;
     TextInputEditText txtIdCuy, txtIdPozaDestino;
+    TextInputLayout tilIdPozaDestino;
 
     Transaccion transaccion=new Transaccion();
     String[]generos;
@@ -51,6 +55,8 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
 
         txtIdCuy=(TextInputEditText)findViewById(R.id.etCodigoCuy);
         txtIdPozaDestino=(TextInputEditText)findViewById(R.id.etIdPozaDestino);
+
+        tilIdPozaDestino=(TextInputLayout)findViewById(R.id.tilPoza);
 
         tvDesc1=(TextView)findViewById(R.id.tvDescCategoria1);
         tvDesc2=(TextView)findViewById(R.id.tvDescCategoria2);
@@ -84,7 +90,31 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
         }
+
+
+        spTipoSalida.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Toast.makeText(getApplicationContext(),"Holi",Toast.LENGTH_SHORT).show();
+                if(spTipoSalida.getSelectedItem().toString().equals("Rotación"))
+                {
+                    txtIdPozaDestino.setVisibility(View.VISIBLE);
+                    tilIdPozaDestino.setVisibility(View.VISIBLE);
+                }
+                else {
+                    txtIdPozaDestino.setVisibility(View.GONE);
+                    tilIdPozaDestino.setVisibility(View.GONE);
+                }
+
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+               //no problem
+            }
+        });
     }
+
 
     @Override
     protected void onDestroy(){
