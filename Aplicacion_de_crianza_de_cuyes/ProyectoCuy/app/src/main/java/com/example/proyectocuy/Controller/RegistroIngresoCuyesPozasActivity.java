@@ -165,7 +165,6 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
             }catch (Exception e){
                 Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
             }
-
         }else {};
     }
     public boolean validarCampos()
@@ -284,30 +283,35 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
                     tvCantidadCuyes1.setVisibility(View.VISIBLE);
                     this.tiposCuy[0]="Recria";
                 }break;
-                case "Engorde Macho":{
-                    tvDesc1.setText("Machos");
-                    tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
-                    tiposCuy=new String[1];
-                    tvDesc1.setVisibility(View.VISIBLE);
-                    tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.tiposCuy[0]="Engorde";
-                }break;
-                case "Engorde Hembra":{
-                    tvDesc1.setText("Hembras engorde");
-                    tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
-                    tiposCuy=new String[1];
-                    tvDesc1.setVisibility(View.VISIBLE);
-                    tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.tiposCuy[0]="Engorde";
-                }break;
                 //Analizar
                 case "Engorde":{
-                    tvDesc1.setText("Cuyes");
-                    tiposCuy=new String[1];
-                    tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
-                    tvDesc1.setVisibility(View.VISIBLE);
-                    tvCantidadCuyes1.setVisibility(View.VISIBLE);
-                    this.tiposCuy[0]="Engorde";
+
+                    if(BD_AccesoDatos.consultartipogeneroPozas("EG","macho",poza.getIdPoza(),this)>0)
+                    {
+                        tvDesc1.setText("Machos");
+                        tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
+                        tiposCuy=new String[1];
+                        tvDesc1.setVisibility(View.VISIBLE);
+                        tvCantidadCuyes1.setVisibility(View.VISIBLE);
+                        this.tiposCuy[0]="Engorde";
+                    }else if (BD_AccesoDatos.consultartipogeneroPozas("EG","hembra",poza.getIdPoza(),this)>0)
+                    {
+                        tvDesc1.setText("Hembras");
+                        tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
+                        tiposCuy=new String[1];
+                        tvDesc1.setVisibility(View.VISIBLE);
+                        tvCantidadCuyes1.setVisibility(View.VISIBLE);
+                        this.tiposCuy[0]="Engorde";
+                    }
+                    else {
+                        tvDesc1.setText("Cuyes");
+                        tiposCuy=new String[1];
+                        tvCantidadCuyes1.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(poza.idPoza,"EG")));
+                        tvDesc1.setVisibility(View.VISIBLE);
+                        tvCantidadCuyes1.setVisibility(View.VISIBLE);
+                        this.tiposCuy[0]="Engorde";
+                    }
+
                 }break;
             }
 

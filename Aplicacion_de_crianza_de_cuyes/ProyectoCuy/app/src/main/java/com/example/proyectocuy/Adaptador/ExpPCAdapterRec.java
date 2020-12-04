@@ -81,7 +81,6 @@ public class ExpPCAdapterRec extends BaseExpandableListAdapter {
         String item=(String) getChild(groupPosition,childPosition);
         convertView=LayoutInflater.from(context).inflate(R.layout.elv_child2,null);
         TextView tvCantMaA=(TextView) convertView.findViewById(R.id.tvMacho);
-        TextView tvCantMaP=(TextView) convertView.findViewById(R.id.tvHembra);
         Button ingreso=convertView.findViewById(R.id.btnIngreso);
         Button salida=convertView.findViewById(R.id.btnSalida);
         ingreso.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +109,6 @@ public class ExpPCAdapterRec extends BaseExpandableListAdapter {
             }
         });
         tvCantMaA.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"RC")));
-        tvCantMaP.setText(String.valueOf(BD_AccesoDatos.consultarCantiTipoCuyPoza(listCategoria.get(groupPosition),"RC")));
 
         return convertView;
     }

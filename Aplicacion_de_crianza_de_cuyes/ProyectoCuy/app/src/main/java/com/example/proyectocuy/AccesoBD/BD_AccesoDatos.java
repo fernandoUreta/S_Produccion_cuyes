@@ -81,6 +81,20 @@ public class BD_AccesoDatos {
             return 0;
         }
     }
+    public static int consultartipogeneroPozas(String catego,String genero,String idpoza,Context context)
+    {
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_validar_tipoPoza '"+catego+"','"+genero+"','"+idpoza+"'");
+            if (rs.next()){
+                return rs.getInt(1);
+            }
+            return 0;
+        }catch (Exception e){
+            Toast.makeText(context,"Error: "+e.toString(),Toast.LENGTH_LONG);
+            return 0;
+        }
+    }
 
     public static int consultarIdPoza(String identificador,Context context)
     {
