@@ -1,5 +1,6 @@
 package com.example.proyectocuy.Controller;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,106 +18,108 @@ import com.example.proyectocuy.AccesoBD.BD_AccesoDatos;
 import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
+import com.example.proyectocuy.ModeloDatos.User;
 import com.example.proyectocuy.R;
 import com.example.proyectocuy.Recursos_Adicionales.Fechas;
 import com.example.proyectocuy.Tools.Transacciones;
+import com.example.proyectocuy.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
-
+    private SharedPreferences preferences;
     Spinner spTipoIngreso, spCategoria, spGenero;
     TextView tvCantidadCuyes1, tvCantidadCuyes2, tvCantidadCuyes3;
-    TextView tvDesc1, tvDesc2, tvDesc3,tvTipoPoza,tvIdPoza;
+    TextView tvDesc1, tvDesc2, tvDesc3, tvTipoPoza, tvIdPoza;
     TextInputEditText txtCodigo, txtEdad;
-    EditText etEdadCuy,etCodigoCuy;
+    EditText etEdadCuy, etCodigoCuy;
 
-    Transaccion transaccion=new Transaccion();
-    String[]generos;
-    String[]tiposCuy;
-    Poza poza=new Poza();
+    Transaccion transaccion = new Transaccion();
+    String[] generos;
+    String[] tiposCuy;
+    Poza poza = new Poza();
 
     //Datos provenientes del disparador
-    String idUsuario="70771304";
+    String idUsuario = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_ingreso_cuyes_pozas);
-        showToolbar("Ingreso de cuyes",true);
+        showToolbar("Ingreso de cuyes", true);
+        init();
+        cargarUsuario(preferences.getString("usuario_id", null).toString());
 
         //Asignacion
-        spTipoIngreso=findViewById(R.id.spTipoIngreso);
-        spCategoria=findViewById(R.id.spCategoria);
-        spGenero=findViewById(R.id.spGenero);
+        spTipoIngreso = findViewById(R.id.spTipoIngreso);
+        spCategoria = findViewById(R.id.spCategoria);
+        spGenero = findViewById(R.id.spGenero);
 
-        etEdadCuy=findViewById(R.id.etEdadCuy);
-        etCodigoCuy=findViewById(R.id.etCodigoCuy);
+        etEdadCuy = findViewById(R.id.etEdadCuy);
+        etCodigoCuy = findViewById(R.id.etCodigoCuy);
 
-        tvCantidadCuyes1 =(TextView) findViewById(R.id.tvCantidadCuy1);
-        tvCantidadCuyes2 =(TextView)findViewById(R.id.tvCantidadCuy2);
-        tvCantidadCuyes3 =(TextView)findViewById(R.id.tvCantidadCuy3);
+        tvCantidadCuyes1 = (TextView) findViewById(R.id.tvCantidadCuy1);
+        tvCantidadCuyes2 = (TextView) findViewById(R.id.tvCantidadCuy2);
+        tvCantidadCuyes3 = (TextView) findViewById(R.id.tvCantidadCuy3);
 
-        txtCodigo=(TextInputEditText)findViewById(R.id.etCodigoCuy);
-        txtEdad=(TextInputEditText)findViewById(R.id.etEdadCuy);
+        txtCodigo = (TextInputEditText) findViewById(R.id.etCodigoCuy);
+        txtEdad = (TextInputEditText) findViewById(R.id.etEdadCuy);
 
-        tvDesc1=(TextView)findViewById(R.id.tvDescCategoria1);
-        tvDesc2=(TextView)findViewById(R.id.tvDescCategoria2);
-        tvDesc3=(TextView)findViewById(R.id.tvDescCategoria3);
-        tvTipoPoza=(TextView)findViewById(R.id.tvTipoPoza);
-        tvIdPoza=(TextView)findViewById(R.id.tvIdPoza);
+        tvDesc1 = (TextView) findViewById(R.id.tvDescCategoria1);
+        tvDesc2 = (TextView) findViewById(R.id.tvDescCategoria2);
+        tvDesc3 = (TextView) findViewById(R.id.tvDescCategoria3);
+        tvTipoPoza = (TextView) findViewById(R.id.tvTipoPoza);
+        tvIdPoza = (TextView) findViewById(R.id.tvIdPoza);
 
-        ArrayAdapter<CharSequence> adapterTipoIngreso = ArrayAdapter.createFromResource(this, R.array.tipoIngresoCuy,R.layout.spinner_formato);
+        ArrayAdapter<CharSequence> adapterTipoIngreso = ArrayAdapter.createFromResource(this, R.array.tipoIngresoCuy, R.layout.spinner_formato);
         spTipoIngreso.setAdapter(adapterTipoIngreso);
 
-        Bundle pozaRecibida=getIntent().getExtras();
-        if(pozaRecibida!=null)
-        {
-            poza= (Poza) pozaRecibida.getSerializable("poza");
+        Bundle pozaRecibida = getIntent().getExtras();
+        if (pozaRecibida != null) {
+            poza = (Poza) pozaRecibida.getSerializable("poza");
         }
-        String tipoPoza="";
+        String tipoPoza = "";
         try {
-            if(poza.getIdPoza().contains("A"))
-            { tipoPoza="Empadre";}
-            else if (poza.getIdPoza().contains("B"))
-            { tipoPoza="Engorde"; }
-            else if(poza.getIdPoza().contains("C"))
-            { tipoPoza="Recría"; }
-            else if(poza.getIdPoza().contains("D"))
-            { tipoPoza="Padrillo"; }
+            if (poza.getIdPoza().contains("A")) {
+                tipoPoza = "Empadre";
+            } else if (poza.getIdPoza().contains("B")) {
+                tipoPoza = "Engorde";
+            } else if (poza.getIdPoza().contains("C")) {
+                tipoPoza = "Recría";
+            } else if (poza.getIdPoza().contains("D")) {
+                tipoPoza = "Padrillo";
+            }
 
             poza.setClasificacion(tipoPoza);
             tvIdPoza.setText(poza.getIdPoza());
             adaptarInterfaz(poza);
 
-            spCategoria.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_formato,tiposCuy));
-        }catch (Exception e){
-            Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
+            spCategoria.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_formato, tiposCuy));
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.toString(), Toast.LENGTH_LONG).show();
         }
 
         spCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 spGenero.setAdapter(null);
-                Toast.makeText(getApplicationContext(),"Holi",Toast.LENGTH_SHORT).show();
-                if(spCategoria.getSelectedItem().toString().equals("Madre madura")||spCategoria.getSelectedItem().toString().equals("Madre primeriza"))
-                {
+                if (spCategoria.getSelectedItem().toString().equals("Madre madura") || spCategoria.getSelectedItem().toString().equals("Madre primeriza")) {
                     //generos=null;
-                    generos=new String[1];
-                    generos[0]="Hembra";
+                    generos = new String[1];
+                    generos[0] = "Hembra";
+                } else if (spCategoria.getSelectedItem().toString().equals("Padrillo")) {
+                    //generos=null;
+                    generos = new String[1];
+                    generos[0] = "Macho";
+                } else {
+                    //generos=null;
+                    generos = new String[2];
+                    generos[0] = "Macho";
+                    generos[1] = "Hembra";
                 }
-                else if (spCategoria.getSelectedItem().toString().equals("Padrillo")){
-                    //generos=null;
-                    generos=new String[1];
-                    generos[0]="Macho";
-                }else {
-                    //generos=null;
-                    generos=new String[2];
-                    generos[0]="Macho";
-                    generos[1]="Hembra";
-                }
-                spGenero.setAdapter(new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_formato,generos));
+                spGenero.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_formato, generos));
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
 
@@ -125,7 +128,11 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
     }
 
 
-
+    private void cargarUsuario(String correo)
+    {
+        User usuario=BD_AccesoDatos.consultarUsuario(correo);
+        this.idUsuario=usuario.getId();
+    }
     public void showToolbar(String tittle, Boolean upButton)
     {
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
@@ -307,5 +314,8 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
         }
 
 
+    }
+    private void init(){
+        preferences=getSharedPreferences("Preferences",MODE_PRIVATE);
     }
 }

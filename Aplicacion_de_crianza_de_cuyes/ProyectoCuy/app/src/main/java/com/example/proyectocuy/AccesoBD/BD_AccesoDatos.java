@@ -11,6 +11,7 @@ import com.example.proyectocuy.ModeloDatos.FilaMovEntradaSalida_Reporte;
 import com.example.proyectocuy.ModeloDatos.FilaMovPoblacional_reporte;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
+import com.example.proyectocuy.ModeloDatos.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +21,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BD_AccesoDatos {
-
+    //
+    public static User consultarUsuario(String correo)
+    {
+        User usuario=new User();
+        try {
+            Statement stm=ConexionSQLServer.conectarBD().createStatement();
+            ResultSet rs=stm.executeQuery("EXEC SP_C_tblUsuario_byCorreo '"+correo+"'");
+            if (rs.next()){
+                usuario.setId(rs.getString(1));
+                usuario.setNombres(rs.getString(2));
+                usuario.setNumcontacto(rs.getString(3));
+                usuario.setCorreo(rs.getString(4));
+                usuario.setClave(rs.getString(5));
+            }
+            return usuario;
+        }catch (Exception e){
+            return null;
+        }
+    }
     //Pozas
     public static void registrarPoza(Poza poza, Context context) {
         try {

@@ -1,6 +1,5 @@
 package com.example.proyectocuy;
 
-import android.app.Notification;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,16 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.work.Data;
-import androidx.work.ListenableWorker;
-import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
 import com.example.proyectocuy.Controller.Menu_general_pozasActivity;
 import com.example.proyectocuy.Tools.WorkManagerNotificacion;
-import com.google.common.util.concurrent.ListenableFuture;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class MenuPrincipal extends AppCompatActivity {
     private SharedPreferences preferences;

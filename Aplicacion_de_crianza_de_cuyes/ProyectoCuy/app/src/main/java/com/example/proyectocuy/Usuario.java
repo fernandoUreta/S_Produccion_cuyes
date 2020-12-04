@@ -3,7 +3,6 @@ package com.example.proyectocuy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +11,6 @@ import android.widget.Toast;
 
 import com.example.proyectocuy.AccesoBD.ConexionSQLServer;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
