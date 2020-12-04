@@ -140,7 +140,7 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        transaccion= Transacciones.generarTransaccion(idUsuario);
+        transaccion= Transacciones.generarTransaccion(idUsuario,this);
 
     }
 

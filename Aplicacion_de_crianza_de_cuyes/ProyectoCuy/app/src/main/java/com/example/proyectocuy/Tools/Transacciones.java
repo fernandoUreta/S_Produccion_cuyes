@@ -11,36 +11,39 @@ import com.example.proyectocuy.Recursos_Adicionales.Fechas;
 
 public class Transacciones {
 
-    public static Transaccion generarTransaccion(String usuarioID)
+    public static Transaccion generarTransaccion(String usuarioID,Context context)
     {
         Transaccion transac=new Transaccion();
         try {
             transac.setIdUsuario(usuarioID);
             transac.setFecha(Fechas.mostrarFechaHoy());
-            if (BD_AccesoDatos.registrarTransaccion(transac)==false)
-                throw new Exception("Ocurrio un error");
-            else return transac;
+            BD_AccesoDatos.registrarTransaccion(transac,context);
+            return transac;
         }catch (Exception e)
         {
+            Toast.makeText(context,"Error"+e.toString(),Toast.LENGTH_LONG).show();
             return null;
         }
     }
 
     public static void RegistrarEntradaCuyes(Cuy cuy, Transaccion transaccion, String tipoMovi,Context context)
     {
+        try {
+            String movimiento="";
+            switch (tipoMovi)
+            {
+                case "Compra":movimiento="IC";break;
+                case "Nacimiento":movimiento="IN";break;
+                case "Rotacion":movimiento="IR";break;
+                case "Otros":movimiento="IO";break;
+            }
+            BD_AccesoDatos.registrarCuy(cuy);
+            BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
 
-        String movimiento="";
-        switch (tipoMovi)
-        {
-            case "Compra":movimiento="IC";break;
-            case "Nacimiento":movimiento="IN";break;
-            case "Rotacion":movimiento="IR";break;
-            case "Otros":movimiento="IO";break;
+        }catch (Exception e){
+            Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();
         }
-        Toast.makeText(context,"idCuy:"+cuy.getIdPoza(),Toast.LENGTH_LONG).show();
-        BD_AccesoDatos.registrarCuy(cuy);
-        BD_AccesoDatos.registrarDetalle(transaccion.getIdTransaccion(),cuy.getCuyId(),movimiento,context);
-    }
+   }
 
     public static  void RegistrarSalidaCuyes(Cuy cuy, Transaccion transaccion, String idPozaDestino, String tipoMovi, Context context)
     {

@@ -4,4 +4,3 @@ CREATE PROCEDURE SP_C_tblUsuario_byCorreo
 as
 SELECT * FROM tblUsuario where usuCorreo=@correo
 
-

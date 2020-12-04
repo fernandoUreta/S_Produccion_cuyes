@@ -200,16 +200,15 @@ public class BD_AccesoDatos {
             return -1;
         }
     }
-    public static boolean registrarTransaccion(Transaccion transaccion)
+    public static void registrarTransaccion(Transaccion transaccion,Context context)
     {
         try {
             PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_A_tblTransaccion '"+transaccion.getIdTransaccion()+"'," +
                     "'"+transaccion.getIdUsuario()+"'," +
                     "'"+transaccion.getFecha()+"'");
             pst.executeUpdate();
-            return true;
         }catch (SQLException e){
-            return false;
+            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
         }
 
     }

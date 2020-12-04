@@ -47,8 +47,7 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_ingreso_cuyes_pozas);
         showToolbar("Ingreso de cuyes", true);
         init();
-        cargarUsuario(preferences.getString("usuario_id", null).toString());
-
+        cargarUsuario(preferences.getString("usuario_id", null));
         //Asignacion
         spTipoIngreso = findViewById(R.id.spTipoIngreso);
         spCategoria = findViewById(R.id.spCategoria);
@@ -152,16 +151,21 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        transaccion= Transacciones.generarTransaccion(idUsuario);
+        transaccion= Transacciones.generarTransaccion(idUsuario,this);
     }
 
     public void btnAgregarClick(View view)
     {
         if (validarCampos()==true)
         {
-            Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion,spTipoIngreso.getSelectedItem().toString(),this);
-            adaptarInterfaz(poza);
-            restablecerCampos();
+            try {
+                Transacciones.RegistrarEntradaCuyes(capturarCuy(),transaccion,spTipoIngreso.getSelectedItem().toString(),this);
+                adaptarInterfaz(poza);
+                restablecerCampos();
+            }catch (Exception e){
+                Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
+            }
+
         }else {};
     }
     public boolean validarCampos()
