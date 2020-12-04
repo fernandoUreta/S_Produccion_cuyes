@@ -57,7 +57,7 @@ public class Transacciones {
                 case "Otros":movimiento="SO";estado="No habido";break;
             }
 
-            if (tipoMovi!="Rotación")
+            if (tipoMovi.equals("Rotación"))
             {
                BD_AccesoDatos.salidaRotacion(cuy.getCuyId(),idPozaDestino,context);
             }else {BD_AccesoDatos.salidaCuy(cuy.getCuyId(),estado,context);}

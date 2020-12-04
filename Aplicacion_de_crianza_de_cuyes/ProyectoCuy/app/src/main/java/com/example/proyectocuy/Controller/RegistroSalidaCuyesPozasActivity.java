@@ -1,5 +1,6 @@
 package com.example.proyectocuy.Controller;
 
+import android.content.SharedPreferences;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,14 +19,15 @@ import com.example.proyectocuy.ModeloDatos.Cuy;
 import com.example.proyectocuy.ModeloDatos.Poza;
 import com.example.proyectocuy.ModeloDatos.Transaccion;
 
+import com.example.proyectocuy.ModeloDatos.User;
 import com.example.proyectocuy.R;
 import com.example.proyectocuy.Tools.Transacciones;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
-
-    Spinner spTipoSalida, spCategoria, spGenero;
+    private SharedPreferences preferences;
+    Spinner spTipoSalida;
     TextView tvCantidadCuyes1, tvCantidadCuyes2, tvCantidadCuyes3;
     TextView tvDesc1, tvDesc2, tvDesc3,tvTipoPoza,tvIdPoza;
     TextInputEditText txtIdCuy, txtIdPozaDestino;
@@ -39,13 +41,16 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
 
 
     //Datos provenientes del disparador
-    String idUsuario="70771304";
+    String idUsuario="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_salida_cuyes_pozas);
         showToolbar("Salida de cuyes",true);
+        init();
+        cargarUsuario(preferences.getString("usuario_id", null).toString());
+
         //Asignacion
         spTipoSalida =findViewById(R.id.spTipoIngreso);
 
@@ -115,6 +120,11 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         });
     }
 
+    private void cargarUsuario(String correo)
+    {
+        User usuario=BD_AccesoDatos.consultarUsuario(correo);
+        this.idUsuario=usuario.getId();
+    }
 
     @Override
     protected void onDestroy(){
@@ -278,7 +288,9 @@ public class RegistroSalidaCuyesPozasActivity extends AppCompatActivity {
         {
             Toast.makeText(this,"Error: "+e.toString(),Toast.LENGTH_LONG).show();
         }
-
-
     }
+    private void init(){
+        preferences=getSharedPreferences("Preferences",MODE_PRIVATE);
+    }
+
 }

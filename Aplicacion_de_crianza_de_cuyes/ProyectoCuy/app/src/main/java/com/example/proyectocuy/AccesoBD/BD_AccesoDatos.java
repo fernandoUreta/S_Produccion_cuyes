@@ -179,7 +179,7 @@ public class BD_AccesoDatos {
     public static void salidaCuy(String idCuy,String estado,Context context)
     {
         try {
-            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_salidaCuy '"+idCuy+"',"+estado);
+            PreparedStatement pst= ConexionSQLServer.conectarBD().prepareStatement("EXEC SP_salidaCuy '"+idCuy+"','"+estado+"'");
             pst.executeUpdate();
         }catch (SQLException e){
             Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();

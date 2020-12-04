@@ -37,8 +37,7 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
     String[] generos;
     String[] tiposCuy;
     Poza poza = new Poza();
-
-    //Datos provenientes del disparador
+    
     String idUsuario = "";
 
 
@@ -204,7 +203,7 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
 
     private void adaptarInterfaz(Poza poza) {
         try {
-            //
+
             tvTipoPoza.setText(poza.getClasificacion());
 
             tvDesc1.setVisibility(View.INVISIBLE);
