@@ -1,5 +1,6 @@
 package com.example.proyectocuy;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,10 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.work.Data;
+import androidx.work.ListenableWorker;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import com.example.proyectocuy.Controller.Menu_general_pozasActivity;
 import com.example.proyectocuy.Tools.WorkManagerNotificacion;
+import com.google.common.util.concurrent.ListenableFuture;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class MenuPrincipal extends AppCompatActivity {
@@ -32,6 +38,8 @@ public class MenuPrincipal extends AppCompatActivity {
         if (usuario !=null && contraseña !=null){
             Toast.makeText(this, "Bienvenido "+usuario, Toast.LENGTH_SHORT).show();
         }
+        notificador();
+
     }
 
     public void btnPozas(View v){
@@ -80,16 +88,17 @@ public class MenuPrincipal extends AppCompatActivity {
                 System.exit(0);
             }break;
             case R.id.action_cerrar_sesion:{
+                WorkManager.getInstance(this).cancelAllWorkByTag("KN95");
                 cerrarSesion();
-            }break;
-            case R.id.action_Notificaciones:{
-                String tag="kn95";
-                Data data=new Data.Builder().putString("titulo","Actividades").
-                        putString("mensaje","Hay actividades para hoy, toque aquí para verlas").build();
-                WorkManagerNotificacion.guardarNotificacion(data,tag,this);
-                Toast.makeText(this,"Iniciado",Toast.LENGTH_LONG).show();
             }break;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void notificador()
+    {
+            String tag="kn95";
+            Data data=new Data.Builder().putString("titulo","Actividades").
+                    putString("mensaje","Hay actividades para hoy, toque aquí para verlas").build();
+            WorkManagerNotificacion.guardarNotificacion(data,tag,this);
     }
 }
