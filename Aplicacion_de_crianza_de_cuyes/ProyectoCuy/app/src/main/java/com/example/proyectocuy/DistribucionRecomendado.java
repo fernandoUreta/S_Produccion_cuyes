@@ -34,7 +34,6 @@ public class DistribucionRecomendado extends AppCompatActivity {
         pozEngorde=findViewById(R.id.txtDRpozEngorde);
         pozRecria=findViewById(R.id.txtDRpozRecria);
         totalpozas = findViewById(R.id.txtDRcantidadpozas);
-        btnManual=findViewById(R.id.btnDRmanual);
         btnSiguienteR=findViewById(R.id.btnDRsiguiente);
 
         String mMadura = getIntent().getStringExtra("Enviando");
@@ -55,6 +54,9 @@ public class DistribucionRecomendado extends AppCompatActivity {
         valor3=Double.parseDouble(Padrillo);
         padrillosConver=(int)Math.ceil(valor3);
         PePadrillo=padrillosConver-empradre;
+
+        if(PePadrillo<0)
+        {PePadrillo=0;}
 
         String engMacho = getIntent().getStringExtra("engordeMacho");
         Log.d("hola", engMacho);
@@ -78,35 +80,13 @@ public class DistribucionRecomendado extends AppCompatActivity {
 
         Total=empradre+PePadrillo+engordeB+recriaB;
 
-        pozEmpadre.setText(String.valueOf(empradre));//cantidad de pozas, Largo
-        pozPadrillo.setText(String.valueOf(PePadrillo));//Largo=
+        pozEmpadre.setText(String.valueOf(empradre));
+        pozPadrillo.setText(String.valueOf(PePadrillo));
         pozEngorde.setText(String.valueOf(engordeB));
         pozRecria.setText(String.valueOf(recriaB));
 
         totalpozas.setText(String.valueOf(Total));
 
-    /*public void Distribucion(){
-
-        //Cantidad de pozas para empadre 2
-        cantidadMMempa=mMadura/10;
-        cantidadMPempa=mPrimerisa/10;
-        empradre=cantidadMMempa+cantidadMPempa;
-
-        //Cantidad de pozas para Padrillo 8
-        PePadrillo=Padrillo-empradre;
-
-        //cantidad de pozas para engorde 2
-        cantidadPengordeM=engMacho/10;
-        cantidadPengordeH=engHembra/10;
-        engorde=cantidadPengordeM+cantidadPengordeH;
-
-        //Cantidad de pozas para recria
-        cantRecH = recHembra/10;
-        cantRecM=recMacho/10;
-        recria=cantRecH+cantRecM;
-
-        Total=empradre+PePadrillo+engorde+recria;
-    }*/
     }
 
     public void pozaEmpadreRecomendada(View v){
@@ -163,10 +143,4 @@ public class DistribucionRecomendado extends AppCompatActivity {
         i.putExtra("show_nextButtom",true);
         startActivity(i);
     }
-    /*
-    }
-    public void pozaManualLAH(View v){
-        Intent i = new Intent(this,DistriRecomendEmpadre.class);
-        startActivity(i);
-    }*/
 }

@@ -3,4 +3,8 @@
     <string name="action_salir">Salir</string>
     <string name="action_cerrar_sesion">Cerrar Sesión</string>
     <string name="action_notificaciones">Notificaciones</string>
+    <string name="descPregunta">Si usted cuenta con un manejo
+        de crianza tecnificado le sugerimos seleccionar manualmente,
+        sino seleccione Recomendado para guiarle en el proceso de implementación
+      </string>
 </resources>

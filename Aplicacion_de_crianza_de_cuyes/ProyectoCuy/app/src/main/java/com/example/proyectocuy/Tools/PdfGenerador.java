@@ -1,8 +1,7 @@
 package com.example.proyectocuy.Tools;
 
-import android.app.DownloadManager;
+
 import android.content.Context;
-import android.net.Uri;
 import android.os.Environment;
 import android.widget.Toast;
 
@@ -40,7 +39,7 @@ public class PdfGenerador {
 
             document.add(new Paragraph("Reporte de ingreso de cuyes"+"\n\n"));
 
-            document.add(new Paragraph( "Se muestran ingreos a las pozas por nacimiento, adquisición o traslado de pozas\n\n"));
+            document.add(new Paragraph( "Se muestran ingresos a las pozas por nacimiento, adquisición o traslado de pozas\n\n"));
 
             PdfPTable tabla=new PdfPTable(3);
 

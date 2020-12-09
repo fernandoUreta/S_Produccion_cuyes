@@ -177,12 +177,17 @@
                             android:layout_height="30dp"
                             android:background="@drawable/btn_cuadrado"
                             android:gravity="center"
+                            android:text="0"
+                            android:inputType="number"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"/>
 
                         <EditText
+                            android:id="@+id/edtEdadCuy"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
+                            android:inputType="number"
+                            android:text="0"
                             android:background="@drawable/btn_cuadrado"
                             android:gravity="center"
                             android:layout_marginLeft="20dp"

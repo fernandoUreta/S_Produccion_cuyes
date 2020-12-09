@@ -74,66 +74,71 @@ public class PozEmpadreRecomend extends AppCompatActivity {
     }
 
     public void pulsarBoton(View v){
-        int a;
-        a=Integer.parseInt(cantidadGazapos.getText().toString());
-        if (contador<valor1){
-            contador ++;
-            conta ++;
-            cajaTexto.setText("A"+conta);
-            texto="A"+contador;
-            int acuPadri=cuyTotal++;
-            cantidadGazapos.setText("");
-            //creacion de cuyes padrillos ok
-            for (int i=1;i<=valor1/valor1;i++){
-                Cuy cuy = new Cuy();
-                cuy.cuyId="CP"+acuPadri;
-                cuy.idPoza=texto;
-                cuy.categoria="PD";
-                cuy.genero="Macho";
-                cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
-                BD_ProduccionCuyes.registrarCuy(cuy);
-                cuy=null;
-            }
-            //creacion de cuy lactantes ok
-            for (int i=1;i<=a;i++){
-                Cuy cuy = new Cuy();
-                cuy.cuyId="CG"+cuyLact;
-                cuy.idPoza=texto;
-                cuy.categoria="LC";
-                cuy.genero="Macho";
-                cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
-                BD_ProduccionCuyes.registrarCuy(cuy);
-                cuyLact++;
-                cuy=null;
-            }
-            if (cajaTexto.getText().toString().matches("A2")||cajaTexto.getText().toString().matches("A3")){
-                for (int i=1;i<=valor1*2.5;i++){
-                    Cuy cuy = new Cuy();
-                    cuy.cuyId="CMM"+cuyMa;
-                    cuy.idPoza=texto;
-                    cuy.categoria="MM";
-                    cuy.genero="Hembra";
-                    cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
-                    BD_ProduccionCuyes.registrarCuy(cuy);
-                    cuyMa++;
-                    cuy=null;
-                }
-            }else {
-                for (int i=1;i<=valor1*2.5;i++){
-                    Cuy cuy = new Cuy();
-                    cuy.cuyId="CMP"+cuyMa;
-                    cuy.idPoza=texto;
-                    cuy.categoria="MP";
-                    cuy.genero="Hembra";
-                    cuy.fechaNaci= Fechas.calcularFechaNacimiento(80);
-                    BD_ProduccionCuyes.registrarCuy(cuy);
-                    cuyMa++;
-                    cuy=null;
-                }
-            }
+        if(cantidadGazapos.getText().toString().equals(""))
+        {
+            Toast.makeText(this,"Ingrese los valores solicitados",Toast.LENGTH_SHORT).show();
         }else {
-            cajaTexto.setText("Registro Completo");
-            Toast.makeText(this, "Registro completo. Pulse siguiente", Toast.LENGTH_SHORT).show();
+            int a;
+            a = Integer.parseInt(cantidadGazapos.getText().toString());
+            if (contador < valor1) {
+                contador++;
+                conta++;
+                cajaTexto.setText("A" + conta);
+                texto = "A" + contador;
+                int acuPadri = cuyTotal++;
+                cantidadGazapos.setText("");
+                //creacion de cuyes padrillos ok
+                for (int i = 1; i <= valor1 / valor1; i++) {
+                    Cuy cuy = new Cuy();
+                    cuy.cuyId = "CP" + acuPadri;
+                    cuy.idPoza = texto;
+                    cuy.categoria = "PD";
+                    cuy.genero = "Macho";
+                    cuy.fechaNaci = Fechas.calcularFechaNacimiento(80);
+                    BD_ProduccionCuyes.registrarCuy(cuy);
+                    cuy = null;
+                }
+                //creacion de cuy lactantes ok
+                for (int i = 1; i <= a; i++) {
+                    Cuy cuy = new Cuy();
+                    cuy.cuyId = "CG" + cuyLact;
+                    cuy.idPoza = texto;
+                    cuy.categoria = "LC";
+                    cuy.genero = "Macho";
+                    cuy.fechaNaci = Fechas.calcularFechaNacimiento(2);
+                    BD_ProduccionCuyes.registrarCuy(cuy);
+                    cuyLact++;
+                    cuy = null;
+                }
+                if (cajaTexto.getText().toString().matches("A2") || cajaTexto.getText().toString().matches("A3")) {
+                    for (int i = 1; i <= valor1 * 2.5; i++) {
+                        Cuy cuy = new Cuy();
+                        cuy.cuyId = "CMM" + cuyMa;
+                        cuy.idPoza = texto;
+                        cuy.categoria = "MM";
+                        cuy.genero = "Hembra";
+                        cuy.fechaNaci = Fechas.calcularFechaNacimiento(80);
+                        BD_ProduccionCuyes.registrarCuy(cuy);
+                        cuyMa++;
+                        cuy = null;
+                    }
+                } else {
+                    for (int i = 1; i <= valor1 * 2.5; i++) {
+                        Cuy cuy = new Cuy();
+                        cuy.cuyId = "CMP" + cuyMa;
+                        cuy.idPoza = texto;
+                        cuy.categoria = "MP";
+                        cuy.genero = "Hembra";
+                        cuy.fechaNaci = Fechas.calcularFechaNacimiento(80);
+                        BD_ProduccionCuyes.registrarCuy(cuy);
+                        cuyMa++;
+                        cuy = null;
+                    }
+                }
+            } else {
+                cajaTexto.setText("Registro Completo");
+                Toast.makeText(this, "Registro completo. Pulse siguiente", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

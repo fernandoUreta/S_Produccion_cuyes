@@ -165,35 +165,18 @@
             android:textSize="20dp"
             android:gravity="center"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1">
 
             <Button
-                android:id="@+id/btnDRmanual"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_siguiente"
-                android:onClick="CrearPozaManual"
-                android:text="Manualmente"
-                android:textSize="18dp" />
-            <Button
                 android:id="@+id/btnDRsiguiente"
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/margin_hight"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/btn_siguiente"
                 android:text="Siguiente"
                 android:textSize="18dp"
                 android:onClick="pozaEmpadreRecomendada"/>
         </LinearLayout>
-
-    </LinearLayout>
-
+    
 </LinearLayout>

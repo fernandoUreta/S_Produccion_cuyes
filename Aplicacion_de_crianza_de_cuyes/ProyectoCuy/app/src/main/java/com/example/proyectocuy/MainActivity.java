@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proyectocuy.Controller.PreguntaActivity;
 import com.example.proyectocuy.Controller.RegistroUsuarioActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -127,12 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void inicioSesion() {
-        Intent i = new Intent(this,RegistroCuy.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
-    }
-    private void inicioSesion1() {
-        Intent i = new Intent(this,MenuPrincipal.class);
+        Intent i = new Intent(this, PreguntaActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
     }

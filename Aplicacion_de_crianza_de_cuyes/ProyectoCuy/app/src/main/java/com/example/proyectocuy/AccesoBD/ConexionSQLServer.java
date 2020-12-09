@@ -12,9 +12,8 @@ public class ConexionSQLServer {
         try {
             StrictMode.ThreadPolicy politica = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(politica);
-    
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            cnn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.10.101;databaseName=BDProduccionCuyes;user=sa;password=123456;");
+            cnn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.0.103;databaseName=BDProduccionCuyes;user=sa;password=123456;");
             //Conexion AZURE
             //cnn= DriverManager.getConnection("jdbc:jtds:sqlserver://appcuyes.database.windows.net:1433;databasename=BDProduccionCuyes;user=usuario@appcuyes;password=cuyes1000%;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
             //Conexion Google cloud

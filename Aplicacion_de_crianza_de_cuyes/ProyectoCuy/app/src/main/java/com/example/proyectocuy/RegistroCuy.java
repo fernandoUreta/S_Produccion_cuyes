@@ -37,14 +37,14 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
         CalcularRecorrido();
         siguDistri=findViewById(R.id.btnRCsiguiente);
         siguDistri.setOnClickListener(this);
-        madrM.setText("20");
-        madrP.setText("20");
-        padr.setText("20");
-        engM.setText("20");
-        engH.setText("20");
-        recM.setText("20");
-        recH.setText("20");
-        gaz.setText("20");
+        madrM.setText("0");
+        madrP.setText("0");
+        padr.setText("0");
+        engM.setText("0");
+        engH.setText("0");
+        recM.setText("0");
+        recH.setText("0");
+        gaz.setText("0");
         if (BD_ProduccionCuyes.consultarCantidadPozas()>0){
             Intent i = new Intent(this, MenuPrincipal.class);
             startActivity(i);
@@ -168,6 +168,7 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
 
     public  void sumar(){
         try {
+
                     double valor1 = Double.parseDouble(madrM.getText().toString());
                     double valor2 = Double.parseDouble(madrP.getText().toString());
                     double valor3 = Double.parseDouble(padr.getText().toString());
@@ -179,30 +180,48 @@ public class RegistroCuy extends AppCompatActivity implements View.OnClickListen
                     DecimalFormat formato1 = new DecimalFormat("#.#");
                     String total=formato1.format(valor1+valor2+valor3+valor4+valor5+valor6+valor7+valor8);
                     cantidadCuy.setText(total + "");
-                }catch (Exception e){
+        }catch (Exception e){
                     cantidadCuy.setText("");
         }
+    }
+    private boolean validarEntradas()
+    {
+        if(madrM.getText().toString().equals("")||
+                madrP.getText().toString().equals("")||
+                padr.getText().toString().equals("")||
+                engM.getText().toString().equals("")||
+                engH.getText().toString().equals("") ||
+                recM.getText().toString().equals("")||
+                recH.getText().toString().equals("")||
+                gaz.getText().toString().equals(""))
+        {
+            Toast.makeText(this,"Hay espacios en blanco",Toast.LENGTH_SHORT).show();
+            return false;
+        }else return true;
+
     }
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, DistribucionRecomendado.class);
-        String madreM=madrM.getText().toString();
-        i.putExtra("Enviando",madreM);
-        String madreP=madrP.getText().toString();
-        i.putExtra("madreP",madreP);
-        String padri=padr.getText().toString();
-        i.putExtra("padrillo",padri);
-        String engordeMac=engM.getText().toString();
-        i.putExtra("engordeMacho",engordeMac);
-        String engordeHem=engH.getText().toString();
-        i.putExtra("engordeHembra",engordeHem);
-        String recriaMacho=recM.getText().toString();
-        i.putExtra("recriaMacho",recriaMacho);
-        String recriaHembra=recH.getText().toString();
-        i.putExtra("recriaHembra",recriaHembra);
-        String gazapos=gaz.getText().toString();
-        i.putExtra("gazapos",gazapos);
-        startActivity(i);
+        if (validarEntradas()==true) {
+            Intent i = new Intent(this, DistribucionRecomendado.class);
+            String madreM = madrM.getText().toString();
+            i.putExtra("Enviando", madreM);
+            String madreP = madrP.getText().toString();
+            i.putExtra("madreP", madreP);
+            String padri = padr.getText().toString();
+            i.putExtra("padrillo", padri);
+            String engordeMac = engM.getText().toString();
+            i.putExtra("engordeMacho", engordeMac);
+            String engordeHem = engH.getText().toString();
+            i.putExtra("engordeHembra", engordeHem);
+            String recriaMacho = recM.getText().toString();
+            i.putExtra("recriaMacho", recriaMacho);
+            String recriaHembra = recH.getText().toString();
+            i.putExtra("recriaHembra", recriaHembra);
+            String gazapos = gaz.getText().toString();
+            i.putExtra("gazapos", gazapos);
+            startActivity(i);
+        }
     }
 }

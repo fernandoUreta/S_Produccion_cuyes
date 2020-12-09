@@ -75,33 +75,40 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
     public void btnInfoClick(View v)
     {
         String titulo="",mensaje="";
-
-        switch (spTiposPozas.getSelectedItem().toString())
-        {
-            case "Empadre":titulo="Poza de empadre";mensaje="Para reproducción, gestación y parto, el ancho mínimo es de 60cm y el largo mínimo recomendado es 80cm";
-                break;
-            case "Engorde":titulo="Poza de engorde";mensaje="Destinados para ventas o consumos,el ancho mínimo es de 60cm y el largo mínimo recomendado es 80cm ";
-                break;
-            case "Recria":titulo="Poza de recría";mensaje="Destinado al desarrollo de cuyes pequeños, el ancho mínimo es de 60cm y el largo mínimo recomendado es 80cm";
-                break;
-            case "Padrillo":titulo="Poza para Padrillo";mensaje="Es de corto tamaño y solo se permite un macho padrillo, el ancho mínimo recomendado puede ser 30cm";
-                break;
+        try {
+            switch (spTiposPozas.getSelectedItem().toString())
+            {
+                case "Empadre":titulo="Poza de empadre";mensaje="Para reproducción, gestación y parto, el ancho mínimo es de 60cm y el largo mínimo recomendado es 80cm";
+                    break;
+                case "Engorde":titulo="Poza de engorde";mensaje="Destinados para ventas o consumos,el ancho mínimo es de 60cm y el largo mínimo recomendado es 80cm ";
+                    break;
+                case "Recria":titulo="Poza de recría";mensaje="Destinado al desarrollo de cuyes pequeños, el ancho mínimo es de 60cm y el largo mínimo recomendado es 80cm";
+                    break;
+                case "Padrillo":titulo="Poza para Padrillo";mensaje="Es de corto tamaño y solo se permite un macho padrillo, el ancho mínimo recomendado puede ser 30cm";
+                    break;
+            }
+            openDialog(titulo,mensaje);
+        }catch (Exception e){
+            Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
         }
-        openDialog(titulo,mensaje);
+
 
     }
     public void btnAgregarClick(View v)
     {
-        if (TextUtils.isEmpty(etCantidad.getText().toString().trim())||TextUtils.isEmpty(etLargo.getText().toString().trim())||
-                TextUtils.isEmpty(etAncho.getText().toString().trim()))
+        try {
+
+            if (TextUtils.isEmpty(etCantidad.getText().toString().trim()) || TextUtils.isEmpty(etLargo.getText().toString().trim()) ||
+                    TextUtils.isEmpty(etAncho.getText().toString().trim())) {
+                Toast.makeText(this, "Ingrese todos los valores", Toast.LENGTH_LONG).show();
+            } else {
+                registrarPozas();
+                limpiarCampos();
+                actualizarTotal();
+            }
+        }catch(Exception e)
         {
-            Toast.makeText(this,"Ingrese todos los valores",Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            registrarPozas();
-            limpiarCampos();
-            actualizarTotal();
+            Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
         }
     }
 

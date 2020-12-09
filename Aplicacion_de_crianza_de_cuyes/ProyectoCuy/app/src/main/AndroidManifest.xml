@@ -7,37 +7,47 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-
         android:allowBackup="true"
-        android:icon="@drawable/img_logo"   
+        android:icon="@drawable/img_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CuyesAplicationF">
-        <activity android:name=".ReporteCuyPoza"></activity>
-        <activity android:name=".Controller.Menu_general_pozasActivity"
-            android:parentActivityName=".MenuPrincipal"></activity>
-        <activity android:name=".Controller.Eliminar_PozasActivity"
-            android:parentActivityName=".Controller.Menu_general_pozasActivity"></activity>
-        <activity android:name=".Controller.RegistroPozasManualActivity"
-            android:parentActivityName=".Controller.Menu_general_pozasActivity"></activity>
+        <activity android:name=".Controller.PreguntaActivity"></activity>
+        <activity android:name=".ReporteCuyPoza" />
+        <activity
+            android:name=".Controller.Menu_general_pozasActivity"
+            android:parentActivityName=".MenuPrincipal" />
+        <activity
+            android:name=".Controller.Eliminar_PozasActivity"
+            android:parentActivityName=".Controller.Menu_general_pozasActivity" />
+        <activity
+            android:name=".Controller.RegistroPozasManualActivity"
+            android:parentActivityName=".Controller.Menu_general_pozasActivity" />
         <activity android:name=".VistaPDFCuy" />
-        <activity android:name=".MenuReportes"
-            android:parentActivityName=".MenuPrincipal"/>
+        <activity
+            android:name=".MenuReportes"
+            android:parentActivityName=".MenuPrincipal" />
         <activity android:name=".VistaActividades" />
         <activity android:name=".AgregarActividad" />
-        <activity android:name=".Calendario"
-            android:parentActivityName=".MenuPrincipal"/>
-        <activity android:name=".MenuPozasRecria"
-            android:parentActivityName=".MenuVerPozas"/>
-        <activity android:name=".MenuPozasEngorde"
-            android:parentActivityName=".MenuVerPozas"/>
-        <activity android:name=".MenuPozasPadrillo"
-            android:parentActivityName=".MenuVerPozas"/>
-        <activity android:name=".MenuPozasEmpadre"
-            android:parentActivityName=".MenuVerPozas"/>
-        <activity android:name=".MenuVerPozas"
-            android:parentActivityName=".Controller.Menu_general_pozasActivity"/>
+        <activity
+            android:name=".Calendario"
+            android:parentActivityName=".MenuPrincipal" />
+        <activity
+            android:name=".MenuPozasRecria"
+            android:parentActivityName=".MenuVerPozas" />
+        <activity
+            android:name=".MenuPozasEngorde"
+            android:parentActivityName=".MenuVerPozas" />
+        <activity
+            android:name=".MenuPozasPadrillo"
+            android:parentActivityName=".MenuVerPozas" />
+        <activity
+            android:name=".MenuPozasEmpadre"
+            android:parentActivityName=".MenuVerPozas" />
+        <activity
+            android:name=".MenuVerPozas"
+            android:parentActivityName=".Controller.Menu_general_pozasActivity" />
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".PozPadrilloRecomend" />
         <activity android:name=".PozRecriaRecomend" />
@@ -49,13 +59,16 @@
         <activity android:name=".Usuario" />
         <activity android:name=".ContrasenaOlvidada" />
         <activity android:name=".Controller.RegistroUsuarioActivity" />
-        <activity android:name=".Controller.RegistroIngresoCuyesPozasActivity"
-            android:parentActivityName=".MenuVerPozas"/>
-        <activity android:name=".Controller.RegistroSalidaCuyesPozasActivity"
-            android:parentActivityName=".MenuVerPozas"/>
+        <activity
+            android:name=".Controller.RegistroIngresoCuyesPozasActivity"
+            android:parentActivityName=".MenuVerPozas" />
+        <activity
+            android:name=".Controller.RegistroSalidaCuyesPozasActivity"
+            android:parentActivityName=".MenuVerPozas" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
