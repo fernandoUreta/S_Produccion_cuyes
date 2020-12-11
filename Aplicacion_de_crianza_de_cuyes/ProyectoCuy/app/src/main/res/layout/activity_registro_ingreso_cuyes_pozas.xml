@@ -170,13 +170,25 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
-                        <TextView
-                            android:id="@+id/descCategoria"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Categoria: "
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/descCategoria"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Categoria: "
 
-                            android:textSize="@dimen/textSize_medium" />
+                                android:textSize="@dimen/textSize_medium" />
+                            <Button
+                                android:id="@+id/btnHelpTiposCuyes"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:background="@drawable/vector_help"
+                                android:onClick="btnInfoClick"
+                                android:padding="@dimen/margin_low" />
+                        </LinearLayout>
 
                         <Spinner
                             android:id="@+id/spCategoria"

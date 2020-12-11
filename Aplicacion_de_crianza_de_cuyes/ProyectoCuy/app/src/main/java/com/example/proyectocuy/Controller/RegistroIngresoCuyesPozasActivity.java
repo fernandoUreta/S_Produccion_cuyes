@@ -21,6 +21,7 @@ import com.example.proyectocuy.ModeloDatos.Transaccion;
 import com.example.proyectocuy.ModeloDatos.User;
 import com.example.proyectocuy.R;
 import com.example.proyectocuy.Recursos_Adicionales.Fechas;
+import com.example.proyectocuy.Tools.Mensaje;
 import com.example.proyectocuy.Tools.Transacciones;
 import com.example.proyectocuy.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
@@ -328,5 +329,34 @@ public class RegistroIngresoCuyesPozasActivity extends AppCompatActivity {
     }
     private void init(){
         preferences=getSharedPreferences("Preferences",MODE_PRIVATE);
+    }
+    public void btnInfoClick(View v)
+    {
+        String titulo="",mensaje="";
+        try {
+            switch (spCategoria.getSelectedItem().toString())
+            {
+                case "Madre madura":titulo="Madre madura";mensaje="Ya ha tenido almenos un parto y supera los 180 días de edad";
+                    break;
+                case "Madre primeriza":titulo="Madre primeriza";mensaje="Aún no ha tenido su primer parto y supera los 90 días o es superior a 800g";
+                    break;
+                case "Padrillo":titulo="Padrillo";mensaje="Un macho de mas de 120 días de edad o mayor a 1Kg de peso";
+                    break;
+                case "Engorde":titulo="Engorde";mensaje="Hebra o macho mayores de 35 días y menores a 90 días de edad";
+                    break;
+                case "Recria":titulo="Recría";mensaje="Hembra o macho mayores de 15 días y menores de 35 días";
+                    break;
+                case "Lactante":titulo="Lactante";mensaje="Cuyes recién nacidos hasta los 15 días";
+                    break;
+            }
+            openDialog(titulo,mensaje);
+        }catch (Exception e){
+            Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
+        }
+    }
+    public void openDialog(String titulo, String mensaje)
+    {
+        Mensaje dialogInfoCuy=new Mensaje(titulo,mensaje);
+        dialogInfoCuy.show(getSupportFragmentManager(),"Informative dialog");
     }
 }

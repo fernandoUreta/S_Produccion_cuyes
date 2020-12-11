@@ -36,8 +36,8 @@ public class WorkManagerNotificacion extends Worker {
         Calendar dueDate=Calendar.getInstance();
 
         //Notificaciones a las 8am
-        dueDate.set (Calendar.HOUR_OF_DAY, 8);
-        dueDate.set (Calendar.MINUTE, 0);
+        dueDate.set (Calendar.HOUR_OF_DAY, 14);
+        dueDate.set (Calendar.MINUTE, 52);
         dueDate.set (Calendar.SECOND, 0);
 
         if (dueDate.before (currentDate)) {

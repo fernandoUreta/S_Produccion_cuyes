@@ -91,8 +91,6 @@ public class RegistroPozasManualActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
         }
-
-
     }
     public void btnAgregarClick(View v)
     {
