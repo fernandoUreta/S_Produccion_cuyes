@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+## Bienvenido
 
-You can use the [editor on GitHub](https://github.com/LestionY/S_Produccion_cuyes/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Este repositorio contiene los archivos usaos para el desarrollo de una aplicación de crianza de cuyes
 
 ### Markdown
 
